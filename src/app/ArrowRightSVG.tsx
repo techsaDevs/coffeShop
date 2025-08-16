@@ -10,7 +10,7 @@ interface IArrowRightSVG {
 
 const ArrowRightSVG = ({ fill = "#000000", width = "800px", height = "800px", className = "", onClick = () => { } }: IArrowRightSVG) => {
     return (
-        <svg fill={fill} height={height} width={width} version="1.1" id="Layer_1"  className={className}
+        <svg fill={fill} height={height} width={width} version="1.1" id="Layer_1" className={className}
             xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 330 330" xmlSpace="preserve">
             <path id="XMLID_222_" d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001
