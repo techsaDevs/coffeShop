@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.btn{
+  @apply px-4 py-2 rounded-md text-lg cursor-pointer duration-150 hover:opacity-80 capitalize;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
