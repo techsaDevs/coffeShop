@@ -2,7 +2,7 @@
 
 ```bash
 # catched project
-git clone https://github.com/developer-iko-mike/coffeShop.git
+git clone https://github.com/techsaDevs/coffeShop.git
 # go inside project
 cd coffeShop
 # install all dependencies
