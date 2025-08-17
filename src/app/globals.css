@@ -1,1 +1,64 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Dana"; /* 400 */
+  src: url("../../public/fonts/dana/DanaFaNum-Regular.woff2"), format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana Medium"; /* 500 */
+  src: url("../../public/fonts/dana/DanaFaNum-Medium.woff2"), format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dana DemiBold"; /* 600 */
+  src: url("../../public/fonts/dana/DanaFaNum-DemiBold.woff2"), format("woff2");
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "Morabba Light"; /* 300 */
+  src: url("../../public/fonts/morabba/Morabba-Light.woff2"), format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Morabba Medium"; /* 500 */
+  src: url("../../public/fonts/morabba/Morabba-Medium.woff2"), format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Morabba Bold"; /* 700 */
+  src: url("../../public/fonts/morabba/Morabba-Bold.woff2"), format("woff2");
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+@theme {
+  --shadow-coffe: 0px 1px 10px rgba(0, 0, 0, 0.05);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --font-dana: "Dana", sans-serif;
+  --font-dana-medium: "Dana Medium", sans-serif;
+  --font-dana-dbold: "Dana DemiBold", sans-serif;
+  --font-morabba: "Morabba Light", sans-serif;
+  --font-morabba-medium: "Morabba Medium", sans-serif;
+  --font-morabba-bold: "Morabba Bold", sans-serif;
+  --color-brown-100: #ece0d1;
+  --color-brown-300: #dbc1ac;
+  --color-brown-600: #967259;
+  --color-brown-900: #634832;
+}
