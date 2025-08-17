@@ -1,0 +1,20 @@
+[
+    {
+        "products": [
+         {
+            "id": 1,
+            "title": "test product title 1",
+            "price": 100000,
+            "off": 10,
+            "starCount": 4
+         },
+         {
+            "id": 2,
+            "title": "test product title 2",
+            "price": 150000,
+            "off": 25,
+            "starCount": 3
+         }
+        ]
+    }
+]
