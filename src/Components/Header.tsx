@@ -5,6 +5,11 @@ import { IHeaderMenu } from "@/Components/types";
 import Link from "next/link";
 import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
+import ShoppingCartSVG from "./SVGs/nav/ShoppingCartSVG";
+import MoonSVG from "./SVGs/nav/MoonSVG";
+import SunSVG from "./SVGs/nav/SunSVG";
+import ArrowLeftEndOnRectangleSVG from "./SVGs/nav/ArrowLeftEndOnRectangleSVG";
+import UserSVG from "./SVGs/nav/UserSVG";
 
 
 const Header = () => {
@@ -42,6 +47,10 @@ const Header = () => {
       link: "/"
     }
   ])
+  const [openMiniBasket, setOpenMiniBasket] = useState<boolean>(false)
+  const [isLogin, setIslogin] = useState<boolean>(true)
+  const [user, setUser] = useState({ username: "techsa team" })
+  const [theme, setTheme] = useState<boolean>(false)
 
   const getMenuItems = async () => {
     try {
@@ -58,30 +67,47 @@ const Header = () => {
     }
   }
 
-  const handleToggleTheme = () => {
-    const localSavedTheme = JSON.parse(localStorage.getItem("theme") || "no theme")
-    console.log(localSavedTheme)
+  const checkDefaultThemeInLocalStorage = () => {
+    const savedTheme = localStorage.getItem("theme") || "light"
+    console.log(savedTheme)
+    if (savedTheme === "dark") setTheme(true);
+    else setTheme(false)
   }
 
-  useEffect(() => { getMenuItems() }, [])
+  const handleToggleTheme = () => {
+    const savedTheme = localStorage.getItem("theme") || "light"
+    console.log(savedTheme)
+    if (savedTheme === "dark") {
+      localStorage.setItem("theme", "light")
+      setTheme(false)
+    } else {
+      localStorage.setItem("theme", "dark")
+      setTheme(true)
+    };
+  }
+
+  useEffect(() => {
+    getMenuItems()
+    checkDefaultThemeInLocalStorage()
+  }, [])
 
   return (
-    <header className=''>
+    <header className='flex'>
       {/* logo and menu */}
-      <nav className="">
+      <nav className="flex">
         {/* logo */}
         <div className="">
           <img className='' src="/app-logo.png" alt="Golden Coffe" />
         </div>
         {/* Menu */}
-        <ul className="">
+        <ul className="flex">
           {
             menu.map(({ id, title, link, subMenu }) => (
               <li className="" key={id}>
                 <Link href={link}>{title}</Link>
                 {
                   !subMenu?.length ? null : (
-                    <ul className="">
+                    <ul className="hidden">
                       {/* subMenu */}
                       {
                         subMenu?.map(({ id, title, link }) => (
@@ -99,23 +125,35 @@ const Header = () => {
         </ul>
       </nav>
       {/* cart & theme toggle , login/register link */}
-      <div className="">
+      <div className="flex">
         {/* basket & theme toggle */}
-        <div className="">
-              {/* basket logo */}
-            <div className=""></div>
-            {/* theme toggle */}
-            <div className="" onClick={handleToggleTheme}>
-              {
-                true ? (<></>) : (<></>)
-              }
-            </div>
+        <div className="flex">
+          {/* basket logo */}
+          <div className="">
+            {
+              isLogin ? (<div onClick={() => setOpenMiniBasket(!openMiniBasket)} className="cursor-pointer"> <ShoppingCartSVG /> </div>) : (<Link href={"/login"}> <ShoppingCartSVG /> </Link>)
+            }
+          </div>
+          {/* theme toggle */}
+          <div className="cursor-pointer" onClick={handleToggleTheme}>
+            {theme !== null && (theme ? <MoonSVG /> : <SunSVG />)}
+          </div>
+
         </div>
         {/* login link */}
-        <Link href={"/login"} className="">
-              {/* login logo */}
+        {
+          isLogin ? (
+            <Link href={"/login"} className="flex">
+              <ArrowLeftEndOnRectangleSVG />
               ورود | ثبت نام
-        </Link>
+            </Link>
+          ) : (
+            <Link href={"/basket"} className="flex">
+              <UserSVG />
+              {user.username}
+            </Link>
+          )
+        }
       </div>
     </header>
   )
