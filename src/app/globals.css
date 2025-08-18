@@ -40,17 +40,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --body: #f3f4f6;
 }
 
 html.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
+  --body: #27272a;
 }
 
 @theme {
   --shadow-coffe: 0px 1px 10px rgba(0, 0, 0, 0.05);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-body: var(--body);
   --font-dana: "Dana", sans-serif;
   --font-dana-medium: "Dana Medium", sans-serif;
   --font-dana-dbold: "Dana DemiBold", sans-serif;

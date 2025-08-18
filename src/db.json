@@ -11,6 +11,7 @@
       "id": 2,
       "title": "test product title 2",
       "price": 150000,
+      "off": 0,
       "starCount": 3
     }
   ],

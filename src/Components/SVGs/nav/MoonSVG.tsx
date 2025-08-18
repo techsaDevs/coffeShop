@@ -1,4 +1,4 @@
-import { Itsxsvg } from '@/Components/types';
+import { Itsxsvg } from '@/lib/types';
 import React from 'react'
 
 const MoonSVG = ({

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Itsxsvg } from '@/Components/types';
+import { Itsxsvg } from '@/lib/types';
 
 const InstagramSVG = ({
   fill = "#3F3F46",
