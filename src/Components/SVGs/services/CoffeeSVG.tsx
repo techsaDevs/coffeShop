@@ -1,5 +1,5 @@
 import React from 'react';
-import { Itsxsvg } from '@/Components/types';
+import { Itsxsvg } from '@/lib/types';
 
 const CoffeeSVG = ({
   fill = "#000000",
