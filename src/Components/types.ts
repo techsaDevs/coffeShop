@@ -13,3 +13,13 @@ export interface IProduct {
   off: number;
   starCount: number;
 }
+
+interface IHeaderMenuItemBase {
+  id: number;
+  title: string;
+  link: string;
+}
+
+export interface IHeaderMenu extends IHeaderMenuItemBase {
+  subMenu?: IHeaderMenuItemBase[];
+}

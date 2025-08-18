@@ -14,5 +14,69 @@
       "off": 25,
       "starCount": 3
     }
+  ],
+  "headerMenu": [
+    {
+      "id": 1,
+      "title": "صفحه اصلی",
+      "link": "/"
+    },
+    {
+      "id": 2,
+      "title": "فروشگاه",
+      "link": "/product",
+      "subMenu": [
+        {
+          "id": 1,
+          "title": "قهوه فوری",
+          "link": "/product/fast-coffe"
+        },
+        {
+          "id": 2,
+          "title": "ویژه در سطح جهانی",
+          "link": "/product/vip-coffe"
+        },
+        {
+          "id": 3,
+          "title": "قهوه درجه یک",
+          "link": "/product/best-coffe"
+        },
+        {
+          "id": 4,
+          "title": "ترکیبات تجاری",
+          "link": "/product/company-mix-coffe"
+        },
+        {
+          "id": 5,
+          "title": "کپسول قهوه",
+          "link": "/product/capsol-coffe"
+        },
+        {
+          "id": 6,
+          "title": "قهوه زینو برزیلی",
+          "link": "/product/brazil-zino-coffe"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "دیکشنری",
+      "link": "/dictionary"
+    },
+    {
+      "id": 4,
+      "title": "بلاگ",
+      "link": "/blog"
+    },
+    {
+      "id": 5,
+      "title": "درباره ما",
+      "link": "/about-us"
+    },
+    {
+      "id": 6,
+      "title": "تماس باما",
+      "link": "/call-with-us"
+    }
   ]
 }
