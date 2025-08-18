@@ -52,7 +52,7 @@ const LogoNav = () => {
         <img src="/app-logo.png" alt="Golden Coffee" className="h-12 w-auto" />
       </div>
 
-      <ul className="flex gap-x-9 text-xl text-gray-300">
+      <ul className="flex gap-x-9 text-xl text-gray-300 tracking-tightest">
         {menu.map(({ id, title, link, subMenu }) => {
           const isActive = pathname === link;
 

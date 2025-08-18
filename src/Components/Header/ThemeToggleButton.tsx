@@ -8,20 +8,18 @@ const ThemeToggleButton = () => {
 
   const handleToggleTheme = () => {
     const root = document.documentElement;
-    const savedTheme = localStorage.getItem("theme") || "light"
-    console.log(savedTheme)
-    if (savedTheme === "dark") {
-      localStorage.setItem("theme", "light")
+    if (theme) {
+      setTheme(false);
       root.classList.remove("dark");
-      setTheme(false)
+      localStorage.setItem("theme", "light");
     } else {
-      localStorage.setItem("theme", "dark")
+      setTheme(true);
       root.classList.add("dark");
-      setTheme(true)
-    };
-  }
+      localStorage.setItem("theme", "dark");
+    }
+  };
 
-    const checkDefaultThemeInLocalStorage = () => {
+  const checkDefaultThemeInLocalStorage = () => {
     const savedTheme = localStorage.getItem("theme") || "light"
     if (savedTheme === "dark") setTheme(true);
     else setTheme(false)
@@ -33,7 +31,7 @@ const ThemeToggleButton = () => {
 
   return (
     <div className="cursor-pointer" onClick={handleToggleTheme}>
-      {theme !== null && (theme ? <MoonSVG className='stroke-orange-200' /> : <SunSVG className='stroke-orange-200' />)}
+      {theme ? <SunSVG /> : <MoonSVG />}
     </div>
   );
 };
