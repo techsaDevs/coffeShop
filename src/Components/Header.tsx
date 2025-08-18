@@ -69,14 +69,12 @@ const Header = () => {
 
   const checkDefaultThemeInLocalStorage = () => {
     const savedTheme = localStorage.getItem("theme") || "light"
-    console.log(savedTheme)
     if (savedTheme === "dark") setTheme(true);
     else setTheme(false)
   }
 
   const handleToggleTheme = () => {
     const savedTheme = localStorage.getItem("theme") || "light"
-    console.log(savedTheme)
     if (savedTheme === "dark") {
       localStorage.setItem("theme", "light")
       setTheme(false)
@@ -92,7 +90,8 @@ const Header = () => {
   }, [])
 
   return (
-    <header className='flex'>
+    <header className='bg-black/50 w-[90%] h-24 mx-auto'>
+      <div className="flex">
       {/* logo and menu */}
       <nav className="flex">
         {/* logo */}
@@ -138,7 +137,6 @@ const Header = () => {
           <div className="cursor-pointer" onClick={handleToggleTheme}>
             {theme !== null && (theme ? <MoonSVG /> : <SunSVG />)}
           </div>
-
         </div>
         {/* login link */}
         {
@@ -154,6 +152,7 @@ const Header = () => {
             </Link>
           )
         }
+      </div>
       </div>
     </header>
   )
