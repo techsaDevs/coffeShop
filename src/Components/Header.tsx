@@ -3,11 +3,14 @@
 import { useEffect, useState } from "react";
 import { IHeaderMenu } from "@/Components/types";
 import Link from "next/link";
+import axios, { AxiosError } from "axios";
+import { toast } from "react-toastify";
 
 
 const Header = () => {
-
-  const [menu, setItems] = useState<IHeaderMenu[]>([
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState({})
+  const [menu, setMenu] = useState<IHeaderMenu[]>([
     {
       id: 1,
       title: "صفحه اصلی",
@@ -41,7 +44,23 @@ const Header = () => {
   ])
 
   const getMenuItems = async () => {
+    try {
+      setLoading(true)
+      const { data } = await axios("http://localhost:3001/headerMenu")
+      setMenu(data)
+    } catch (err) {
+      const error = err as AxiosError
+      setError(error)
+      toast.error("مشکلی در دریافت منو پیش آمد!", { position: "bottom-right" })
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
+  }
 
+  const handleToggleTheme = () => {
+    const localSavedTheme = JSON.parse(localStorage.getItem("theme") || "no theme")
+    console.log(localSavedTheme)
   }
 
   useEffect(() => { getMenuItems() }, [])
@@ -80,7 +99,24 @@ const Header = () => {
         </ul>
       </nav>
       {/* cart & theme toggle , login/register link */}
-      <div className=""></div>
+      <div className="">
+        {/* basket & theme toggle */}
+        <div className="">
+              {/* basket logo */}
+            <div className=""></div>
+            {/* theme toggle */}
+            <div className="" onClick={handleToggleTheme}>
+              {
+                true ? (<></>) : (<></>)
+              }
+            </div>
+        </div>
+        {/* login link */}
+        <Link href={"/login"} className="">
+              {/* login logo */}
+              ورود | ثبت نام
+        </Link>
+      </div>
     </header>
   )
 }
