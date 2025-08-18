@@ -7,7 +7,12 @@ git clone https://github.com/techsaDevs/coffeShop.git
 cd coffeShop
 # install all dependencies
 npm i --force
-# run project , enjoy !
+# run database project
+npm run db
+```
+## add new terminal (keep prev terminal !)
+```bash
+# and run project 
 npm run dev
 ```
 

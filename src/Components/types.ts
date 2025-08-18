@@ -5,3 +5,11 @@ export interface Itsxsvg {
   className?: string;
   onClick?: () => void;
 }
+
+export interface IProduct {
+  id: number;
+  title: string;
+  price: number;
+  off: number;
+  starCount: number;
+}
