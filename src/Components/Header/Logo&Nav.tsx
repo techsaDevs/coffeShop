@@ -47,12 +47,12 @@ const LogoNav = () => {
   };
 
   return (
-    <nav className="flex items-center gap-x-9">
+    <nav className="flex items-center gap-x-9 h-14">
       <div>
         <img src="/app-logo.png" alt="Golden Coffee" className="h-12 w-auto" />
       </div>
 
-      <ul className="flex gap-x-9 text-xl text-gray-300 tracking-tightest">
+      <ul className="flex gap-x-9 text-xl text-gray-300 tracking-tightest h-full childs:leading-[56px]">
         {menu.map(({ id, title, link, subMenu }) => {
           const isActive = pathname === link;
 
@@ -80,11 +80,11 @@ const LogoNav = () => {
                       animate="visible"
                       exit="hidden"
                       variants={subMenuVariants}
-                      className="absolute left-0 top-full text-gray-300 bg-white shadow-md rounded-lg p-2 min-w-[150px]"
+                      className="absolute right-0 top-full tracking-normal shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl childs:inline-block p-6 w-52 space-y-4"
                     >
                       {loadingSubMenu ? (
                         <motion.li
-                          className="px-4 py-2 text-gray-400"
+                          className="text-orange-300"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.3 }}
@@ -106,10 +106,10 @@ const LogoNav = () => {
                             >
                               <Link
                                 href={link}
-                                className={`block px-4 py-2 transition ${
+                                className={`block text-foreground transition-colors ${
                                   isSubActive
-                                    ? "text-orange-200 font-dana-medium"
-                                    : "hover:bg-gray-100"
+                                    ? "text-orange-300 font-dana-medium"
+                                    : "hover:text-orange-300"
                                 }`}
                               >
                                 {title}

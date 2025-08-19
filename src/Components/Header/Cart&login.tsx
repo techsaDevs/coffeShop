@@ -32,7 +32,7 @@ const Cartlogin = () => {
       {/* login link */}
       {
         isLogin ? (
-          <Link href={"/login"} className="flex items-center px-4 py-3 rounded-3xl hover:bg-orange-200/10 gap-3 duration-150 mr-6">
+          <Link href={"/login"} className="flex items-center px-4 py-3 rounded-full hover:bg-orange-200/10 gap-3 duration-150 mr-6">
             <ArrowLeftEndOnRectangleSVG className='rotate-180' />
             <span className='text-xl select-none tracking-tightest'>
             ورود | ثبت نام
