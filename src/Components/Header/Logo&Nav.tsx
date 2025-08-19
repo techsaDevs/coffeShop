@@ -18,6 +18,11 @@ const defaultMenu: IHeaderMenu[] = [
   { id: 6, title: "تماس با ما", link: "/contact" },
 ];
 
+  export const subMenuVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: { opacity: 1, y: 0 },
+  };
+
 const LogoNav = () => {
   const [menu, setMenu] = useState<IHeaderMenu[]>(defaultMenu);
   const [loadingSubMenu, setLoadingSubMenu] = useState(true);
@@ -40,11 +45,6 @@ const LogoNav = () => {
 
     getMenu();
   }, []);
-
-  const subMenuVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: { opacity: 1, y: 0 },
-  };
 
   return (
     <nav className="flex items-center gap-x-9 h-14">
