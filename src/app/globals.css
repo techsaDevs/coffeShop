@@ -39,14 +39,26 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #3f3f46;
   --body: #f3f4f6;
 }
 
 html.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #3f3f46;
+  --foreground: #ffffff;
   --body: #27272a;
+}
+
+@custom-variant childs {
+  & > * {
+    @slot
+  }
+}
+
+@custom-variant child-hover {
+  & > *:hover {
+    @slot;
+  }
 }
 
 @theme {
@@ -66,4 +78,3 @@ html.dark {
   --color-brown-900: #634832;
   --tracking-tightest: -0.065em;
 }
-
