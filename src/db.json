@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "title": "test product title 1",
+      "title": "متن تستی برای محصول 1",
       "image": "/products/p1.png",
       "price": 100000,
       "off": 10,
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "title": "test product title 2",
+      "title": "متن تستی برای محصول 2",
       "image": "/products/p2.png",
       "price": 150000,
       "off": 0,
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "title": "test product title 3",
+      "title": "متن تستی برای محصول 3",
       "image": "/products/p3.png",
       "price": 500000,
       "off": 0,
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "title": "test product title 4",
+      "title": "متن تستی برای محصول 4",
       "image": "/products/p4.png",
       "price": 50000,
       "off": 0,

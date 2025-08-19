@@ -80,7 +80,8 @@ const LogoNav = () => {
                       animate="visible"
                       exit="hidden"
                       variants={subMenuVariants}
-                      className="absolute right-0 top-full tracking-normal shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl childs:inline-block p-6 w-52 space-y-4"
+                      className="headerHoverBox right-0 tracking-normal 
+                      childs:inline-block p-6 w-52 space-y-4"
                     >
                       {loadingSubMenu ? (
                         <motion.li
