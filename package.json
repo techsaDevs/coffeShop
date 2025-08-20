@@ -10,7 +10,9 @@
     "db": "npx json-server --watch src/db.json --port 3001"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "axios": "^1.11.0",
+    "formik": "^2.4.6",
     "framer-motion": "^12.23.12",
     "json-server": "^1.0.0-beta.3",
     "next": "15.4.6",
@@ -18,7 +20,8 @@
     "react-dom": "19.1.0",
     "react-spinner": "^0.2.7",
     "react-toastify": "^11.0.5",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "yup": "^1.7.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
