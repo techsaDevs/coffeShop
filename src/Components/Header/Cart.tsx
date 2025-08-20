@@ -1,16 +1,14 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import ThemeToggleButton from './ThemeToggleButton';
-import ArrowLeftEndOnRectangleSVG from '../SVGs/nav/ArrowLeftEndOnRectangleSVG';
 import Link from 'next/link';
-import UserSVG from '../SVGs/nav/UserSVG';
 import ShoppingCartSVG from '../SVGs/nav/ShoppingCartSVG';
 import { motion, AnimatePresence } from "framer-motion";
 import axiosInst from '@/lib/axiosConfig';
 import { IProduct } from '@/lib/types';
 import ArrowLeftSVG from '../SVGs/ArrowLeftSVG';
+import BasketPrice from './BasketPrice';
 
-const Cartlogin = () => {
+const Cart = () => {
   const [isLoggedin, setIsLoggedin] = useState<boolean>(true)
   const [user, setUser] = useState({
     username: "techsa team",
@@ -21,7 +19,7 @@ const Cartlogin = () => {
   })
   const [isOpen, setIsOpen] = useState(false);
   const [productsInBasket, setProductsInBasket] = useState<IProduct[] | []>([]);
-  const [finalTatol , setFinalTatol] = useState<number>(0)
+  const [finalTatol, setFinalTatol] = useState<number>(0)
 
   const fetchProducts = async () => {
     if (user.basket.length) {
@@ -45,8 +43,8 @@ const Cartlogin = () => {
     }
   };
 
-    const claculatorPriceAllBasket = () => {
-    if (productsInBasket.length){
+  const claculatorPriceAllBasket = () => {
+    if (productsInBasket.length) {
       const result = productsInBasket.reduce((total, product) => {
         const disCount = (Number(product.price) * Number(product.off || 0)) / 100;
         const finalPrice = Number(product.price) - disCount;
@@ -61,15 +59,7 @@ const Cartlogin = () => {
     claculatorPriceAllBasket()
   }, [user.basket]);
 
-
-
-
   return (
-    <div className="flex text-orange-200">
-      {/* basket & theme toggle */}
-      <div className="flex items-center gap-x-5 ml-10">
-        {/* basket logo */}
-        <div className="flex">
           <div className="flex">
             {isLoggedin ? (
               <div
@@ -90,7 +80,7 @@ const Cartlogin = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="headerHoverBox space-y-4 left-0 p-5 w-[400px] childs:text-foreground"
+                      className="headerHoverBox space-y-4 left-0 p-5 w-[400px] childs:text-foreground mt-5"
                     >
                       {/* cart header */}
                       <div className="flex items-center justify-between">
@@ -101,56 +91,40 @@ const Cartlogin = () => {
                         </Link>
                       </div>
                       {/* cart body */}
-                      {productsInBasket.map(({ id, title, image, price, off }) => {
-                        let disCount = 0
-                        let finalPrice = price
-
-                        if (off > 0) {
-                          disCount = (Number(price) * Number(off)) / 100
-                          finalPrice = price - disCount
-                        }
-
-
-                        return (
+                      {productsInBasket.map(({ id, title, image, price, off }) => (
                           <motion.li
                             key={id}
                             initial={{ opacity: 0, x: -5 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -5 }}
                             transition={{ duration: 0.2, delay: 0.05 }}
-                            className='flex items-center gap-x-2.5 mt-5'
+                            className=''
                           >
+                            <div className="flex items-center gap-x-2.5 pb-6 border-b border-b-basket-border">
+
                             <img className='w-30 h-30' src={image} alt={title} />
                             <div className="flex flex-col justify-start gap-y-4">
                               <h4 className="font-dana-medium text-foreground text-base">{title}</h4>
                               <div className="">
                                 {
                                   off > 0 ? (
-                                    <span className="text-foregreen text-xs">{disCount.toLocaleString()} تومان تخفیف</span>
+                                    <span className="text-foregreen text-xs">{((price * off) / 100).toLocaleString()} تومان تخفیف</span>
                                   ) : null
                                 }
-                                <div className="">
-                                  {
-                                    off > 0 ? (
-                                      <span className="font-dana-dbold">{finalPrice.toLocaleString()} </span>
-                                    ) : (
-                                      <span className="font-dana-dbold">{price.toLocaleString()} </span>
-                                    )
-                                  }
-                                  <span className="font-dana text-sm">تومان</span>
-                                </div>
+                                <BasketPrice price={price} off={off} />
                               </div>
                             </div>
+                                </div>
                           </motion.li>
                         )
-                      })}
+                      )}
                       {/* cart footer */}
-                      <div className="flex">
-                        <span className="text-foreground font-dana-medium text-sm">
-                          مجموع:
-                          {finalTatol.toLocaleString() }
-                          تومان
-                        </span>
+                      <div className="flex items-center justify-between">
+                        <div className="">
+                          <span className="text- text-xs">مبلغ قابل پرداخت</span>
+                          <BasketPrice price={128500} off={0} />
+                        </div>
+                        <Link href="/" className='basketBtn'>ثبت سفارش</Link>
                       </div>
                     </motion.ul>
                   ) : (
@@ -206,33 +180,7 @@ const Cartlogin = () => {
               </div>
             )}
           </div>
-
-        </div>
-
-        {/* theme toggle */}
-        <ThemeToggleButton />
-      </div>
-      {/* divided border */}
-      <span className="w-px h-14 block bg-white/20" />
-      {/* login link */}
-      {!isLoggedin ? (
-        <Link href={"/login"} className="flex items-center px-4 py-3 rounded-full hover:bg-orange-200/10 gap-3 duration-150 mr-6">
-          <ArrowLeftEndOnRectangleSVG className='rotate-180' />
-          <span className='text-xl select-none tracking-tightest'>
-            ورود | ثبت نام
-          </span>
-        </Link>
-      ) : (
-        <Link href={"/profile"} className="flex items-center px-4 py-3 rounded-full hover:bg-orange-200/10 duration-150 mr-6 select-none gap-3">
-          <UserSVG />
-          <span className=''>
-            {user.username}
-          </span>
-        </Link>
-      )}
-
-    </div>
   );
 };
 
-export default Cartlogin;
+export default Cart;
