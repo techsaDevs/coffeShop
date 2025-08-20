@@ -2,10 +2,10 @@ import React from 'react';
 
 interface IBasketPrice {
     price: number
-    off: number
+    off?: number
 }
 
-const BasketPrice = ({ off, price }: IBasketPrice) => {
+const BasketPrice = ({ off = 0, price }: IBasketPrice) => {
     let disCount = 0
     let finalPrice = price
 
