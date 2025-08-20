@@ -41,8 +41,10 @@
   --foreground: #3f3f46;
   --body: #f3f4f6;
   --basket-green: #0d9488;
-  --basket-gray: #ff0;
+  --hoverBasket-green: #00786f;
+  --basket-gray: #a1a2b1a1;
   --basket-border: #d1d5db;
+  --basketItem-border: #f3f4f6;
 }
 
 html.dark {
@@ -50,8 +52,10 @@ html.dark {
   --foreground: #ffffff;
   --body: #27272a;
   --basket-green: #10b981;
-  --basket-gray: #ff0;
+  --hoverBasket-green: #009966;
+  --basket-gray: #707070;
   --basket-border: #ffffff1a;
+  --basketItem-border: #ffffff1a;
 }
 
 @custom-variant childs {
@@ -84,13 +88,16 @@ html.dark {
   --color-foregreen: var(--basket-green);
   --tracking-tightest: -0.065em;
   --spacing-30: 7.5rem;
+  --color-foregray: var(--basket-gray);
   --color-basket-border: var(--basket-border);
+  --color-hoverBasket-green: var(--hoverBasket-green);
+  --color-basketItem-border: var(--basketItem-border);
 }
 
 .headerHoverBox {
-  @apply absolute top-full shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl
+  @apply absolute top-full shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl 
 }
 
 .basketBtn {
-  @apply bg-foregreen py-3 px-5 text-lg rounded-2xl text-white
+  @apply bg-foregreen hover:bg-hoverBasket-green duration-200 py-[13px] px-[27px] text-lg rounded-xl text-white focus:shadow shadow-foregreen flex items-center justify-center tracking-tightest
 }

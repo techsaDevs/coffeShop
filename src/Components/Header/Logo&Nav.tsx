@@ -5,7 +5,7 @@ import { IHeaderMenu } from "@/lib/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { toast } from "react-toastify";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, delay } from "framer-motion";
 import axiosInst from "@/lib/axiosConfig";
 import { AxiosError } from "axios";
 
@@ -19,8 +19,8 @@ const defaultMenu: IHeaderMenu[] = [
 ];
 
   export const subMenuVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: -10 , delay: 75 },
+    visible: { opacity: 1, y: 0 , delay: 75 },
   };
 
 const LogoNav = () => {
