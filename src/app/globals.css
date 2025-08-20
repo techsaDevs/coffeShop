@@ -89,3 +89,7 @@ html.dark {
 .basketBtn {
   @apply bg-foregreen
 }
+
+/* .bg-login{
+  background-image: url('/categories/category-right.jpg');
+} */

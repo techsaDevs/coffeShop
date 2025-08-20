@@ -11,7 +11,7 @@ import { IProduct } from '@/lib/types';
 import ArrowLeftSVG from '../SVGs/ArrowLeftSVG';
 
 const Cartlogin = () => {
-  const [isLoggedin, setIsLoggedin] = useState<boolean>(true)
+  const [isLoggedin, setIsLoggedin] = useState<boolean>(false)
   const [user, setUser] = useState({
     username: "techsa team",
     basket: [
