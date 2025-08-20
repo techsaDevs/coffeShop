@@ -11,11 +11,11 @@ import { AxiosError } from "axios";
 
 const defaultMenu: IHeaderMenu[] = [
   { id: 1, title: "صفحه اصلی", link: "/" },
-  { id: 2, title: "فروشگاه", link: "/shop" },
-  { id: 3, title: "دیکشنری", link: "/dictionary" },
-  { id: 4, title: "بلاگ", link: "/blog" },
-  { id: 5, title: "درباره ما", link: "/about" },
-  { id: 6, title: "تماس با ما", link: "/contact" },
+  { id: 2, title: "فروشگاه", link: "/#" },
+  { id: 3, title: "دیکشنری", link: "/#" },
+  { id: 4, title: "بلاگ", link: "/#" },
+  { id: 5, title: "درباره ما", link: "/#" },
+  { id: 6, title: "تماس با ما", link: "/#" },
 ];
 
   export const subMenuVariants = {

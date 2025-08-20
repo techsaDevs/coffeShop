@@ -15,38 +15,53 @@ const Cartlogin = () => {
   const [user, setUser] = useState({
     username: "techsa team",
     basket: [
-      { id: 2 , qty: 1 },
-      { id: 4, qty: 3},
+      { id: 2, qty: 1 },
+      { id: 4, qty: 3 },
     ]
   })
   const [isOpen, setIsOpen] = useState(false);
   const [productsInBasket, setProductsInBasket] = useState<IProduct[] | []>([]);
+  const [finalTatol , setFinalTatol] = useState<number>(0)
+
+  const fetchProducts = async () => {
+    if (user.basket.length) {
+      try {
+        const response = await axiosInst("/products");
+        const products: IProduct[] = response.data; // مستقیم آرایه
+        const filteredProducts = products.filter(product =>
+          user.basket.some(item => item.id === Number(product.id)) // id ها رو به Number تبدیل کن
+        );
+
+        const productsWithQty = filteredProducts.map(product => {
+          const basketItem = user.basket.find(item => item.id === Number(product.id));
+          return { ...product, qty: basketItem?.qty || 0 };
+        });
+
+        console.log(productsWithQty);
+        setProductsInBasket(productsWithQty);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    }
+  };
+
+    const claculatorPriceAllBasket = () => {
+    if (productsInBasket.length){
+      const result = productsInBasket.reduce((total, product) => {
+        const disCount = (Number(product.price) * Number(product.off || 0)) / 100;
+        const finalPrice = Number(product.price) - disCount;
+        return total + finalPrice * (product.qty || 1);
+      }, 0)
+      setFinalTatol(result)
+    }
+  }
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      if (user.basket.length) {
-        try {
-          const response = await axiosInst("/products");
-          const products: IProduct[] = response.data; // مستقیم آرایه
-          const filteredProducts = products.filter(product =>
-            user.basket.some(item => item.id === Number(product.id)) // id ها رو به Number تبدیل کن
-          );
-
-          const productsWithQty = filteredProducts.map(product => {
-            const basketItem = user.basket.find(item => item.id === Number(product.id));
-            return { ...product, qty: basketItem?.qty || 0 };
-          });
-
-          console.log(productsWithQty);
-          setProductsInBasket(productsWithQty);
-        } catch (error) {
-          console.error("Error fetching products:", error);
-        }
-      }
-    };
-
     fetchProducts();
+    claculatorPriceAllBasket()
   }, [user.basket]);
+
+
 
 
   return (
@@ -77,24 +92,66 @@ const Cartlogin = () => {
                       transition={{ duration: 0.2 }}
                       className="headerHoverBox space-y-4 left-0 p-5 w-[400px] childs:text-foreground"
                     >
+                      {/* cart header */}
                       <div className="flex items-center justify-between">
-                        <span className='tracking-tightest text-sm text-gray-300'>{productsInBasket.length} مورد</span>
+                        <span className=' text-xs text-gray-300 font-dana-medium'>{productsInBasket.length} مورد</span>
                         <Link href="/basket" className='flex items-center gap-1'>
-                          <span className="text-sm">مشاهده سبد خرید</span>
-                          <ArrowLeftSVG className='size-[20px]' />
+                          <span className="ml-0 text-orange-300 transition-all duration-300 text-sm">مشاهده سبد خرید</span>
+                          <ArrowLeftSVG className='size-[16px] text-orange-300' />
                         </Link>
                       </div>
-                      {productsInBasket.map(({ id, title }) => (
-                        <motion.li
-                          key={id}
-                          initial={{ opacity: 0, x: -5 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -5 }}
-                          transition={{ duration: 0.2, delay: 0.05 }}
-                        >
-                          {title}
-                        </motion.li>
-                      ))}
+                      {/* cart body */}
+                      {productsInBasket.map(({ id, title, image, price, off }) => {
+                        let disCount = 0
+                        let finalPrice = price
+
+                        if (off > 0) {
+                          disCount = (Number(price) * Number(off)) / 100
+                          finalPrice = price - disCount
+                        }
+
+
+                        return (
+                          <motion.li
+                            key={id}
+                            initial={{ opacity: 0, x: -5 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -5 }}
+                            transition={{ duration: 0.2, delay: 0.05 }}
+                            className='flex items-center gap-x-2.5 mt-5'
+                          >
+                            <img className='w-30 h-30' src={image} alt={title} />
+                            <div className="flex flex-col justify-start gap-y-4">
+                              <h4 className="font-dana-medium text-foreground text-base">{title}</h4>
+                              <div className="">
+                                {
+                                  off > 0 ? (
+                                    <span className="text-foregreen text-xs">{disCount.toLocaleString()} تومان تخفیف</span>
+                                  ) : null
+                                }
+                                <div className="">
+                                  {
+                                    off > 0 ? (
+                                      <span className="font-dana-dbold">{finalPrice.toLocaleString()} </span>
+                                    ) : (
+                                      <span className="font-dana-dbold">{price.toLocaleString()} </span>
+                                    )
+                                  }
+                                  <span className="font-dana text-sm">تومان</span>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.li>
+                        )
+                      })}
+                      {/* cart footer */}
+                      <div className="flex">
+                        <span className="text-foreground font-dana-medium text-sm">
+                          مجموع:
+                          {finalTatol.toLocaleString() }
+                          تومان
+                        </span>
+                      </div>
                     </motion.ul>
                   ) : (
                     <AnimatePresence>

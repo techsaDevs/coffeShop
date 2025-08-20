@@ -40,12 +40,14 @@
   --background: #ffffff;
   --foreground: #3f3f46;
   --body: #f3f4f6;
+  --basket-green: #0d9488;
 }
 
 html.dark {
   --background: #3f3f46;
   --foreground: #ffffff;
   --body: #27272a;
+  --basket-green: #10b981;
 }
 
 @custom-variant childs {
@@ -75,9 +77,15 @@ html.dark {
   --color-brown-300: #dbc1ac;
   --color-brown-600: #967259;
   --color-brown-900: #634832;
+  --color-foregreen: var(--basket-green);
   --tracking-tightest: -0.065em;
+  --spacing-30: 7.5rem;
 }
 
 .headerHoverBox {
   @apply absolute top-full shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl
+}
+
+.basketBtn {
+  @apply bg-foregreen
 }
