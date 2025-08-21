@@ -1,21 +1,35 @@
 "use client"
 import React, { useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { toast } from 'react-toastify'
-import InstagramSVG from '@/Components/SVGs/InstagramSVG'
 import BarSVG from '@/Components/SVGs/nav/mobile/BarSVG'
-import XMarkSVG from '@/Components/SVGs/nav/mobile/XMarkSVG'
+import SunSVG from '@/Components/SVGs/nav/SunSVG'
 import LogoSVG from '@/Components/SVGs/nav/mobile/LogoSVG'
+import MoonSVG from '@/Components/SVGs/nav/MoonSVG'
+import UserSVG from '@/Components/SVGs/nav/UserSVG'
+import CartSVG from '@/Components/SVGs/nav/CartSVG'
+import XMarkSVG from '@/Components/SVGs/nav/mobile/XMarkSVG'
 import LogoTypeSVG from '@/Components/SVGs/nav/mobile/LogoTypeSVG'
-import { useBurgerMenuStore } from '@/stores/burgerMenuStore'
+import InstagramSVG from '@/Components/SVGs/InstagramSVG'
+import ArrowLeftEndOnRectangleSVG from '@/Components/SVGs/nav/ArrowLeftEndOnRectangleSVG'
+import { motion, AnimatePresence } from "framer-motion";
+import { toast } from 'react-toastify'
+import { usePathname } from 'next/navigation'
 import { useMenuStore } from '@/stores/menuStore'
+import { useAuthStore } from '@/stores/authStore'
+import { useThemeStore } from '@/stores/themeStore'
+import { useBurgerMenuStore } from '@/stores/burgerMenuStore'
 
 const BurgerMenu = () => {
   const pathname = usePathname();
   const { showBarMenu, openSubMenuId, toggleMenu, toggleSubMenu } = useBurgerMenuStore();
+  const { theme, toggleTheme } = useThemeStore();
   const { menu, loading, getMenu } = useMenuStore();
-
+  const {
+    isLoggedin,
+    user,
+    setIsLoggedin,
+    logout,
+  } = useAuthStore()
   // Fetch menu on mount
   useEffect(() => {
     getMenu().catch(err => {
@@ -87,10 +101,152 @@ const BurgerMenu = () => {
             </ul>
           )}
           <span className='block h-px bg-basketItem-border my-8' />
+          
+          <div className="flex flex-col text-orange-300 gap-3 px-2.5">
+            {/* دکمه ورود/ثبت‌نام یا پروفایل */}
+            {!isLoggedin ? (
+              <Link
+                href="/login"
+                className="flex items-center gap-2 w-max px-2 py-1 rounded-full cursor-pointer select-none group"
+                title="ورود / ثبت‌نام"
+              >
+                <div className="w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <ArrowLeftEndOnRectangleSVG className="w-7 h-7 rotate-180 text-orange-300" />
+                </div>
+                <span className="text-sm xl:text-base select-none">ورود | ثبت‌نام</span>
+              </Link>
+            ) : (
+              <Link
+                href="/profile"
+                className="flex items-center gap-2 w-max px-2 py-1 rounded-full cursor-pointer select-none group"
+              >
+                <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                  {user?.profile ? (
+                    <img
+                      src={user.profile}
+                      alt={user.username}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <UserSVG className="w-full h-full" />
+                  )}
+                </div>
+                <span className="text-sm xl:text-base">{user?.username}</span>
+              </Link>
+            )}
+
+            {/* دکمه تغییر تم */}
+            <motion.button
+              className="flex items-center gap-2 w-max px-2 py-1 rounded-full cursor-pointer"
+              onClick={toggleTheme}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              transition={{ duration: 0.35 }}
+            >
+              <motion.div
+                className="w-8 h-8 flex items-center justify-center"
+                variants={{
+                  rest: { scale: 1, rotate: 0 },
+                  hover: { scale: 1.2, rotate: theme ? -15 : 15 },
+                }}
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  {!theme ? (
+                    <motion.div
+                      key="moon"
+                      initial={{ opacity: 0, x: 20, rotate: -90, scale: 0.8 }}
+                      animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: 20, rotate: 90, scale: 0.8 }}
+                      transition={{ duration: 0.35 }}
+                    >
+                      <MoonSVG className="w-7 h-7" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="sun"
+                      initial={{ opacity: 0, x: 20, rotate: 90, scale: 0.8 }}
+                      animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: 20, rotate: -90, scale: 0.8 }}
+                      transition={{ duration: 0.35 }}
+                    >
+                      <SunSVG className="w-7 h-7" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={theme ? "dark" : "light"}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  variants={{
+                    rest: { x: 0 },
+                    hover: { x: -2 }, // متن کمی حرکت می‌کند وقتی کل دکمه هاور شد
+                  }}
+                  transition={{ duration: 0.25 }}
+                  className="text-sm xl:text-base"
+                >
+                  {!theme ? "تم تیره" : "تم روشن"}
+                </motion.span>
+              </AnimatePresence>
+            </motion.button>
+
+            {/* دکمه سبد خرید */}
+            {!isLoggedin ? (
+              <button
+                onClick={handleNotLoggedBasketClick}
+                className="flex items-center gap-2 px-2 py-1 rounded-full cursor-pointer select-none group"
+              >
+                <div className="w-7 h-7 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <CartSVG className="w-7 h-7 text-orange-300" />
+                </div>
+                <span className="text-sm xl:text-base">سبد خرید</span>
+              </button>
+            ) : (
+              <Link
+                href="/basket"
+                className="flex w-max items-center gap-2 px-2 py-1 rounded-full cursor-pointer select-none group"
+              >
+                <div className="w-7 h-7 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <CartSVG className="w-7 h-7 text-orange-300" />
+                </div>
+                <span className="text-sm xl:text-base">سبد خرید</span>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </>
   )
 }
 
-export default BurgerMenu
+export default BurgerMenu;
+
+
+export const handleNotLoggedBasketClick = () => {
+  toast.error(
+    <div className="flex items-center justify-between gap-3 p-2">
+      <span className="text-sm text-background">
+        ابتدا وارد شوید
+      </span>
+      <Link
+        href="/login"
+        className="text-xs font-medium px-3 py-1.5 rounded-md 
+                   bg-orange-500 text-white 
+                   hover:bg-orange-600 transition-colors"
+      >
+        رفتن به صفحه ورود
+      </Link>
+    </div>,
+    {
+      position: "bottom-right",
+      closeOnClick: true,
+      pauseOnHover: true,
+      autoClose: 4000,
+      hideProgressBar: false,
+    }
+  );
+};

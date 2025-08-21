@@ -1,19 +1,5 @@
 import { create } from "zustand";
-
-export interface IBasketItem {
-  id: number;
-  qty: number;
-}
-
-export interface IUser {
-  id: number;
-  username: string;
-  phone: string;
-  email: string;
-  profile?: string;
-  role: string;
-  basket: IBasketItem[];
-}
+import { IUser } from "@/lib/types";
 
 interface AuthState {
   isLoggedin: boolean;
@@ -33,10 +19,10 @@ export const useAuthStore = create<AuthState>((set) => ({
   isDesktop: false,
   user: {
     id: 1,
-    username: "mohammad",
+    username: "محمد مایک",
     phone: "09876543210",
     email: "mohammad@gmail.com",
-    profile: "",
+    profile: "/categories/category2.png",
     role: "admin",
     basket: [
       { id: 1, qty: 4 },

@@ -5,20 +5,20 @@ import MoonSVG from "../SVGs/nav/MoonSVG";
 import SunSVG from "../SVGs/nav/SunSVG";
 import { useThemeStore } from "@/stores/themeStore"; // مسیر استور
 
+export const iconVariants = {
+  initial: { y: -10, scale: 0.8, rotate: -45, opacity: 0 },
+  animate: { y: 0, scale: 1, rotate: 0, opacity: 1 },
+  exit: { y: 10, scale: 0.8, rotate: 45, opacity: 0 },
+};
+
+export const iconTransition: Transition = { type: "tween", duration: 0.25 };
+
 const ThemeToggleButton = () => {
   const { theme, toggleTheme, initTheme } = useThemeStore();
 
   useEffect(() => {
     initTheme(); // بار اول بخونه از localStorage
   }, [initTheme]);
-
-  const iconVariants = {
-    initial: { y: -10, scale: 0.8, rotate: -45, opacity: 0 },
-    animate: { y: 0, scale: 1, rotate: 0, opacity: 1 },
-    exit: { y: 10, scale: 0.8, rotate: 45, opacity: 0 },
-  };
-
-  const iconTransition: Transition = { type: "tween", duration: 0.25 };
 
   return (
     <div

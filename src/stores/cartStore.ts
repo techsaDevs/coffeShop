@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axiosInst from "@/lib/axiosConfig";
-import { IProduct, IProductInBasket } from "@/lib/types";
-import { useAuthStore, IBasketItem } from "./authStore";
+import { IBasket, IProduct, IProductInBasket } from "@/lib/types";
+import { useAuthStore } from "./authStore";
 
 interface CartState {
   productsInBasket: IProductInBasket[];
@@ -50,7 +50,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     const authStore = useAuthStore.getState();
     const basket = authStore.user?.basket || [];
 
-    const updatedBasket: IBasketItem[] = basket.map(item =>
+    const updatedBasket: IBasket[] = basket.map(item =>
       item.id === id ? { ...item, qty: item.qty + 1 } : item
     );
 
@@ -65,7 +65,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     const authStore = useAuthStore.getState();
     const basket = authStore.user?.basket || [];
 
-    const updatedBasket: IBasketItem[] = basket.map(item =>
+    const updatedBasket: IBasket[] = basket.map(item =>
       item.id === id ? { ...item, qty: Math.max(item.qty - 1, 1) } : item
     );
 
