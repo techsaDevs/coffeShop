@@ -1,26 +1,29 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from "react"
 import { motion } from "framer-motion"
-import ArrowLeftEndOnRectangleSVG from '../SVGs/nav/ArrowLeftEndOnRectangleSVG'
-import UserSVG from '../SVGs/nav/UserSVG'
-import Link from 'next/link'
+import ArrowLeftEndOnRectangleSVG from "../SVGs/nav/ArrowLeftEndOnRectangleSVG"
+import UserSVG from "../SVGs/nav/UserSVG"
+import Link from "next/link"
+import { useAuthStore } from "@/stores/authStore" // استور که قبل ساختیم
 
 const NavLogin = () => {
-  const [isLoggedin, setIsLoggedin] = useState<boolean>(true)
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [isDesktop, setIsDesktop] = useState<boolean>(false)
-  const [user, setUser] = useState({
-    profile: "/categories/category2.png",
-    username: "techsa team",
-    logout: () => alert("Logged out!"),
-  })
+  const {
+    isLoggedin,
+    isOpen,
+    isDesktop,
+    user,
+    setIsLoggedin,
+    toggleMenu,
+    setIsDesktop,
+    logout,
+  } = useAuthStore()
 
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth >= 1280) // xl breakpoint
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  }, [setIsDesktop])
 
   if (!isLoggedin) {
     return (
@@ -29,8 +32,8 @@ const NavLogin = () => {
         className="flex items-center px-2 py-1 xl:px-4 xl:py-3 rounded-full hover:bg-orange-200/10 gap-2 xl:gap-3 duration-150 mr-6 cursor-pointer"
         title="ورود / ثبت‌نام"
       >
-        <ArrowLeftEndOnRectangleSVG className='rotate-180 w-full h-full xl:w-6 xl:h-6' />
-        <span className='text-sm hidden xl:text-xl select-none tracking-tightest'>
+        <ArrowLeftEndOnRectangleSVG className="rotate-180 w-full h-full xl:w-6 xl:h-6" />
+        <span className="text-sm hidden xl:text-xl select-none tracking-tightest">
           ورود | ثبت نام
         </span>
       </Link>
@@ -40,7 +43,7 @@ const NavLogin = () => {
   return (
     <div className="relative mr-2 xl:mr-5 flex justify-end group">
       <div
-        onClick={() => !isDesktop && setIsOpen(!isOpen)}
+        onClick={() => !isDesktop && toggleMenu()}
         className="flex items-center px-2 py-1 xl:px-4 xl:py-3 rounded-full hover:bg-orange-200/10 gap-0 xl:gap-3 cursor-pointer select-none"
       >
         <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
@@ -51,7 +54,7 @@ const NavLogin = () => {
           )}
         </div>
         <span className="hidden xl:inline-block text-sm xl:text-lg mt-[3px]">
-          {user.username}
+          {user?.username}
         </span>
       </div>
 
@@ -70,14 +73,12 @@ const NavLogin = () => {
                 <UserSVG className="w-full h-full" />
               )}
             </div>
-            <span className="text-sm xl:text-base font-semibold text-foreground">{user.username}</span>
+            <span className="text-sm xl:text-base font-semibold text-foreground">{user?.username}</span>
           </a>
 
           <motion.button
             onClick={() => setIsLoggedin(false)}
-            className="
-
-            "
+            className="mt-3 px-4 py-2 text-red-500 border border-red-400 rounded-lg"
           >
             خروج
           </motion.button>
@@ -99,11 +100,11 @@ const NavLogin = () => {
                 <UserSVG className="w-full h-full" />
               )}
             </div>
-            <span className="text-sm xl:text-base font-semibold text-foreground">{user.username}</span>
+            <span className="text-sm xl:text-base font-semibold text-foreground">{user?.username}</span>
           </a>
 
           <motion.button
-            onClick={user.logout}
+            onClick={logout}
             className="w-full px-4 py-2 mt-3
           bg-transparent text-red-600 dark:text-red-400
           flexCenter gap-2 rounded-xl font-medium text-sm
