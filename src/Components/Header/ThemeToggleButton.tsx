@@ -1,49 +1,29 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence, Transition } from "framer-motion";
 import MoonSVG from "../SVGs/nav/MoonSVG";
 import SunSVG from "../SVGs/nav/SunSVG";
+import { useThemeStore } from "@/stores/themeStore"; // مسیر استور
 
 const ThemeToggleButton = () => {
-  const [theme, setTheme] = useState<boolean>(false);
+  const { theme, toggleTheme, initTheme } = useThemeStore();
 
-  // تغییر تم و ذخیره در localStorage
-  const handleToggleTheme = () => {
-    const root = document.documentElement;
-    const newTheme = !theme;
-    setTheme(newTheme);
-
-    if (newTheme) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
-
-  // بارگذاری تم از localStorage در mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    const isDark = savedTheme === "dark";
-    setTheme(isDark);
-    document.documentElement.classList.toggle("dark", isDark);
-  }, []);
+    initTheme(); // بار اول بخونه از localStorage
+  }, [initTheme]);
 
-  // انیمیشن های Motion
   const iconVariants = {
     initial: { y: -10, scale: 0.8, rotate: -45, opacity: 0 },
     animate: { y: 0, scale: 1, rotate: 0, opacity: 1 },
     exit: { y: 10, scale: 0.8, rotate: 45, opacity: 0 },
   };
 
-  // Transition بدون خطای TypeScript
   const iconTransition: Transition = { type: "tween", duration: 0.25 };
 
   return (
     <div
       className="relative cursor-pointer py-3 w-8 h-8"
-      onClick={handleToggleTheme}
+      onClick={toggleTheme}
     >
       <AnimatePresence>
         <motion.div

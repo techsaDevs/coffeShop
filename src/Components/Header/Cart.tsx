@@ -1,97 +1,44 @@
-"use client"
-import React, { useEffect, useState } from 'react';
+"use client";
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from "framer-motion";
-import axiosInst from '@/lib/axiosConfig';
-import { IProductInBasket, IProduct } from '@/lib/types';
+import { useCartStore } from '@/stores/cartStore';
+import { useAuthStore } from '@/stores/authStore';
 import ShoppingCartSVG from '../SVGs/nav/ShoppingCartSVG';
-import ArrowLeftSVG from '../SVGs/ArrowLeftSVG';
+import ArrowLeftSVG from '../SVGs/nav/ArrowLeftSVG';
 import CartSVG from '../SVGs/nav/CartSVG';
 import MinusSVG from '../SVGs/MinusSVG';
 import PlusSVG from '../SVGs/PlusSVG';
 import BasketPrice from './BasketPrice';
 
-interface ICart {
+interface ICartProps {
   mode: "Initial price" | "qty";
 }
 
-const Cart = ({ mode }: ICart) => {
-  const [isLoggedin, setIsLoggedin] = useState<boolean>(true);
-  const [user, setUser] = useState({
-    basket: [
-      { id: 1, qty: 4 },
-      { id: 2, qty: 3 },
-      { id: 3, qty: 2 },
-      { id: 4, qty: 1 },
-    ]
-  });
-  const [isOpen, setIsOpen] = useState(false);
-  const [productsInBasket, setProductsInBasket] = useState<IProductInBasket[]>([]);
-  const [finalTotal, setFinalTotal] = useState<number>(0);
+const Cart = ({ mode }: ICartProps) => {
+  const {
+    productsInBasket,
+    finalTotal,
+    isOpen,
+    fetchProducts,
+    increaseQty,
+    decreaseQty,
+    toggleCart,
+  } = useCartStore();
 
-  // دریافت محصولات
-  const fetchProducts = async () => {
-    if (!user.basket.length) return;
-
-    try {
-      const response = await axiosInst("/products");
-      const products: IProduct[] = response.data;
-
-      const filteredProducts = products.filter(product =>
-        user.basket.some(item => item.id === Number(product.id))
-      );
-
-      const productsWithQty = filteredProducts.map(product => {
-        const basketItem = user.basket.find(item => item.id === Number(product.id));
-        return { ...product, qty: basketItem?.qty || 0 };
-      });
-
-      setProductsInBasket(productsWithQty);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
-  };
+  const { isLoggedin } = useAuthStore()
 
   useEffect(() => {
     fetchProducts();
-  }, [user.basket]);
-
-  // محاسبه جمع کل سبد
-  useEffect(() => {
-    const total = productsInBasket.reduce((sum, product) => {
-      const finalPrice = product.price - ((product.price * (product.off || 0)) / 100);
-      return sum + finalPrice * (product.qty || 1);
-    }, 0);
-    setFinalTotal(total);
-  }, [productsInBasket]);
-
-  // افزایش تعداد
-  const increaseQty = (id: number) => {
-    setProductsInBasket(prev =>
-      prev.map(product => product.id === id
-        ? { ...product, qty: (product.qty || 1) + 1 }
-        : product
-      )
-    );
-  };
-
-  // کاهش تعداد
-  const decreaseQty = (id: number) => {
-    setProductsInBasket(prev =>
-      prev.map(product => product.id === id
-        ? { ...product, qty: Math.max((product.qty || 1) - 1, 1) }
-        : product
-      )
-    );
-  };
+  }, [fetchProducts]);
 
   return (
     <div className="flex">
       {isLoggedin ? (
         <div
           className="leading-2 group relative"
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
+          onMouseEnter={() => toggleCart(true)}
+          onMouseLeave={() => toggleCart(false)}
         >
           <Link className="inline-block py-3 cursor-pointer" href={"/basket"}>
             <ShoppingCartSVG className='size-7 lg:size-8' />
@@ -117,19 +64,10 @@ const Cart = ({ mode }: ICart) => {
                   </div>
 
                   {/* body */}
-                  <ul className={`
-                       border-b border-b-basket-border divide-y divide-basketItem-border childs:pt-6 childs:pb-5 pb-1
-                       ${productsInBasket.length > 3 ? "max-h-[400px] overflow-y-auto pr-1" : ""}
-                     `}>
+                  <ul className={`border-b border-b-basket-border divide-y divide-basketItem-border childs:pt-6 childs:pb-5 pb-1
+                       ${productsInBasket.length > 3 ? "max-h-[400px] overflow-y-auto pr-1" : ""}`}>
                     {productsInBasket.map(({ id, title, image, price, off, qty }) => (
-                      <motion.li
-                        key={id}
-                        initial={{ opacity: 0, x: -5 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -5 }}
-                        transition={{ duration: 0.2, delay: 0.05 }}
-                        className='flex items-center gap-x-2.5'
-                      >
+                      <motion.li key={id} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -5 }} transition={{ duration: 0.2, delay: 0.05 }} className='flex items-center gap-x-2.5'>
                         <img className='w-30 h-30' src={image} alt={title} />
                         <div className="flex flex-col justify-start gap-y-4">
                           <h4 className="font-dana-medium text-foreground text-base line-clamp-2">{title}</h4>
@@ -138,19 +76,11 @@ const Cart = ({ mode }: ICart) => {
                             <div className="flexBetween flex-row-reverse gap-4 mt-1">
                               <BasketPrice price={price} off={off} />
                               <div className="flex items-center rounded-full border border-basketItem-border overflow-hidden">
-                                <button
-                                  className="px-1.5 py-1.75 flexCenter text-orange-300 hover:bg-basket-border"
-                                  onClick={() => decreaseQty(id)}
-                                >
+                                <button className="px-1.5 py-1.75 flexCenter text-orange-300 hover:bg-basket-border" onClick={() => decreaseQty(id)}>
                                   <MinusSVG className="w-4 h-4 stroke-current" fill='' />
                                 </button>
-                                <span className="px-2 py-1.75 text-sm font-medium border-x border-basketItem-border flexCenter text-orange-300">
-                                  {qty}
-                                </span>
-                                <button
-                                  className="px-1.5 py-1.75 flexCenter text-orange-300 hover:bg-basket-border"
-                                  onClick={() => increaseQty(id)}
-                                >
+                                <span className="px-2 py-1.75 text-sm font-medium border-x border-basketItem-border flexCenter text-orange-300">{qty}</span>
+                                <button className="px-1.5 py-1.75 flexCenter text-orange-300 hover:bg-basket-border" onClick={() => increaseQty(id)}>
                                   <PlusSVG className="w-4 h-4 stroke-current" fill='' />
                                 </button>
                               </div>
@@ -160,12 +90,9 @@ const Cart = ({ mode }: ICart) => {
                               <div className="flex items-baseline gap-2">
                                 <BasketPrice price={price} off={off} />
                               </div>
-                              {off > 0 && (
-                                <span className="text-gray-400 text-xs relative mb-1">
-                                  {price.toLocaleString()} تومان
-                                  <span className="absolute left-0 right-0 top-1/2 h-[2px] bg-gray-400/50 rotate-[-8deg]" />
-                                </span>
-                              )}
+                              {off > 0 && <span className="text-gray-400 text-xs relative mb-1">{price.toLocaleString()} تومان
+                                <span className="absolute left-0 right-0 top-1/2 h-[2px] bg-gray-400/50 rotate-[-8deg]" />
+                              </span>}
                             </div>
                           )}
                         </div>
@@ -204,8 +131,8 @@ const Cart = ({ mode }: ICart) => {
       ) : (
         <div
           className="leading-2 group relative"
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
+          onMouseEnter={() => toggleCart(true)}
+          onMouseLeave={() => toggleCart(false)}
         >
           <Link className="inline-block py-3 cursor-pointer" href={"/login"}>
             <ShoppingCartSVG className='size-7 lg:size-8' />
