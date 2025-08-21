@@ -1,3 +1,5 @@
+"use client"
+
 import { Itsxsvg } from '@/lib/types'
 import React from 'react'
 

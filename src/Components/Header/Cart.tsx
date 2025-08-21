@@ -6,7 +6,7 @@ import axiosInst from '@/lib/axiosConfig';
 import { IProductInBasket, IProduct } from '@/lib/types';
 import ShoppingCartSVG from '../SVGs/nav/ShoppingCartSVG';
 import ArrowLeftSVG from '../SVGs/ArrowLeftSVG';
-import CartSVG from '../SVGs/CartSVG';
+import CartSVG from '../SVGs/nav/CartSVG';
 import MinusSVG from '../SVGs/MinusSVG';
 import PlusSVG from '../SVGs/PlusSVG';
 import BasketPrice from './BasketPrice';

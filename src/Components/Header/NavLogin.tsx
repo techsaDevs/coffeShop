@@ -76,16 +76,7 @@ const NavLogin = () => {
           <motion.button
             onClick={() => setIsLoggedin(false)}
             className="
-              w-full px-4 py-2 mt-3
-              bg-transparent text-red-600 dark:text-red-400
-              flex items-center justify-center gap-2
-              rounded-xl font-medium text-sm xl:text-base
-              border border-red-400 dark:border-red-600
-              transition-colors duration-300
-              hover:bg-red-500 dark:hover:bg-red-600
-              hover:text-white
-              shadow-md hover:shadow-xl
-              cursor-pointer
+
             "
           >
             خروج
@@ -113,18 +104,14 @@ const NavLogin = () => {
 
           <motion.button
             onClick={user.logout}
-            className="
-              w-full px-4 py-2 mt-3
-              bg-transparent text-red-600 dark:text-red-400
-              flex items-center justify-center gap-2
-              rounded-xl font-medium text-sm xl:text-base
-              border border-red-400 dark:border-red-600
-              transition-colors duration-300
-              hover:bg-red-500 dark:hover:bg-red-600
-              hover:text-white
-              shadow-md hover:shadow-xl
-              cursor-pointer
-            "
+            className="w-full px-4 py-2 mt-3
+          bg-transparent text-red-600 dark:text-red-400
+          flexCenter gap-2 rounded-xl font-medium text-sm
+          xl:text-base border border-red-400
+          dark:border-red-600 transition-colors
+          dark:hover:bg-red-600 hover:text-white
+          hover:bg-red-500 duration-300
+          shadow-md hover:shadow-xl cursor-pointer"
           >
             خروج
           </motion.button>
