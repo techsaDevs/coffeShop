@@ -101,3 +101,37 @@ html.dark {
 .basketBtn {
   @apply bg-foregreen hover:bg-hoverBasket-green duration-200 py-[13px] px-[27px] text-lg rounded-xl text-white focus:shadow shadow-foregreen flex items-center justify-center tracking-tightest
 }
+
+.flexCenter {
+  @apply flex items-center justify-center
+}
+
+.flexBetween {
+  @apply flex items-center justify-between
+}
+
+.flexColCenter {
+  @apply flex flex-col items-center justify-center
+}
+
+/* اسکرول‌بار سفارشی */
+::-webkit-scrollbar {
+  width: 6px; /* ضخامت اسکرول‌بار */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* بک‌گراند مسیر */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--basket-gray); /* رنگ پیش‌فرض */
+  border-radius: 9999px; /* گرد */
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background-color: #4b5563; /* رنگ ملایم‌تر برای دارک مد */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--hoverBasket-green); /* هاور قشنگ */
+}

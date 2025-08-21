@@ -15,6 +15,10 @@ export interface IProduct {
   starCount: number;
 }
 
+export interface IProductInBasket extends IProduct {
+  qty: number;
+}
+
 interface IHeaderMenuItemBase {
   id: number;
   title: string;

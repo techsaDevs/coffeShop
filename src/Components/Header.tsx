@@ -10,7 +10,7 @@ const Header = () => {
         <LogoNav />
         <div className="flex text-orange-200">
           <div className="flex items-center gap-x-5 ml-10">
-            <Cart />
+            <Cart mode="Initial price" />
             <ThemeToggleButton />
           </div>
           <span className="w-px h-14 block bg-white/20" />

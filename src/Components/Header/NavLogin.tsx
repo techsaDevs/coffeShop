@@ -8,10 +8,6 @@ const NavLogin = () => {
     const [isLoggedin, setIsLoggedin] = useState<boolean>(true)
     const [user, setUser] = useState({
         username: "techsa team",
-        basket: [
-            { id: 2, qty: 1 },
-            { id: 4, qty: 3 },
-        ]
     })
 
     return (
