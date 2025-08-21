@@ -4,7 +4,7 @@ import BurgerMenu from "./Header/mobile/BurgerMenu";
 import MobileCart from "./Header/mobile/MobileCart";
 import NavLogin from "./Header/NavLogin";
 import ThemeToggleButton from "./Header/ThemeToggleButton";
-import LogoTypeSVG from "./SVGs/LogoTypeSVG";
+import LogoTypeSVG from "./SVGs/nav/mobile/LogoTypeSVG";
 
 const Header = () => {
   return (
@@ -23,10 +23,10 @@ const Header = () => {
           </div>
         </div>
       </header>
-      
-      <div className="flex items-center justify-between md:hidden bg-background px-4 h-16">
+
+      <div className="flex items-center justify-between md:hidden bg-background">
         <BurgerMenu />
-        <LogoTypeSVG className="w-25 h-10" width={100} height={40} fill="oklch(83.7% 0.128 66.29)" />
+        <LogoTypeSVG className="w-25" width={100} height={40} fill="oklch(83.7% 0.128 66.29)" />
         <MobileCart />
       </div>
     </>

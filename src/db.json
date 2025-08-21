@@ -100,5 +100,16 @@
       "title": "تماس باما",
       "link": "/call-with-us"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "mohammad",
+      "phone": "09876543210",
+      "email": "mohammad@gmail.com",
+      "profile": "",
+      "role": "admin",
+      "basket": []
+    }
   ]
 }

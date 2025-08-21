@@ -28,3 +28,18 @@ interface IHeaderMenuItemBase {
 export interface IHeaderMenu extends IHeaderMenuItemBase {
   subMenu?: IHeaderMenuItemBase[];
 }
+
+export interface IBasket {
+  id: number;
+  qty: number;
+}
+
+export interface IUser {
+  id: number;
+  username: string;
+  email: string;
+  phone: string;
+  role: string;
+  basket: IBasket[];
+  profile?: string; 
+}
