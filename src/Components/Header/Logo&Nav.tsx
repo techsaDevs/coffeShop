@@ -1,60 +1,44 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { IHeaderMenu } from "@/lib/types";
+import { useMenuStore } from "@/stores/menuStore";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { toast } from "react-toastify";
-import { motion, AnimatePresence, delay } from "framer-motion";
-import axiosInst from "@/lib/axiosConfig";
-import { AxiosError } from "axios";
+import { motion, AnimatePresence } from "framer-motion";
+import type { Variants } from "framer-motion";
 
-const defaultMenu: IHeaderMenu[] = [
-  { id: 1, title: "صفحه اصلی", link: "/" },
-  { id: 2, title: "فروشگاه", link: "/#" },
-  { id: 3, title: "دیکشنری", link: "/#" },
-  { id: 4, title: "بلاگ", link: "/#" },
-  { id: 5, title: "درباره ما", link: "/#" },
-  { id: 6, title: "تماس با ما", link: "/#" },
-];
-
-  export const subMenuVariants = {
-    hidden: { opacity: 0, y: -10 , delay: 75 },
-    visible: { opacity: 1, y: 0 , delay: 75 },
-  };
+const subMenuVariants: Variants = {
+  hidden: { opacity: 0, y: -8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.25, ease: "easeOut" }, // درست شد
+  },
+};
 
 const LogoNav = () => {
-  const [menu, setMenu] = useState<IHeaderMenu[]>(defaultMenu);
-  const [loadingSubMenu, setLoadingSubMenu] = useState(true);
+  const { menu, loading, getMenu } = useMenuStore();
   const [openSubMenuId, setOpenSubMenuId] = useState<number | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const getMenu = async () => {
-      try {
-        const { data } = await axiosInst.get("/headerMenu");
-        setMenu(data);
-      } catch (err) {
-        const error = err as AxiosError;
-        toast.error("مشکلی در دریافت منو پیش آمد!", { position: "bottom-right" });
-        console.error("خطا در دریافت منو:", error);
-      } finally {
-        setLoadingSubMenu(false);
-      }
-    };
-
     getMenu();
-  }, []);
+  }, [getMenu]);
 
   return (
     <nav className="flex items-center gap-x-6 lg:gap-x-9 h-14">
-      <div>
-        <img src="/app-logo.png" alt="Golden Coffee" className="h-10 lg:h-12 w-auto shrink-0" />
-      </div>
+      {/* Logo */}
+      <img
+        src="/app-logo.png"
+        alt="Golden Coffee"
+        className="h-10 lg:h-12 w-auto shrink-0"
+      />
 
+      {/* Menu List */}
       <ul className="flex gap-x-[22px] lg:gap-x-9 text-[17px] lg:text-xl text-gray-300 tracking-tightest h-full childs:leading-[56px]">
         {menu.map(({ id, title, link, subMenu }) => {
           const isActive = pathname === link;
+          const isOpen = openSubMenuId === id;
 
           return (
             <li
@@ -72,36 +56,32 @@ const LogoNav = () => {
                 {title}
               </Link>
 
-              {subMenu?.length && (
+              {subMenu && (
                 <AnimatePresence>
-                  {openSubMenuId === id && (
+                  {isOpen && (
                     <motion.ul
                       initial="hidden"
                       animate="visible"
                       exit="hidden"
                       variants={subMenuVariants}
                       className="headerHoverBox right-0 tracking-normal 
-                      childs:inline-block p-6 w-52 space-y-4"
+                      childs:inline-block p-6 w-52 space-y-4 z-20"
                     >
-                      {loadingSubMenu ? (
+                      {loading ? (
                         <motion.li
                           className="text-orange-300"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.3 }}
                         >
-                          Loading...
+                          در حال بارگذاری...
                         </motion.li>
                       ) : (
-                        subMenu.map(({ id, title, link }) => {
+                        subMenu.map(({ id: subId, title, link }) => {
                           const isSubActive = pathname === link;
-
                           return (
                             <motion.li
-                              key={id}
-                              initial="hidden"
-                              animate="visible"
-                              exit="hidden"
+                              key={subId}
                               variants={subMenuVariants}
                               transition={{ duration: 0.2 }}
                             >
