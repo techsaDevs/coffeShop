@@ -102,36 +102,16 @@ html.dark {
   @apply bg-foregreen hover:bg-hoverBasket-green duration-200 py-[13px] px-[27px] text-lg rounded-xl text-white focus:shadow shadow-foregreen flex items-center justify-center tracking-tightest
 }
 
-.flexCenter {
-  @apply flex items-center justify-center
-}
+/* from cssena */
 
-.flexBetween {
-  @apply flex items-center justify-between
-}
+.flexCenter { @apply flex items-center justify-center }
+.flexBetween { @apply flex items-center justify-between }
+.flexColCenter { @apply flex flex-col items-center justify-center }
+.flexColBetween { @apply flex flex-col items-center justify-between }
 
-.flexColCenter {
-  @apply flex flex-col items-center justify-center
-}
-
-/* اسکرول‌بار سفارشی */
-::-webkit-scrollbar {
-  width: 6px; /* ضخامت اسکرول‌بار */
-}
-
-::-webkit-scrollbar-track {
-  background: transparent; /* بک‌گراند مسیر */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--basket-gray); /* رنگ پیش‌فرض */
-  border-radius: 9999px; /* گرد */
-}
-
-html.dark ::-webkit-scrollbar-thumb {
-  background-color: #4b5563; /* رنگ ملایم‌تر برای دارک مد */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--hoverBasket-green); /* هاور قشنگ */
-}
+/* home basket scroll */
+::-webkit-scrollbar { @apply w-1.5 }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-foregray rounded-full }
+html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563] }
+::-webkit-scrollbar-thumb:hover { @apply bg-hoverBasket-green }

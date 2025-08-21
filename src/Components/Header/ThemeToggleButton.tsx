@@ -42,7 +42,7 @@ const ThemeToggleButton = () => {
 
   return (
     <div
-      className="relative cursor-pointer py-3 w-6 h-6"
+      className="relative cursor-pointer py-3 w-8 h-8"
       onClick={handleToggleTheme}
     >
       <AnimatePresence>
@@ -61,11 +61,10 @@ const ThemeToggleButton = () => {
             height: "100%",
           }}
         >
-          {theme ? <SunSVG /> : <MoonSVG />}
+          {theme ? <SunSVG className="size-8"/> : <MoonSVG className="size-8"/>}
         </motion.div>
       </AnimatePresence>
-      {/* Overlay برای جلوگیری از جهش کلیک */}
-      <div className="absolute inset-0"></div>
+      <div className="absolute inset-0" />
     </div>
   );
 };

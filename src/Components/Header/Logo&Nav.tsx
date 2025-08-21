@@ -47,12 +47,12 @@ const LogoNav = () => {
   }, []);
 
   return (
-    <nav className="flex items-center gap-x-9 h-14">
+    <nav className="flex items-center gap-x-6 lg:gap-x-9 h-14">
       <div>
-        <img src="/app-logo.png" alt="Golden Coffee" className="h-12 w-auto" />
+        <img src="/app-logo.png" alt="Golden Coffee" className="h-10 lg:h-12 w-auto shrink-0" />
       </div>
 
-      <ul className="flex gap-x-9 text-xl text-gray-300 tracking-tightest h-full childs:leading-[56px]">
+      <ul className="flex gap-x-[22px] lg:gap-x-9 text-[17px] lg:text-xl text-gray-300 tracking-tightest h-full childs:leading-[56px]">
         {menu.map(({ id, title, link, subMenu }) => {
           const isActive = pathname === link;
 

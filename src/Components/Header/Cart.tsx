@@ -12,7 +12,7 @@ import PlusSVG from '../SVGs/PlusSVG';
 import BasketPrice from './BasketPrice';
 
 interface ICart {
-  mode: "Initial price" | "qty"; // پراپ اختیاری
+  mode: "Initial price" | "qty";
 }
 
 const Cart = ({ mode }: ICart) => {
@@ -94,7 +94,7 @@ const Cart = ({ mode }: ICart) => {
           onMouseLeave={() => setIsOpen(false)}
         >
           <Link className="inline-block py-3 cursor-pointer" href={"/basket"}>
-            <ShoppingCartSVG />
+            <ShoppingCartSVG className='size-7 lg:size-8' />
           </Link>
 
           <AnimatePresence>
@@ -108,7 +108,7 @@ const Cart = ({ mode }: ICart) => {
                   className="headerHoverBox space-y-4 left-0 p-5 w-[400px] childs:text-foreground"
                 >
                   {/* header */}
-                  <div className="flex items-center justify-between">
+                  <div className="flexBetween">
                     <span className='text-xs text-gray-300 font-dana-medium'>{productsInBasket.length} مورد</span>
                     <Link href="/basket" className='flex items-center gap-1'>
                       <span className="ml-0 text-orange-300 transition-all duration-300 text-sm">مشاهده سبد خرید</span>
@@ -135,7 +135,7 @@ const Cart = ({ mode }: ICart) => {
                           <h4 className="font-dana-medium text-foreground text-base line-clamp-2">{title}</h4>
 
                           {mode === "qty" ? (
-                            <div className="flex flex-row-reverse items-center justify-between gap-4 mt-1">
+                            <div className="flexBetween flex-row-reverse gap-4 mt-1">
                               <BasketPrice price={price} off={off} />
                               <div className="flex items-center rounded-full border border-basketItem-border overflow-hidden">
                                 <button
@@ -208,7 +208,7 @@ const Cart = ({ mode }: ICart) => {
           onMouseLeave={() => setIsOpen(false)}
         >
           <Link className="inline-block py-3 cursor-pointer" href={"/login"}>
-            <ShoppingCartSVG />
+            <ShoppingCartSVG className='size-7 lg:size-8' />
           </Link>
           <AnimatePresence>
             {isOpen && (
@@ -217,12 +217,13 @@ const Cart = ({ mode }: ICart) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="headerHoverBox left-0 p-5 w-[400px] childs:text-foreground flex items-center justify-between"
+                className="headerHoverBox left-0 p-5 w-[400px] childs:text-foreground flexBetween"
               >
                 <span className="leading-none">برای مشاهده سبد خرید ابتدا وارد شوید</span>
                 <Link href="/login" className="!text-blue-500 font-semibold relative
                       after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[2px]
-                      after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">
+                      after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full
+                      ">
                   ورود | ثبت نام
                 </Link>
               </motion.div>
