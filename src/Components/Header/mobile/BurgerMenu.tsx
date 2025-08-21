@@ -73,12 +73,12 @@ const BurgerMenu = () => {
             <p>در حال بارگذاری منو...</p>
           ) : (
             <ul className="space-y-2.5">
-              {menu.map(({ id, title, link, subMenu }) => (
-                <li className="flex flex-col gap-1 bg-orange-300/20 rounded-lg p-3" key={id}>
-                  <div className="flex items-center justify-between">
+              {menu.map(({ id, title, link, Icon, subMenu }) => (
+                <li className={`flex flex-col gap-1 duration-150  hover:bg-orange-300/20 rounded-lg p-3 ${subMenu?.length ? "cursor-pointer" : ""}`} key={id}>
+                  <div className="flex items-center justify-between group duration-150">
                     <Link href={link} className="flex items-center gap-3">
-                      <InstagramSVG width={24} height={24} className='stroke-foreground' />
-                      {title}
+                      {Icon ? <Icon width={24} height={24} className='stroke-foreground group-hover:stroke-orange-300 duration-150' /> : null}
+                      <span className=" group-hover:text-orange-300 duration-150">{title}</span>
                     </Link>
                     {subMenu?.length && (
                       <button onClick={() => toggleSubMenu(id)}>
@@ -101,7 +101,7 @@ const BurgerMenu = () => {
             </ul>
           )}
           <span className='block h-px bg-basketItem-border my-8' />
-          
+
           <div className="flex flex-col text-orange-300 gap-3 px-2.5">
             {/* دکمه ورود/ثبت‌نام یا پروفایل */}
             {!isLoggedin ? (

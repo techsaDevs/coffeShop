@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Itsxsvg {
   fill?: string;
   width?: string | number;
@@ -26,6 +28,7 @@ interface IHeaderMenuItemBase {
 }
 
 export interface IHeaderMenu extends IHeaderMenuItemBase {
+  Icon?: React.ElementType;
   subMenu?: IHeaderMenuItemBase[];
 }
 
