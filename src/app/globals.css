@@ -71,6 +71,10 @@ html.dark {
 }
 
 @theme {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
   --shadow-coffe: 0px 1px 10px rgba(0, 0, 0, 0.05);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
