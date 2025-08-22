@@ -34,54 +34,43 @@ const MobileCartLeft = () => {
                 />
             )}
 
-            {/* Mobile Cart Panel از سمت چپ */}
             <div
                 className={`fixed top-0 left-0 z-50 bg-background text-foreground w-72 h-screen overflow-hidden transition-transform duration-300
                     ${showCartMenu ? "translate-x-0" : "-translate-x-72"}
                 `}
             >
                 {/* Header */}
-                <div className="flex justify-between items-center p-4 border-b" style={{ borderColor: 'var(--color-basket-border)' }}>
-                    <span className="text-lg font-bold">سبد خرید</span>
+                <div className="flexBetween">
                     <button
-                        className="p-2"
+                        className="py-5 px-4 cursor-pointer"
                         onClick={() => setShowCartMenu(false)}
                     >
                         <XMarkSVG width={24} height={24} className='stroke-foreground' />
                     </button>
+                    <span className="text-lg font-bold pl-4">سبد خرید</span>
                 </div>
 
+                <span className='block h-px bg-basketItem-border px-6 mx-4 mb-6' />
+
                 {/* Cart Items */}
-                <div className="p-4 overflow-y-auto h-[calc(100vh-120px)] space-y-3">
+                <div className="p-4 pt-0 overflow-y-auto h-[calc(100vh-120px)] space-y-3">
                     {isLoggedin ? (
                         productsInBasket.length ? (
-                            <ul className="divide-y" style={{ borderColor: 'var(--color-basketItem-border)' }}>
-                                {productsInBasket.map(({ id, title, image, price, off }) => (
-                                    <motion.li
-                                        key={id}
-                                        initial={{ opacity: 0, x: -5 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -5 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="flex items-start gap-3 py-3 border-b"
-                                        style={{ borderColor: 'var(--color-basketItem-border)' }}
-                                    >
-                                        <img src={image} alt={title} className="w-20 h-20 object-cover rounded" />
-                                        <div className="flex flex-col justify-between flex-1">
-                                            <h4 className="text-sm font-medium text-foreground line-clamp-2">{title}</h4>
-
-                                            {/* جایگزین باکس Qty با نمایش قیمت مثل کامپوننت کارت */}
-                                            <div className="flex items-end gap-4 mt-1">
-                                                <div className="flex items-baseline gap-2">
-                                                    <BasketPrice price={price} off={off} />
-                                                </div>
+                            <ul className={`childs:border-b childs:border-b-basketItem-border childs:pb-5 childs:mb-5 pb-1`}>
+                                {productsInBasket.map(({ id, title, image, price, off , qty }) => (
+                                    <motion.li key={id} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -5 }} transition={{ duration: 0.2, delay: 0.05 }} className='flex items-center gap-x-2.5'>
+                                        <img className='size-[90px]' src={image} alt={title} />
+                                        <div className="flex flex-col justify-start gap-y-4">
+                                            <h4 className="font-dana-medium text-foreground text-sm line-clamp-2">{title} {qty ? (<>({qty} عدد)</>) : ""}</h4>
+                                            <div className="flex justify-end flex-row-reverse gap-4 mt-1">
+                                                <BasketPrice price={price} off={off} />
                                             </div>
                                         </div>
                                     </motion.li>
                                 ))}
                             </ul>
                         ) : (
-                            <div className="flex flex-col items-center justify-center py-20 gap-4">
+                            <div className="flexColCenter py-20 gap-4">
                                 <CartSVG className='size-16 stroke-foregray' />
                                 <span className="text-foreground">سبد خرید شما خالی است</span>
                                 <Link
@@ -93,7 +82,7 @@ const MobileCartLeft = () => {
                             </div>
                         )
                     ) : (
-                        <div className="flex flex-col items-center justify-center py-20 gap-4">
+                        <div className="flexColCenter py-20 gap-4">
                             <span className="text-gray-400">برای مشاهده سبد خرید ابتدا وارد شوید</span>
                             <Link
                                 href="/login"
@@ -107,17 +96,23 @@ const MobileCartLeft = () => {
 
                 {/* Footer چسبیده به پایین */}
                 {isLoggedin && productsInBasket.length > 0 && (
-                    <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-background" style={{ borderColor: 'var(--color-basket-border)' }}>
-                        <div className="flex justify-between items-center mb-2">
-                            <span className="font-semibold text-gray-300">مبلغ قابل پرداخت:</span>
-                            <span className="font-bold text-lg">{finalTotal.toLocaleString()} تومان</span>
+                    <div className="absolute bg-background bottom-0 left-0 right-0 p-4 shadow-lg shadow-foreground">
+                        <div className="flexBetween">
+
+                            <Link
+                                href="/basket"
+                                className="basketBtn text-base px-5 py-2.5"
+                            >
+                                ثبت سفارش
+                            </Link>
+                            <div className="flex flex-col justify-between mb-2 gap-0.5">
+                                <span className="tracking-tighter font-dana-medium text-gray-300 text-xs">مبلغ قابل پرداخت:</span>
+                                <div className="font-bold text-lg space-x-1">
+                                    <span className="font-dana-dbold">{finalTotal.toLocaleString()}</span>
+                                    <span className="font-dana text-xs">تومان</span>
+                                </div>
+                            </div>
                         </div>
-                        <Link
-                            href="/basket"
-                            className="block w-full text-center bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition-colors"
-                        >
-                            ثبت سفارش
-                        </Link>
                     </div>
                 )}
             </div>

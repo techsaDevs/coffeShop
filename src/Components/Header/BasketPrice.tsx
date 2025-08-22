@@ -11,13 +11,14 @@ const BasketPrice = ({ price, off = 0 }: Props) => {
   return (
     <div className="flex flex-col">
       {off > 0 && (
-        <span className="text-foregreen text-xs">
+        <span className="text-foregreen font-dana-medium tracking-tighter text-xs">
           {discountAmount.toLocaleString()} تومان تخفیف
         </span>
       )}
-      <span className="font-dana-dbold text-lg">
-        {finalPrice.toLocaleString()} تومان
-      </span>
+        <div className="space-x-1">
+            <span className="font-dana-dbold text-lg">{finalPrice.toLocaleString()}</span>
+            <span className="font-dana text-sm">تومان</span>
+        </div>
     </div>
 
   );

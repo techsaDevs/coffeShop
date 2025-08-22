@@ -99,7 +99,7 @@ html.dark {
 }
 
 .basketBtn {
-  @apply bg-foregreen hover:bg-hoverBasket-green duration-200 py-[13px] px-[27px] text-lg rounded-xl text-white focus:shadow shadow-foregreen flex items-center justify-center tracking-tightest
+  @apply bg-foregreen hover:bg-hoverBasket-green duration-200 rounded-xl text-white focus:shadow shadow-foregreen flex items-center justify-center tracking-tightest
 }
 
 /* from cssena */

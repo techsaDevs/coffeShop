@@ -69,7 +69,7 @@ const Cart = ({ mode }: ICartProps) => {
                       <motion.li key={id} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -5 }} transition={{ duration: 0.2, delay: 0.05 }} className='flex items-center gap-x-2.5'>
                         <img className='w-30 h-30' src={image} alt={title} />
                         <div className="flex flex-col justify-start gap-y-4">
-                          <h4 className="font-dana-medium text-foreground text-base line-clamp-2">{title}</h4>
+                          <h4 className="font-dana-medium text-foreground text-base line-clamp-2">{title} {qty ? (<>({qty} عدد)</>) : ""}</h4>
 
                           {mode === "qty" ? (
                             <div className="flexBetween flex-row-reverse gap-4 mt-1">
@@ -105,7 +105,7 @@ const Cart = ({ mode }: ICartProps) => {
                       <span className="tracking-tighter font-dana-medium text-gray-300 text-xs">مبلغ قابل پرداخت</span>
                       <span className="font-dana-dbold text-lg block">{finalTotal.toLocaleString()} تومان</span>
                     </div>
-                    <Link href="/basket" className='basketBtn'>ثبت سفارش</Link>
+                    <Link href="/basket" className='basketBtn text-lg px-[27px] py-[13px]'>ثبت سفارش</Link>
                   </div>
                 </motion.div>
               ) : (
@@ -121,7 +121,7 @@ const Cart = ({ mode }: ICartProps) => {
                     <CartSVG className='size-16 stroke-foregray' />
                     <span className="text-foreground">هنوز محصولی به سبد خرید اضافه نشده</span>
                   </div>
-                  <Link href="/product" className='basketBtn'>مشاهده صفحه فروشگاه</Link>
+                  <Link href="/product" className='basketBtn text-lg px-[27px] py-[13px]'>مشاهده صفحه فروشگاه</Link>
                 </motion.div>
               )
             )}
