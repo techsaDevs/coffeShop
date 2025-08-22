@@ -89,8 +89,8 @@ html.dark {
   --tracking-tightest: -0.065em;
   --spacing-30: 7.5rem;
   --color-foregray: var(--basket-gray);
-  --color-basket-border: var(--basket-border);
   --color-hoverBasket-green: var(--hoverBasket-green);
+  --color-basket-border: var(--basket-border);
   --color-basketItem-border: var(--basketItem-border);
 }
 

@@ -9,6 +9,7 @@ import UserSVG from '@/Components/SVGs/nav/UserSVG'
 import CartSVG from '@/Components/SVGs/nav/CartSVG'
 import XMarkSVG from '@/Components/SVGs/nav/mobile/XMarkSVG'
 import LogoTypeSVG from '@/Components/SVGs/nav/mobile/LogoTypeSVG'
+import ChevronDownSVG from '@/Components/SVGs/nav/mobile/headerItem/ChevronDownSVG'
 import ArrowLeftEndOnRectangleSVG from '@/Components/SVGs/nav/ArrowLeftEndOnRectangleSVG'
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from 'react-toastify'
@@ -17,7 +18,6 @@ import { useMenuStore } from '@/stores/menuStore'
 import { useAuthStore } from '@/stores/authStore'
 import { useThemeStore } from '@/stores/themeStore'
 import { useBurgerMenuStore } from '@/stores/burgerMenuStore'
-import ChevronDownSVG from '@/Components/SVGs/nav/mobile/headerItem/ChevronDownSVG'
 
 const BurgerMenu = () => {
   const pathname = usePathname();
@@ -50,7 +50,7 @@ const BurgerMenu = () => {
       )}
 
       <div
-        className={`fixed top-0 right-0 z-50 bg-background w-72 h-screen transition-transform duration-300
+        className={`fixed top-0 right-0 z-50 bg-background w-72 h-screen overflow-y-auto pb-4 transition-transform duration-300
           ${showBarMenu ? "translate-x-0" : "translate-x-72"}
         `}
       >
