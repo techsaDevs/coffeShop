@@ -61,7 +61,7 @@ const MobileCartLeft = () => {
                                     <motion.li key={id} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -5 }} transition={{ duration: 0.2, delay: 0.05 }} className='flex items-center gap-x-2.5'>
                                         <img className='size-[90px]' src={image} alt={title} />
                                         <div className="flex flex-col justify-start gap-y-4">
-                                            <h4 className="font-dana-medium text-foreground text-sm line-clamp-2">{title} {qty ? (<>({qty} عدد)</>) : ""}</h4>
+                                            <h4 className="font-dana-medium text-foreground text-sm line-clamp-2">{title} {qty ? (<>× {qty}</>) : ""}</h4>
                                             <div className="flex justify-end flex-row-reverse gap-4 mt-1">
                                                 <BasketPrice price={price} off={off} />
                                             </div>

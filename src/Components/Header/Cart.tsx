@@ -69,7 +69,7 @@ const Cart = ({ mode }: ICartProps) => {
                       <motion.li key={id} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -5 }} transition={{ duration: 0.2, delay: 0.05 }} className='flex items-center gap-x-2.5'>
                         <img className='w-30 h-30' src={image} alt={title} />
                         <div className="flex flex-col justify-start gap-y-4">
-                          <h4 className="font-dana-medium text-foreground text-base line-clamp-2">{title} {qty ? (<>({qty} عدد)</>) : ""}</h4>
+                          <h4 className="font-dana-medium text-foreground text-base line-clamp-2">{title} {qty ? (<>× {qty}</>) : ""}</h4>
 
                           {mode === "qty" ? (
                             <div className="flexBetween flex-row-reverse gap-4 mt-1">
