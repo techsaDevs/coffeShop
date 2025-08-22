@@ -46,3 +46,8 @@ export interface IUser {
   basket: IBasket[];
   profile?: string; 
 }
+
+export interface IContainer {
+  children: ReactNode;
+  className?: string;
+}

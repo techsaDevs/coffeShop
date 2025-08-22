@@ -17,7 +17,6 @@
   font-display: swap;
 }
 
-
 @font-face {
   font-family: "Morabba Light"; /* 300 */
   src: url("../../public/fonts/morabba/Morabba-Light.woff2"), format("woff2");
@@ -60,7 +59,7 @@ html.dark {
 
 @custom-variant childs {
   & > * {
-    @slot
+    @slot;
   }
 }
 
@@ -71,10 +70,12 @@ html.dark {
 }
 
 @theme {
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
+  --breakpoint-xs: 30rem; /* 480px  */
+  --breakpoint-sm: 40rem; /* 640px  */
+  --breakpoint-md: 48rem; /* 768px  */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px */
+  --container-2xl: 1260px;
   --shadow-coffe: 0px 1px 10px rgba(0, 0, 0, 0.05);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
@@ -98,24 +99,32 @@ html.dark {
   --color-basketItem-border: var(--basketItem-border);
 }
 
+/* from cssena */
+.flexCenter { @apply flex items-center justify-center; }
+.flexBetween { @apply flex items-center justify-between; }
+.flexColCenter { @apply flex flex-col items-center justify-center; }
+.flexColBetween { @apply flex flex-col items-center justify-between; }
+
+/* home basket scroll */
+::-webkit-scrollbar { @apply w-1.5; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-foregray rounded-full; }
+html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
+::-webkit-scrollbar-thumb:hover { @apply bg-hoverBasket-green; }
+
+/* classes */
 .headerHoverBox {
-  @apply absolute top-full shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl 
+  @apply absolute top-full shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl;
 }
 
 .basketBtn {
-  @apply bg-foregreen hover:bg-hoverBasket-green duration-200 rounded-xl text-white focus:shadow shadow-foregreen flex items-center justify-center tracking-tightest
+  @apply bg-foregreen hover:bg-hoverBasket-green duration-200 rounded-xl text-white focus:shadow shadow-foregreen flex items-center justify-center tracking-tightest;
 }
 
-/* from cssena */
+.bg-header { background-image: url("/header/headerBgMobile.webp"); }
 
-.flexCenter { @apply flex items-center justify-center }
-.flexBetween { @apply flex items-center justify-between }
-.flexColCenter { @apply flex flex-col items-center justify-center }
-.flexColBetween { @apply flex flex-col items-center justify-between }
-
-/* home basket scroll */
-::-webkit-scrollbar { @apply w-1.5 }
-::-webkit-scrollbar-track { @apply bg-transparent; }
-::-webkit-scrollbar-thumb { @apply bg-foregray rounded-full }
-html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563] }
-::-webkit-scrollbar-thumb:hover { @apply bg-hoverBasket-green }
+@media (width >= 48rem /* 768px */) {
+  .bg-header {
+    background-image: url("/header/headerBgDesktop.webp");
+  }
+}

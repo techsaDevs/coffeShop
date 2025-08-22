@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { IContainer } from '@/lib/types';
 
-const Container = ({children} : {children: React.ReactNode}) => {
+const Container = ({ children, className = "" }: IContainer) => {
   return (
-    <div className='mx-auto py-4 lg:py-[0.625rem]'>{children}</div>
-  )
-}
+    <div className={`
+       container
+       mx-auto 
+       px-4 
+       lg:px-[0.625rem]
+       xl:max-w-[1260px]
+       ${className}`}
+    >
+      {children}
+    </div>
+  );
+};
 
-export default Container
+export default Container;
