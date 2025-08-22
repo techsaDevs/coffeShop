@@ -9,7 +9,6 @@ import UserSVG from '@/Components/SVGs/nav/UserSVG'
 import CartSVG from '@/Components/SVGs/nav/CartSVG'
 import XMarkSVG from '@/Components/SVGs/nav/mobile/XMarkSVG'
 import LogoTypeSVG from '@/Components/SVGs/nav/mobile/LogoTypeSVG'
-import InstagramSVG from '@/Components/SVGs/InstagramSVG'
 import ArrowLeftEndOnRectangleSVG from '@/Components/SVGs/nav/ArrowLeftEndOnRectangleSVG'
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from 'react-toastify'
@@ -18,6 +17,7 @@ import { useMenuStore } from '@/stores/menuStore'
 import { useAuthStore } from '@/stores/authStore'
 import { useThemeStore } from '@/stores/themeStore'
 import { useBurgerMenuStore } from '@/stores/burgerMenuStore'
+import ChevronDownSVG from '@/Components/SVGs/nav/mobile/headerItem/ChevronDownSVG'
 
 const BurgerMenu = () => {
   const pathname = usePathname();
@@ -27,8 +27,6 @@ const BurgerMenu = () => {
   const {
     isLoggedin,
     user,
-    setIsLoggedin,
-    logout,
   } = useAuthStore()
   // Fetch menu on mount
   useEffect(() => {
@@ -72,33 +70,89 @@ const BurgerMenu = () => {
           {loading ? (
             <p>در حال بارگذاری منو...</p>
           ) : (
-            <ul className="space-y-2.5">
-              {menu.map(({ id, title, link, Icon, subMenu }) => (
-                <li className={`flex flex-col gap-1 duration-150  hover:bg-orange-300/20 rounded-lg p-3 ${subMenu?.length ? "cursor-pointer" : ""}`} key={id}>
-                  <div className="flex items-center justify-between group duration-150">
-                    <Link href={link} className="flex items-center gap-3">
-                      {Icon ? <Icon width={24} height={24} className='stroke-foreground group-hover:stroke-orange-300 duration-150' /> : null}
-                      <span className=" group-hover:text-orange-300 duration-150">{title}</span>
-                    </Link>
-                    {subMenu?.length && (
-                      <button onClick={() => toggleSubMenu(id)}>
-                        {openSubMenuId === id ? "-" : "+"}
-                      </button>
-                    )}
-                  </div>
 
-                  {subMenu?.length && openSubMenuId === id && (
-                    <ul className="mt-2 pl-7 space-y-1">
-                      {subMenu.map(({ id: subId, title, link }) => (
-                        <li key={subId}>
-                          <Link href={link}>{title}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
+            <ul className="space-y-2.5">
+              {menu.map(({ id, title, link, Icon, subMenu }) => {
+                const isActiveSubItem = subMenu?.some(({ link: subLink }) => pathname === subLink);
+                const isActiveMain = pathname === link;
+
+                return (
+                  <li
+                    onClick={() => toggleSubMenu(id)}
+                    key={id}
+                    className={`flex flex-col gap-1 duration-150 group rounded-lg p-3 
+                    ${subMenu?.length && openSubMenuId === id ? "hover:bg-orange-300/0" : "hover:bg-orange-300/15"} 
+                    ${isActiveMain ? "bg-orange-300/15" : isActiveSubItem ? "bg-transparent" : ""} 
+                    ${subMenu?.length ? "cursor-pointer" : ""}`}
+                  >
+                    <div className="flex items-center justify-between duration-150">
+                      <Link href={link} className="flex items-center gap-3">
+                        {Icon ? (
+                          <Icon
+                            width={24}
+                            height={24}
+                            className={`stroke-foreground group-hover:stroke-orange-300 
+                            ${isActiveMain || isActiveSubItem ? "stroke-orange-300" : ""} 
+                            transition-colors duration-150`}
+                          />
+                        ) : null}
+                        <span
+                          className={`transition-colors duration-150 group-hover:text-orange-300 
+                          ${isActiveMain || isActiveSubItem ? "text-orange-300" : ""}`}
+                        >
+                          {title}
+                        </span>
+                      </Link>
+                      {subMenu?.length && (
+                        <button
+                          className={`group-hover:text-orange-300 
+                          ${isActiveMain || isActiveSubItem ? "text-orange-300" : ""}`}
+                        >
+                          <ChevronDownSVG
+                            className={`duration-300 ${openSubMenuId === id ? "rotate-180" : "rotate-0"}`}
+                          />
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Submenu */}
+                    <AnimatePresence initial={false}>
+                      {subMenu?.length && openSubMenuId === id && (
+                        <motion.ul
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                          className="mt-2 pr-3 space-y-1 text-sm overflow-hidden"
+                        >
+                          {subMenu.map(({ id: subId, title: subTitle, link: subLink }) => {
+                            const isActiveSub = pathname === subLink;
+                            return (
+                              <li
+                                key={subId}
+                                className={`relative rounded-md transition mr-2.5 hover:text-orange-300
+                                ${isActiveSub ? "text-orange-300" : "text-foreground"}`}
+                              >
+                                <Link href={subLink} className={`block w-full py-1.5 ${isActiveSub ? "pr-7" : "pr-4"}`}>
+                                  {subTitle}
+                                </Link>
+
+                                {isActiveSub && (
+                                  <span className="absolute right-3.5 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-orange-300" />
+                                )}
+                              </li>
+                            );
+                          })}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              })}
             </ul>
+
+
+
           )}
           <span className='block h-px bg-basketItem-border my-8' />
 
@@ -107,7 +161,7 @@ const BurgerMenu = () => {
             {!isLoggedin ? (
               <Link
                 href="/login"
-                className="flex items-center gap-2 w-max px-2 py-1 rounded-full cursor-pointer select-none group"
+                className="flex items-center gap-4 w-max px-2 py-1 rounded-full cursor-pointer select-none group"
                 title="ورود / ثبت‌نام"
               >
                 <div className="w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
@@ -118,7 +172,7 @@ const BurgerMenu = () => {
             ) : (
               <Link
                 href="/profile"
-                className="flex items-center gap-2 w-max px-2 py-1 rounded-full cursor-pointer select-none group"
+                className="flex items-center gap-4 w-max px-2 py-1 rounded-full cursor-pointer select-none group"
               >
                 <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
                   {user?.profile ? (
@@ -137,7 +191,7 @@ const BurgerMenu = () => {
 
             {/* دکمه تغییر تم */}
             <motion.button
-              className="flex items-center gap-2 w-max px-2 py-1 rounded-full cursor-pointer"
+              className="flex items-center gap-4 w-max px-2 py-1 rounded-full cursor-pointer"
               onClick={toggleTheme}
               initial="rest"
               whileHover="hover"
@@ -198,7 +252,7 @@ const BurgerMenu = () => {
             {!isLoggedin ? (
               <button
                 onClick={handleNotLoggedBasketClick}
-                className="flex items-center gap-2 px-2 py-1 rounded-full cursor-pointer select-none group"
+                className="flex items-center gap-[19px] px-2 py-1 rounded-full cursor-pointer select-none group"
               >
                 <div className="w-7 h-7 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <CartSVG className="w-7 h-7 text-orange-300" />
@@ -208,7 +262,7 @@ const BurgerMenu = () => {
             ) : (
               <Link
                 href="/basket"
-                className="flex w-max items-center gap-2 px-2 py-1 rounded-full cursor-pointer select-none group"
+                className="flex w-max items-center gap-[19px] px-2 py-1 rounded-full cursor-pointer select-none group"
               >
                 <div className="w-7 h-7 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <CartSVG className="w-7 h-7 text-orange-300" />

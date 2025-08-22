@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from '@/stores/cartStore';
 import { useAuthStore } from '@/stores/authStore';
-import ShoppingCartSVG from '../SVGs/nav/ShoppingCartSVG';
 import ArrowLeftSVG from '../SVGs/nav/ArrowLeftSVG';
 import CartSVG from '../SVGs/nav/CartSVG';
 import MinusSVG from '../SVGs/MinusSVG';
@@ -41,7 +40,7 @@ const Cart = ({ mode }: ICartProps) => {
           onMouseLeave={() => toggleCart(false)}
         >
           <Link className="inline-block py-3 cursor-pointer" href={"/basket"}>
-            <ShoppingCartSVG className='size-7 lg:size-8' />
+            <CartSVG className='size-7 lg:size-8' />
           </Link>
 
           <AnimatePresence>
@@ -135,7 +134,7 @@ const Cart = ({ mode }: ICartProps) => {
           onMouseLeave={() => toggleCart(false)}
         >
           <Link className="inline-block py-3 cursor-pointer" href={"/login"}>
-            <ShoppingCartSVG className='size-7 lg:size-8' />
+            <CartSVG className='size-7 lg:size-8' />
           </Link>
           <AnimatePresence>
             {isOpen && (

@@ -17,12 +17,12 @@ interface MenuState {
 }
 
 export const iconsMap: Record<number, React.ElementType> = {
-  1: PhoneArrowUpRightSVG,
+  1: HomeSVG,
   2: CartSVG,
-  3: BriefcaseSVG,
-  4: ChatBubbleSVG,
-  5: DocumentTestSVG,
-  6: HomeSVG,
+  3: ChatBubbleSVG,
+  4: DocumentTestSVG,
+  5: BriefcaseSVG,
+  6: PhoneArrowUpRightSVG,
 };
 
 export const defaultMenu: IHeaderMenu[] = [

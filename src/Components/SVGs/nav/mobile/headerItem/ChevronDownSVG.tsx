@@ -1,0 +1,18 @@
+import { Itsxsvg } from '@/lib/types'
+import React from 'react'
+
+const ChevronDownSVG = ({
+    fill = "currentColor",
+    width = 24,
+    height = 24,
+    className = "",
+    onClick = () => { },
+}: Itsxsvg) => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={fill} className={className} width={width} height={height} onClick={onClick}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+    )
+}
+
+export default ChevronDownSVG
