@@ -112,6 +112,7 @@ html.dark {
 html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
 ::-webkit-scrollbar-thumb:hover { @apply bg-hoverBasket-green; }
 
+
 /* classes */
 .headerHoverBox {
   @apply absolute top-full shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl;
@@ -128,3 +129,11 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
     background-image: url("/header/headerBgDesktop.webp");
   }
 }
+
+
+.circle { @apply flex items-center justify-center border rounded-full }
+.circle_main { @apply w-[203px] h-[203px] border-white/25 absolute bottom-0 right-0 left-0 mx-auto translate-y-1/2 }
+.circle_midd { @apply w-[145px] h-[145px] border-white/50 }
+.circle_smal { @apply w-[95px] h-[95px] border-white/80 }
+
+.absolutebCenter { @apply absolute bottom-0 right-0 left-0 mx-auto }

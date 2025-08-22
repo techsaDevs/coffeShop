@@ -6,8 +6,8 @@ import { useCartStore } from '@/stores/cartStore';
 import { useAuthStore } from '@/stores/authStore';
 import ArrowLeftSVG from '../SVGs/nav/ArrowLeftSVG';
 import CartSVG from '../SVGs/nav/CartSVG';
-import MinusSVG from '../SVGs/MinusSVG';
-import PlusSVG from '../SVGs/PlusSVG';
+import MinusSVG from '../SVGs/home/qtyBox/MinusSVG';
+import PlusSVG from '../SVGs/home/qtyBox/PlusSVG';
 import BasketPrice from './BasketPrice';
 
 interface ICartProps {
