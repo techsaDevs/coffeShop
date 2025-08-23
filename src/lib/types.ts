@@ -62,3 +62,10 @@ export interface IContainer {
   children: ReactNode;
   className?: string;
 }
+
+export interface ICategorys {
+    id: string
+    title: string;
+    image: string;
+    link: string;
+}
