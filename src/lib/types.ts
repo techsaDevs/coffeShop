@@ -24,3 +24,25 @@ interface IHeaderMenuItemBase {
 export interface IHeaderMenu extends IHeaderMenuItemBase {
   subMenu?: IHeaderMenuItemBase[];
 }
+
+export interface IUser {
+  id: number
+  username: string
+  password: string
+  phone: string
+  email: string
+  role: "admin" | "user"
+  basket: IBasket[]
+  orders : IOrder[]
+}
+
+interface IBasket {
+  id: number
+  qty : number
+}
+
+interface IOrder {
+  id: number
+  status : "pending" | "rejected" | "sending" | "sent"
+  products : IBasket[]
+}

@@ -100,5 +100,12 @@
       "title": "تماس باما",
       "link": "/call-with-us"
     }
+  ],
+  "user": [
+    {"id": 1, "username": "amir", "password": "amir123", "email": "amir@gmail.com", "phone": "09054324121", "role": "admin", "basket": [], "orders": []},
+    {"id": 2, "username": "mohammad", "password": "mohammad123", "email": "mohammad@gmail.com", "phone": "09124577865", "role": "admin", "basket": [], "orders": []},
+    {"id": 3, "username": "reza", "password": "reza123", "email": "reza@gmail.com", "phone": "09157854561", "role": "admin", "basket": [], "orders": []},
+    {"id": 4, "username": "jade", "password": "jade123", "email": "jade@gmail.com", "phone": "00154756412", "role": "user", "basket": [], "orders": []},
+    {"id": 5, "username": "sarah", "password": "sarah123", "email": "sarah@gmail.com", "phone": "09154764145", "role": "user", "basket": [], "orders": []}
   ]
 }
