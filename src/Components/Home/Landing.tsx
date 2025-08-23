@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@/Components/Container';
 import ShapeSVG from '../SVGs/home/landing/ShapeSVG';
 import ChevronDownSVG from '../SVGs/nav/mobile/headerItem/ChevronDownSVG';
+import LandingButton from './Landing/LandingButton';
 
 const Landing = () => {
   return (
@@ -30,10 +31,8 @@ const Landing = () => {
 
       </Container>
       <ShapeSVG className='invisible md:visible absolutebCenter fill-body w-[100px] h-[22px]' width={100} height={22} />
-
-      <button className="w-[30px] h-[30px] rounded-full border border-orange-300 flexCenter absolutebCenter translate-y-1/2 invisible md:visible">
-        <ChevronDownSVG className='w-4 h-4 stroke-foreground' width={20} height={20} />
-      </button>
+      
+      <LandingButton />
     </section>
   );
 };
