@@ -21,12 +21,11 @@ const RenderStar = ({ starCount }: IRenderStar) => {
 
   const stars = []
   for (let i = 0; i < 5; i++) {
-    if (i < fullStars) stars.push(<StarSVG key={i} percent={100} />)
-    else if (i === fullStars) stars.push(<StarSVG key={i} percent={partialStar} />)
-    else stars.push(<StarSVG key={i} percent={0} />)
+    if (i < fullStars) stars.push(<StarSVG key={i} percent={100} className='size-5 md:size-auto' />)
+    else if (i === fullStars) stars.push(<StarSVG key={i} percent={partialStar} className='size-5 md:size-auto' />)
+    else stars.push(<StarSVG key={i} percent={0} className='size-5 md:size-auto' />)
   }
 
-  // راست به چپ برای سایت RTL
   return <div className="flex flex-row-reverse">{stars}</div>
 }
 

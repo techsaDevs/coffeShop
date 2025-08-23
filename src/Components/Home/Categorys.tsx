@@ -41,18 +41,23 @@ const Categorys = () => {
   return (
     <section id='category' className='pb-20'>
         <Container>
-            <div className='grid grid-cols-5'>
-                {
-                    category.map(({id , title , link , image}) => (
-                        <div key={id} className='flex flex-col gap-1 items-center'>
-                            <Link href={link} className="">
-                                <img src={image} alt={title} />
-                            </Link>
-                            <p className="font-dana-dbold">{title}</p>
-                        </div>
-                    ))
-                }
-            </div>
+<div className='grid grid-cols-3 lg:grid-cols-5 gap-4'>
+  {category.map(({id , title , link , image}, index) => {
+    const isLastRow = index >= 3; // فرض کنید 3 ستون در موبایل
+    return (
+      <div key={id} className={`flex flex-col gap-1 items-center 
+        ${isLastRow ? 'justify-center' : ''}`}>
+        <Link href={link}>
+          <img src={image} alt={title} />
+        </Link>
+        <p className="font-dana-dbold text-center text-sm max-w-24 lg:max-w-none">{title}</p>
+      </div>
+    )
+  })}
+</div>
+
+
+
         </Container>
     </section>
   );
