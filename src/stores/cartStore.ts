@@ -8,8 +8,8 @@ interface CartState {
   finalTotal: number;
   isOpen: boolean;
   fetchProducts: () => Promise<void>;
-  increaseQty: (id: number) => void;
-  decreaseQty: (id: number) => void;
+  increaseQty: (id: string) => void;
+  decreaseQty: (id: string) => void;
   toggleCart: (open: boolean) => void;
 }
 
@@ -27,11 +27,11 @@ export const useCartStore = create<CartState>((set, get) => ({
       const products: IProduct[] = response.data;
 
       const filteredProducts = products.filter(product =>
-        authUser.basket.some(item => item.id === Number(product.id))
+        authUser.basket.some(item => +item.id === Number(product.id))
       );
 
       const productsWithQty = filteredProducts.map(product => {
-        const basketItem = authUser.basket.find(item => item.id === Number(product.id));
+        const basketItem = authUser.basket.find(item => +item.id === Number(product.id));
         return { ...product, qty: basketItem?.qty || 0 };
       });
 

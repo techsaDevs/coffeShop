@@ -2,10 +2,11 @@ import { create } from "zustand";
 
 interface IBurgerMenuStore {
   showBarMenu: boolean;
-  openSubMenuId: number | null;
+  openSubMenuId: string | null;  // اصلاح شد
   toggleMenu: (open: boolean) => void;
-  toggleSubMenu: (id: number) => void;
+  toggleSubMenu: (id: string) => void;
 }
+
 
 export const useBurgerMenuStore = create<IBurgerMenuStore>((set, get) => ({
   showBarMenu: false,

@@ -6,8 +6,8 @@ interface ProductState {
   basket: IProductInBasket[];
   setProducts: (products: IProduct[]) => void;
   addToBasket: (product: IProduct) => void;
-  removeFromBasket: (id: number) => void;
-  changeQty: (id: number, qty: number) => void;
+  removeFromBasket: (id: string) => void;
+  changeQty: (id: string, qty: number) => void;
   clearBasket: () => void;
 }
 

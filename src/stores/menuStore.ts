@@ -26,12 +26,12 @@ export const iconsMap: Record<number, React.ElementType> = {
 };
 
 export const defaultMenu: IHeaderMenu[] = [
-  { id: 1, title: "صفحه اصلی", link: "/" },
-  { id: 2, title: "فروشگاه", link: "/#" },
-  { id: 3, title: "دیکشنری", link: "/#" },
-  { id: 4, title: "بلاگ", link: "/#" },
-  { id: 5, title: "درباره ما", link: "/#" },
-  { id: 6, title: "تماس با ما", link: "/#" },
+  { id: "1", title: "صفحه اصلی", link: "/" },
+  { id: "2", title: "فروشگاه", link: "/#" },
+  { id: "3", title: "دیکشنری", link: "/#" },
+  { id: "4", title: "بلاگ", link: "/#" },
+  { id: "5", title: "درباره ما", link: "/#" },
+  { id: "6", title: "تماس با ما", link: "/#" },
 ];
 
 export const useMenuStore = create<MenuState>((set) => ({
@@ -43,7 +43,7 @@ export const useMenuStore = create<MenuState>((set) => ({
       const { data } = await axiosInst.get("/headerMenu");
       const menuWithIcons = data.map((item: IHeaderMenu) => ({
         ...item,
-        Icon: iconsMap[item.id], 
+        Icon: iconsMap[+item.id], 
       }));
 
       set({ menu: menuWithIcons });

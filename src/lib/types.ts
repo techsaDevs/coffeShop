@@ -11,7 +11,7 @@ export interface Itsxsvg {
 export type startCountArr =  1 | 2 | 3 | 4 | 5
 
 export interface IProduct {
-  id: number;
+  id: string;
   title: string;
   image: string;
   price: number;
@@ -25,7 +25,7 @@ export interface IProductInBasket extends IProduct {
 }
 
 interface IHeaderMenuItemBase {
-  id: number;
+  id: string;
   title: string;
   link: string;
 }
@@ -36,16 +36,16 @@ export interface IHeaderMenu extends IHeaderMenuItemBase {
 }
 
 export interface IBasket {
-  id: number;
+  id: string;
   qty: number;
 }
 
 export interface IUser {
-  id: number;
+  id: string;
   username: string;
   email: string;
   phone: string;
-  role: string;
+  role: "admin" | "user";
   basket: IBasket[];
   profile?: string; 
 }

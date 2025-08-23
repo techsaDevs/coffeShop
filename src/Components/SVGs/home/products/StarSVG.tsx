@@ -14,7 +14,7 @@ const StarSVG = ({
   onClick = () => {},
   percent = 100, 
 }: StarProps) => {
-  const gradientId = `grad-${Math.random()}`; 
+  const gradientId = `grad-${Math.floor(Math.random())}`; 
 
   return (
     <svg
@@ -26,7 +26,7 @@ const StarSVG = ({
       onClick={onClick}
     >
       <defs>
-        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient id={gradientId} x1="100%" y1="0%" x2="0%" y2="0%">
           <stop offset={`${percent}%`} stopColor="gold" />
           <stop offset={`${percent}%`} stopColor="lightgray" />
         </linearGradient>

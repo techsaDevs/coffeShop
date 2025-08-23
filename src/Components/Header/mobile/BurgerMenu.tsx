@@ -251,7 +251,7 @@ const BurgerMenu = () => {
             {/* دکمه سبد خرید */}
             {!isLoggedin ? (
               <button
-                onClick={handleNotLoggedBasketClick}
+                onClick={() => handleNotLoggedBasketClick()}
                 className="flex items-center gap-[19px] px-2 py-1 rounded-full cursor-pointer select-none group"
               >
                 <div className="w-7 h-7 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
@@ -279,20 +279,26 @@ const BurgerMenu = () => {
 
 export default BurgerMenu;
 
+interface IhandleNotLoggedBasketClick {
+  logginMassage?: string;
+  className?: string;
+  parentClassName?: string;
+}
 
-export const handleNotLoggedBasketClick = () => {
+
+export const handleNotLoggedBasketClick = (
+  { logginMassage = "ابتدا وارد شوید", parentClassName = "" , className = 'bg-orange-500 hover:bg-orange-600 text-white text-xs' }: IhandleNotLoggedBasketClick = {}
+) =>
   toast.error(
-    <div className="flex items-center justify-between gap-3 p-2">
-      <span className="text-sm text-background">
-        ابتدا وارد شوید
+    <div className={`flex items-center justify-between gap-3 p-2 ${parentClassName}`}>
+      <span className="text-sm text-current">
+        {logginMassage}
       </span>
       <Link
         href="/login"
-        className="text-xs font-medium px-3 py-1.5 rounded-md 
-                   bg-orange-500 text-white 
-                   hover:bg-orange-600 transition-colors"
+        className={`font-medium px-3 py-1.5 rounded-md transition-all ${className}`}
       >
-        رفتن به صفحه ورود
+        لاگین | ثبت نام
       </Link>
     </div>,
     {
@@ -303,4 +309,3 @@ export const handleNotLoggedBasketClick = () => {
       hideProgressBar: false,
     }
   );
-};
