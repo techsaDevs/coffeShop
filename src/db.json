@@ -7,7 +7,7 @@
       "price": 175000,
       "off": 12,
       "count": 50,
-      "starCount": 5
+      "starCount": [5]
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "price": 389700,
       "off": 0,
       "count": 0,
-      "starCount": 4
+      "starCount": [4]
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "price": 402000,
       "off": 50,
       "count": 0,
-      "starCount": 3
+      "starCount": [3]
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "price": 347000,
       "off": 0,
       "count": 50,
-      "starCount": 4
+      "starCount": [4]
     },
     {
       "id": 5,
@@ -43,7 +43,7 @@
       "price": 143000,
       "off": 0,
       "count": 50,
-      "starCount": 3
+      "starCount": [3]
     },
     {
       "id": 6,
@@ -52,7 +52,7 @@
       "price": 33000,
       "off": 0,
       "count": 50,
-      "starCount": 5
+      "starCount": [5]
     },
     {
       "id": 7,
@@ -61,7 +61,7 @@
       "price": 179000,
       "off": 0,
       "count": 0,
-      "starCount": 4
+      "starCount": [4]
     },
     {
       "id": 8,
@@ -70,7 +70,7 @@
       "price": 125000,
       "off": 15,
       "count": 50,
-      "starCount": 2
+      "starCount": [2]
     }
   ],
   "headerMenu": [

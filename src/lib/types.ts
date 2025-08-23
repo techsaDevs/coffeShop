@@ -8,13 +8,16 @@ export interface Itsxsvg {
   onClick?: () => void;
 }
 
+export type startCountArr =  1 | 2 | 3 | 4 | 5
+
 export interface IProduct {
   id: number;
   title: string;
   image: string;
   price: number;
   off: number;
-  starCount: number;
+  count: number;
+  starCount: startCountArr[];
 }
 
 export interface IProductInBasket extends IProduct {

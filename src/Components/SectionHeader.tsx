@@ -35,7 +35,7 @@ const SectionHeader = (props: SectionHeaderProps) => {
       return (
         <div className="flexBetween mb-6">
           <h3 className="font-morabba-medium text-4xl">{props.title}</h3>
-          <div className="text-orange-300 flex items-center gap-1 duration-150 hover:gap-2">
+          <div className="text-orange-300 flex items-center gap-1 duration-500 hover:gap-2">
             <Link className="font-dana-medium" href={props.link}>{props.linkTitle ?? "مشاهده بیشتر"}</Link>
             <ArrowLeftSVG width={16} height={16} />
           </div>
@@ -48,7 +48,7 @@ const SectionHeader = (props: SectionHeaderProps) => {
           <h3 className="font-morabba-medium text-4xl">{props.title}</h3>
           <div className="flexBetween mt-2">
             <p className="font-morabba-medium text-xl text-gray-500">{props.caption}</p>
-            <div className="text-orange-300 flex items-center gap-1 duration-150 hover:gap-2">
+            <div className="text-orange-300 flex items-center gap-1 duration-500 hover:gap-2">
               <Link className="font-dana-medium" href={props.link}>{props.linkTitle ?? "مشاهده بیشتر"}</Link>
               <ArrowLeftSVG width={16} height={16} />
             </div>
