@@ -137,3 +137,14 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
 .circle_smal { @apply w-[95px] h-[95px] border-white/80 }
 
 .absolutebCenter { @apply absolute bottom-0 right-0 left-0 mx-auto }
+
+
+@media (width >= 80rem /* 1280px */) {
+  html.dark .bg-product { background-image: url("/product-bg.png"); }
+  
+  .bg-product { 
+    background: linear-gradient(#f3f4f6a6 , #f3f4f6a6), url("/product-bg.png"); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}

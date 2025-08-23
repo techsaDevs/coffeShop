@@ -1,12 +1,11 @@
 import React from 'react';
 import Container from '@/Components/Container';
 import ShapeSVG from '../SVGs/home/landing/ShapeSVG';
-import ChevronDownSVG from '../SVGs/nav/mobile/headerItem/ChevronDownSVG';
 import LandingButton from './Landing/LandingButton';
 
 const Landing = () => {
   return (
-    <section className="relative h-[200px] xs:h-auto xs:aspect-[2/1] md:aspect-auto bg-header bg-no-repeat bg-cover bg-[center_top]">
+    <section id='home' className="relative h-[200px] xs:h-auto xs:aspect-[2/1] md:aspect-auto bg-header bg-no-repeat bg-cover bg-[center_top]">
       <Container
         className="h-full md:min-h-screen flex items-center justify-end relative overflow-y-hidden">
         <div className="md:w-auto text-white">
@@ -30,8 +29,8 @@ const Landing = () => {
 
 
       </Container>
+
       <ShapeSVG className='invisible md:visible absolutebCenter fill-body w-[100px] h-[22px]' width={100} height={22} />
-      
       <LandingButton />
     </section>
   );
