@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Itsxsvg {
   fill?: string;
   width?: string | number;
@@ -6,13 +8,20 @@ export interface Itsxsvg {
   onClick?: () => void;
 }
 
+export type startCountArr =  1 | 2 | 3 | 4 | 5
+
 export interface IProduct {
   id: string;
   title: string;
   image: string;
   price: number;
   off: number;
-  starCount: number;
+  count: number;
+  starCount: startCountArr[];
+}
+
+export interface IProductInBasket extends IProduct {
+  qty: number;
 }
 
 interface IHeaderMenuItemBase {
@@ -22,9 +31,13 @@ interface IHeaderMenuItemBase {
 }
 
 export interface IHeaderMenu extends IHeaderMenuItemBase {
+  Icon?: React.ElementType;
   subMenu?: IHeaderMenuItemBase[];
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> mike
 }
 
 export interface IBasket {
@@ -45,5 +58,8 @@ export interface IUser {
 export interface IContainer {
   children: ReactNode;
   className?: string;
+<<<<<<< HEAD
 >>>>>>> f97a0bf (refacor all id: number; to id: string;)
+=======
+>>>>>>> mike
 }

@@ -2,19 +2,25 @@
   "products": [
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "id": 1,
       "title": "متن تستی برای محصول 1",
 =======
       "id": "1",
       "title": "قهوه اسپرسو بن مانو مدل مانوکا 250 گرم",
 >>>>>>> f97a0bf (refacor all id: number; to id: string;)
+=======
+      "id": "1",
+      "title": "قهوه اسپرسو بن مانو مدل مانوکا 250 گرم",
+>>>>>>> mike
       "image": "/products/p1.png",
-      "price": 100000,
-      "off": 10,
-      "count": 99,
-      "starCount": 4
+      "price": 175000,
+      "off": 12,
+      "count": 50,
+      "starCount": [5]
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": 2,
       "title": "متن تستی برای محصول 2",
@@ -38,11 +44,18 @@
 >>>>>>> f97a0bf (refacor all id: number; to id: string;)
       "image": "/products/p3.png",
       "price": 500000,
+=======
+      "id": "2",
+      "title": "قهوه اسپرسو بن مانو مدل مانوکا 250 گرمی",
+      "image": "/products/p2.png",
+      "price": 389700,
+>>>>>>> mike
       "off": 0,
-      "count": 25,
-      "starCount": 3
+      "count": 0,
+      "starCount": [4]
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "id": 4,
       "title": "متن تستی برای محصول 4",
@@ -52,6 +65,17 @@
       "count": 0,
       "starCount": 3
 =======
+=======
+      "id": "3",
+      "title": "قهوه اسپرسو بن مانو - 250 گرم",
+      "image": "/products/p3.png",
+      "price": 402000,
+      "off": 50,
+      "count": 0,
+      "starCount": [3]
+    },
+    {
+>>>>>>> mike
       "id": "4",
       "title": "پودر قهوه اسپرسو آرتیمان بن مانو 250 گرمی",
       "image": "/products/p4.png",
@@ -95,7 +119,10 @@
       "off": 15,
       "count": 50,
       "starCount": [2]
+<<<<<<< HEAD
 >>>>>>> f97a0bf (refacor all id: number; to id: string;)
+=======
+>>>>>>> mike
     }
   ],
   "headerMenu": [
@@ -162,7 +189,10 @@
       "link": "/call-with-us"
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> mike
   ],
   "users": [
     {
@@ -174,6 +204,9 @@
       "role": "admin",
       "basket": []
     }
+<<<<<<< HEAD
 >>>>>>> f97a0bf (refacor all id: number; to id: string;)
+=======
+>>>>>>> mike
   ]
 }

@@ -1,3 +1,4 @@
+"use client"
 import { Itsxsvg } from '@/lib/types'
 import React from 'react'
 
@@ -5,7 +6,7 @@ const ArrowLeftSVG = ({
   fill = "none",
   width = 24,
   height = 24,
-  className = "size-6",
+  className = "",
   onClick = () => {},
 }: Itsxsvg) => {
     return (

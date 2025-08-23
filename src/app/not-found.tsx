@@ -1,5 +1,6 @@
 import React from 'react'
 
+<<<<<<< HEAD
 const NotFound = () => {
   return (
     <div>
@@ -9,3 +10,12 @@ const NotFound = () => {
 }
 
 export default NotFound
+=======
+const notFound = () => {
+  return (
+    <div>notFound</div>
+  )
+}
+
+export default notFound
+>>>>>>> main
