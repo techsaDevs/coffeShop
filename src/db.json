@@ -1,8 +1,13 @@
 {
   "products": [
     {
+<<<<<<< HEAD
       "id": 1,
       "title": "متن تستی برای محصول 1",
+=======
+      "id": "1",
+      "title": "قهوه اسپرسو بن مانو مدل مانوکا 250 گرم",
+>>>>>>> f97a0bf (refacor all id: number; to id: string;)
       "image": "/products/p1.png",
       "price": 100000,
       "off": 10,
@@ -10,8 +15,13 @@
       "starCount": 4
     },
     {
+<<<<<<< HEAD
       "id": 2,
       "title": "متن تستی برای محصول 2",
+=======
+      "id": "2",
+      "title": "قهوه اسپرسو بن مانو مدل مانوکا 250 گرمی",
+>>>>>>> f97a0bf (refacor all id: number; to id: string;)
       "image": "/products/p2.png",
       "price": 150000,
       "off": 33,
@@ -19,8 +29,13 @@
       "starCount": 3
     },
     {
+<<<<<<< HEAD
       "id": 3,
       "title": "متن تستی برای محصول 3",
+=======
+      "id": "3",
+      "title": "قهوه اسپرسو بن مانو - 250 گرم",
+>>>>>>> f97a0bf (refacor all id: number; to id: string;)
       "image": "/products/p3.png",
       "price": 500000,
       "off": 0,
@@ -28,6 +43,7 @@
       "starCount": 3
     },
     {
+<<<<<<< HEAD
       "id": 4,
       "title": "متن تستی برای محصول 4",
       "image": "/products/p4.png",
@@ -35,70 +51,129 @@
       "off": 44,
       "count": 0,
       "starCount": 3
+=======
+      "id": "4",
+      "title": "پودر قهوه اسپرسو آرتیمان بن مانو 250 گرمی",
+      "image": "/products/p4.png",
+      "price": 347000,
+      "off": 0,
+      "count": 50,
+      "starCount": [4]
+    },
+    {
+      "id": "5",
+      "title": "قهوه نورسکا 9 صبح بن مانو (60گرمي)",
+      "image": "/products/p5.png",
+      "price": 143000,
+      "off": 0,
+      "count": 50,
+      "starCount": [3]
+    },
+    {
+      "id": "6",
+      "title": "قهوه نورسکا 6 عصر بن مانو 6 عددی",
+      "image": "/products/p6.png",
+      "price": 33000,
+      "off": 0,
+      "count": 50,
+      "starCount": [5]
+    },
+    {
+      "id": "7",
+      "title": "قهوه فوری دمی نورسکا 8 شب",
+      "image": "/products/p7.png",
+      "price": 179000,
+      "off": 0,
+      "count": 0,
+      "starCount": [4]
+    },
+    {
+      "id": "8",
+      "title": "پودر قهوه کیسه‌ای کافئین متوسط نورسکا بن مانو مدل 2 PM",
+      "image": "/products/p8.png",
+      "price": 125000,
+      "off": 15,
+      "count": 50,
+      "starCount": [2]
+>>>>>>> f97a0bf (refacor all id: number; to id: string;)
     }
   ],
   "headerMenu": [
     {
-      "id": 1,
+      "id": "1",
       "title": "صفحه اصلی",
       "link": "/"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "فروشگاه",
       "link": "/product",
       "subMenu": [
         {
-          "id": 1,
+          "id": "1",
           "title": "قهوه فوری",
           "link": "/product/fast-coffe"
         },
         {
-          "id": 2,
+          "id": "2",
           "title": "ویژه در سطح جهانی",
           "link": "/product/vip-coffe"
         },
         {
-          "id": 3,
+          "id": "3",
           "title": "قهوه درجه یک",
           "link": "/product/best-coffe"
         },
         {
-          "id": 4,
+          "id": "4",
           "title": "ترکیبات تجاری",
           "link": "/product/company-mix-coffe"
         },
         {
-          "id": 5,
+          "id": "5",
           "title": "کپسول قهوه",
           "link": "/product/capsol-coffe"
         },
         {
-          "id": 6,
+          "id": "6",
           "title": "قهوه زینو برزیلی",
           "link": "/product/brazil-zino-coffe"
         }
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "دیکشنری",
       "link": "/dictionary"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "بلاگ",
       "link": "/blog"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "درباره ما",
       "link": "/about-us"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "تماس باما",
       "link": "/call-with-us"
     }
+<<<<<<< HEAD
+=======
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "mohammad",
+      "phone": "09876543210",
+      "email": "mohammad@gmail.com",
+      "profile": "",
+      "role": "admin",
+      "basket": []
+    }
+>>>>>>> f97a0bf (refacor all id: number; to id: string;)
   ]
 }
