@@ -1,47 +1,33 @@
 "use client"
-import React, { JSX, useEffect } from 'react';
-import StarSVG from '@/Components/SVGs/home/products/StarSVG';
+import React from 'react'
+import StarSVG from '@/Components/SVGs/home/products/StarSVG'
 
 interface IRenderStar {
-    starCount: number[]
+  starCount: number[]
 }
 
 const RenderStar = ({ starCount }: IRenderStar) => {
+  const avg = starCount.length
+    ? starCount.reduce((a, b) => a + b, 0) / starCount.length
+    : 0
 
+  const fullStars = Math.floor(avg)
+  let partialStar: 0 | 50 | 100 = 0
 
-    const renderStars = (): JSX.Element[] => {
-        const stars: JSX.Element[] = [];
+  // تصمیم‌گیری برای ستاره آخر
+  const decimal = avg - fullStars
+  if (decimal >= 0.7) partialStar = 100
+  else if (decimal >= 0.3) partialStar = 50
 
-        if (!starCount || starCount.length === 0) return stars;
+  const stars = []
+  for (let i = 0; i < 5; i++) {
+    if (i < fullStars) stars.push(<StarSVG key={i} percent={100} />)
+    else if (i === fullStars) stars.push(<StarSVG key={i} percent={partialStar} />)
+    else stars.push(<StarSVG key={i} percent={0} />)
+  }
 
-        const avg = starCount.reduce((pre, curr) => pre + curr, 0) / starCount.length;
+  // راست به چپ برای سایت RTL
+  return <div className="flex flex-row-reverse">{stars}</div>
+}
 
-        for (let i = 0; i < 5; i++) {
-            let percent = 0;
-
-            if (i + 1 <= avg) {
-                percent = 100;
-            } else if (i < avg) {
-
-                const fraction = (avg - i) * 100;
-
-                if (fraction < 25) percent = 0;
-                else if (fraction < 50) percent = 25;
-                else if (fraction < 75) percent = 50;
-                else percent = 75;
-            } else {
-                percent = 0; 
-            }
-
-            stars.push(<StarSVG key={i} percent={percent} />);
-        }
-
-        return stars;
-    };
-
-    return (
-        <div className="flex">{renderStars()}</div>
-    );
-};
-
-export default RenderStar;
+export default RenderStar

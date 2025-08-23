@@ -6,7 +6,7 @@ import Product from './Products/Product'
 import axiosInst from '@/lib/axiosConfig'
 
 const Products = async () => {
-
+    
     const { data } = await axiosInst<IProduct[]>("/products")
 
     return (

@@ -35,19 +35,27 @@ export interface IHeaderMenu extends IHeaderMenuItemBase {
   subMenu?: IHeaderMenuItemBase[];
 }
 
-export interface IBasket {
-  id: string;
-  qty: number;
-}
-
 export interface IUser {
   id: string;
   username: string;
-  email: string;
+  password: string;
   phone: string;
+  email: string;
   role: "admin" | "user";
   basket: IBasket[];
-  profile?: string; 
+  orders : IOrder[];
+  profile?: string;
+}
+
+interface IBasket {
+  id: string
+  qty : number
+}
+
+interface IOrder {
+  id: string
+  status : "pending" | "rejected" | "sending" | "sent"
+  products : IBasket[]
 }
 
 export interface IContainer {

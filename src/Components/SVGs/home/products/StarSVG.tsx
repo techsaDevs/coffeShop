@@ -1,20 +1,19 @@
 "use client"
 import { Itsxsvg } from '@/lib/types'
-import React from 'react'
+import React, { useId } from 'react'
 
 interface StarProps extends Itsxsvg {
-  percent?: number;
+  percent?: number // 0, 50, 100
 }
 
 const StarSVG = ({
-  fill = "currentColor",
   width = 24,
   height = 24,
   className = "",
   onClick = () => {},
-  percent = 100, 
+  percent = 100,
 }: StarProps) => {
-  const gradientId = `grad-${Math.floor(Math.random())}`; 
+  const gradientId = useId() // id پایدار برای SSR + Client
 
   return (
     <svg
@@ -26,13 +25,13 @@ const StarSVG = ({
       onClick={onClick}
     >
       <defs>
-        <linearGradient id={gradientId} x1="100%" y1="0%" x2="0%" y2="0%">
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset={`${percent}%`} stopColor="gold" />
           <stop offset={`${percent}%`} stopColor="lightgray" />
         </linearGradient>
       </defs>
       <path
-        fill={"none"}
+        fill="none"
         stroke={`url(#${gradientId})`}
         strokeWidth={1.5}
         strokeLinecap="round"
