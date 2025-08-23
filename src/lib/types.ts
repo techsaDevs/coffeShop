@@ -33,11 +33,6 @@ interface IHeaderMenuItemBase {
 export interface IHeaderMenu extends IHeaderMenuItemBase {
   Icon?: React.ElementType;
   subMenu?: IHeaderMenuItemBase[];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> mike
 }
 
 export interface IBasket {
@@ -58,8 +53,4 @@ export interface IUser {
 export interface IContainer {
   children: ReactNode;
   className?: string;
-<<<<<<< HEAD
->>>>>>> f97a0bf (refacor all id: number; to id: string;)
-=======
->>>>>>> mike
 }
