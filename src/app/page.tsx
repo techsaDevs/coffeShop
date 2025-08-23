@@ -1,7 +1,11 @@
+import Landing from "@/Components/Home/Landing";
+import Products from "@/Components/Home/Products";
+
 export default function Home() {
   return (
-    <div className="">
-      <img src="/header/headerBgDesktop.webp" alt="headerBgDesktop" className="select-none" />
-    </div>
+    <main className="text-foreground min-h-screen">
+        <Landing />
+        <Products />
+    </main>
   );
 }
