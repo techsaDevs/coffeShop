@@ -17,7 +17,6 @@
   font-display: swap;
 }
 
-
 @font-face {
   font-family: "Morabba Light"; /* 300 */
   src: url("../../public/fonts/morabba/Morabba-Light.woff2"), format("woff2");
@@ -41,6 +40,10 @@
   --foreground: #3f3f46;
   --body: #f3f4f6;
   --basket-green: #0d9488;
+  --hoverBasket-green: #00786f;
+  --basket-gray: #a1a2b1a1;
+  --basket-border: #d1d5db;
+  --basketItem-border: #f3f4f6;
 }
 
 html.dark {
@@ -48,11 +51,15 @@ html.dark {
   --foreground: #ffffff;
   --body: #27272a;
   --basket-green: #10b981;
+  --hoverBasket-green: #009966;
+  --basket-gray: #707070;
+  --basket-border: #ffffff1a;
+  --basketItem-border: #ffffff1a;
 }
 
 @custom-variant childs {
   & > * {
-    @slot
+    @slot;
   }
 }
 
@@ -63,6 +70,12 @@ html.dark {
 }
 
 @theme {
+  --breakpoint-xs: 30rem; /* 480px  */
+  --breakpoint-sm: 40rem; /* 640px  */
+  --breakpoint-md: 48rem; /* 768px  */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px */
+  --container-2xl: 1260px;
   --shadow-coffe: 0px 1px 10px rgba(0, 0, 0, 0.05);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
@@ -80,16 +93,67 @@ html.dark {
   --color-foregreen: var(--basket-green);
   --tracking-tightest: -0.065em;
   --spacing-30: 7.5rem;
+  --color-foregray: var(--basket-gray);
+  --color-hoverBasket-green: var(--hoverBasket-green);
+  --color-basket-border: var(--basket-border);
+  --color-basketItem-border: var(--basketItem-border);
 }
 
+/* from cssena */
+.flexCenter { @apply flex items-center justify-center; }
+.flexBetween { @apply flex items-center justify-between; }
+.flexColCenter { @apply flex flex-col items-center justify-center; }
+.flexColBetween { @apply flex flex-col items-center justify-between; }
+
+/* home basket scroll */
+::-webkit-scrollbar { @apply w-1.5; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-foregray rounded-full; }
+html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
+::-webkit-scrollbar-thumb:hover { @apply bg-hoverBasket-green; }
+
+
+/* classes */
 .headerHoverBox {
-  @apply absolute top-full shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl
+  @apply absolute top-full shadow-coffe border-t-[3px] border-orange-300 text-base bg-background rounded-2xl;
 }
 
 .basketBtn {
+<<<<<<< HEAD
   @apply bg-foregreen
 }
 
 .simple-link{
   @apply !text-brown-600 font-bold font-dana-dbold relative after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-brown-600 after:transition-all after:duration-300 hover:after:w-full
 }
+=======
+  @apply bg-foregreen hover:bg-hoverBasket-green duration-200 rounded-xl text-white focus:shadow shadow-foregreen flex items-center justify-center tracking-tightest;
+}
+
+.bg-header { background-image: url("/header/headerBgMobile.webp"); }
+
+@media (width >= 48rem /* 768px */) {
+  .bg-header {
+    background-image: url("/header/headerBgDesktop.webp");
+  }
+}
+
+
+.circle { @apply flex items-center justify-center border rounded-full }
+.circle_main { @apply w-[203px] h-[203px] border-white/25 absolute bottom-0 right-0 left-0 mx-auto translate-y-1/2 }
+.circle_midd { @apply w-[145px] h-[145px] border-white/50 }
+.circle_smal { @apply w-[95px] h-[95px] border-white/80 }
+
+.absolutebCenter { @apply absolute bottom-0 right-0 left-0 mx-auto }
+
+
+@media (width >= 80rem /* 1280px */) {
+  html.dark .bg-product { background-image: url("/product-bg.png"); }
+  
+  .bg-product { 
+    background: linear-gradient(#f3f4f6a6 , #f3f4f6a6), url("/product-bg.png"); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+>>>>>>> main
