@@ -16,8 +16,8 @@ const BlogBox = ({title, image, link, date: {day, month, year}} : IBlog) => {
             <img src={image} alt={title} className='rounded-2xl rounded-bl-4xl ' />
             <LogoTypeSVG className="invisible group-hover:visible absolute inset-0 transition-all  m-auto text-brown-900 z-20" fill='#75340d' />
         </div>
-        <div className="flexBetween pr-3 pb-3 pl-6">
-            <h3 className="font-dana-medium max-w-42">{title}</h3>
+        <div className="flexBetween pr-3 pb-3 pl-6 gap-2">
+            <h3 className="font-dana-medium max-w-42 line-clamp-2">{title}</h3>
             <div className="flex flex-col items-center text-emerald-400 mt-3">
                 <h4 className="text-lg font-dana-dbold leading-5">{day}</h4>
                 <span className="text-xs leading-5 font-dana-medium">{month}</span>
