@@ -44,6 +44,7 @@
   --basket-gray: #a1a2b1a1;
   --basket-border: #d1d5db;
   --basketItem-border: #f3f4f6;
+  --gray-300-dark-white: #d1d5dc;
 }
 
 html.dark {
@@ -55,6 +56,7 @@ html.dark {
   --basket-gray: #707070;
   --basket-border: #ffffff1a;
   --basketItem-border: #ffffff1a;
+  --gry3-dark-white: #fff;
 }
 
 @custom-variant childs {
@@ -79,6 +81,7 @@ html.dark {
   --shadow-coffe: 0px 1px 10px rgba(0, 0, 0, 0.05);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-grythreedarkwhite: var(--gry3-dark-white);
   --color-body: var(--body);
   --font-dana: "Dana", sans-serif;
   --font-dana-medium: "Dana Medium", sans-serif;
@@ -160,6 +163,11 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
   }
 }
 
-.simple-link{
-  @apply !text-brown-600 font-bold font-dana-dbold relative after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-brown-600 after:transition-all after:duration-300 hover:after:w-full
+.prevNextBestSellbtn {
+  @apply bg-background w-8 h-8 flex items-center
+   justify-center cursor-pointer rounded-full 
+   transition-all hover:bg-grythreedarkwhite
+   hover:text-foreground border border-background
 }
+
+.dark .prevNextBestSellbtn { @apply hover:text-background }
