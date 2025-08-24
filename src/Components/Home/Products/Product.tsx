@@ -13,7 +13,7 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
         }
     }
     return (
-        <div className='bg-background rounded-2xl lg:h-[467px] flex flex-col'>
+        <div className='bg-background rounded-2xl h-[353px] sm:h-[425px] md:h-[390px] lg:h-[467px] flex flex-col'>
             <div className='relative'>
                 <img src={image} alt={title} className="w-full rounded-t-2xl" />
                 {
