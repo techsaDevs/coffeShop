@@ -43,7 +43,8 @@ export interface IUser {
   email: string;
   role: "admin" | "user";
   basket: IBasket[];
-  orders : IOrder[];
+  orders: IOrder[];
+  score: number;
   profile?: string;
 }
 

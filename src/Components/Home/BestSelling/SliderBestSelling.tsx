@@ -17,15 +17,15 @@ const SliderBestSelling: React.FC<SliderProps> = ({ serverProducts }) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
-      spaceBetween={30}
+      spaceBetween={20}
       slidesPerView={4}
       onSwiper={setSwiper} // اینجا instance رو در استور ذخیره می‌کنیم
       autoplay={{ delay: 10000, disableOnInteraction: false }}
       className="rounded-xl"
       breakpoints={{
-        280: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        1024: { slidesPerView: 4 },
+        280: { slidesPerView: 2 , spaceBetween: 14 },
+        768: { slidesPerView: 3 , spaceBetween: 20 },
+        1024: { slidesPerView: 4 , spaceBetween: 20 },
       }}
     >
       {serverProducts.map((productJSX, idx) => (
