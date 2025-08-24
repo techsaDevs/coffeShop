@@ -188,5 +188,51 @@
       "basket": [],
       "orders": []
     }
+  ],
+  "blogs": [
+    {
+      "id": "1",
+      "image": "/blogs/blog-1.png",
+      "title": "طرز تهیه قهوه دمی با دستگاه اروپرس",
+      "link": "/blog/how-to-make-coffe-with-tool-oropress",
+      "date": {
+        "year": 1404,
+        "month": "تیر",
+        "day": 8
+      }
+    },
+    {
+      "id": "2",
+      "image": "/blogs/blog-2.png",
+      "title": "یک نوشیدنی هیجان انگیز و پرکالری برای شروع روز",
+      "link": "/blog/fantastic-drink",
+      "date": {
+        "year": 1404,
+        "month": "مرداد",
+        "day": 12
+      }
+    },
+    {
+      "id": "3",
+      "image": "/blogs/blog-3.png",
+      "title": "طرز تهیه یک فنجان کافه زینو برزیلی",
+      "link": "/blog/how-to-make-coffe-zino-brazilan",
+      "date": {
+        "year": 1404,
+        "month": "مرداد",
+        "day": 30
+      }
+    },
+    {
+      "id": "4",
+      "image": "/blogs/blog-4.png",
+      "title": "طرز تهیه قهوه دالگونا مناسب روز های سخت",
+      "link": "/blog/how-to-make-coffe-dalgona",
+      "date": {
+        "year": 1404,
+        "month": "شهریور",
+        "day": 10
+      }
+    }
   ]
 }

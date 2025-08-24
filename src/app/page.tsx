@@ -4,6 +4,7 @@ import Popular from "@/Components/Home/Popular";
 import Categorys from "@/Components/Home/Categorys";
 import BestSelling from "@/Components/Home/BestSelling";
 import CoffeClub from "@/Components/Home/CoffeClub";
+import Blog from "@/Components/Home/Blog";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Categorys />
         <BestSelling />
         <CoffeClub />
+        <Blog />
     </main>
   );
 }

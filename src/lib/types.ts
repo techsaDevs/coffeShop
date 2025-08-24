@@ -70,3 +70,17 @@ export interface ICategorys {
     image: string;
     link: string;
 }
+
+interface IBlogDate {
+  year: number;
+  month: string;
+  day: number;
+}
+
+export interface IBlog {
+  id: string;
+  image: string;
+  title: string;
+  link: string;
+  date: IBlogDate
+}
