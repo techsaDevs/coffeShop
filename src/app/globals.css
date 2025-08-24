@@ -92,11 +92,18 @@ html.dark {
   --color-brown-900: #634832;
   --color-foregreen: var(--basket-green);
   --tracking-tightest: -0.065em;
+  --spacing-24-1: 6.25rem;
+  --spacing-50: 12.5rem;
   --spacing-30: 7.5rem;
   --color-foregray: var(--basket-gray);
   --color-hoverBasket-green: var(--hoverBasket-green);
   --color-basket-border: var(--basket-border);
   --color-basketItem-border: var(--basketItem-border);
+}
+
+img , a {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 /* from cssena */

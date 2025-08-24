@@ -7,13 +7,13 @@ import axiosInst from '@/lib/axiosConfig'
 
 const Products = async () => {
     
-    const { data } = await axiosInst<IProduct[]>("/products")
+    const res = await fetch("http://localhost:3001/products")
+    const data: IProduct[] = await res.json()
 
     return (
         <div id='products' className='min-h-[900px] bg-product pt-8 md:pt-24 lg:pt-48'>
             <Container>
                 <SectionHeader mode='title-caption-link' title="جدید ترین محصولات" caption="فرآوری شده از دانه قهوه" link="/products" linkTitle='مشاهده همه محصولات' />
-
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                     {
                         data.map((item) => (

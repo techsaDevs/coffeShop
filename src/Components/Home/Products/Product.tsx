@@ -31,9 +31,9 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
                 }
             </div>
 
-            <div className="px-4 py-3 flex flex-col justify-between flex-1">
+            <div className="p-2.5 md:px-4 md:py-3 flex flex-col justify-between flex-1">
                 <div>
-                    <h3 className="line-clamp-2 font-dana-medium text-base md:text-lg">{title}</h3>
+                    <h3 className="line-clamp-2 font-dana-medium text-sm md:text-lg">{title}</h3>
                 </div>
 
                 <div className="">
@@ -45,8 +45,8 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
                                         off > 0 ? (
                                             <>
                                                 <div className='flex items-center gap-1 text-hoverBasket-green'>
-                                                    <span className="font-dana-dbold text-base md:text-lg">{finalPrice.toLocaleString()}</span>
-                                                    <span className="font-dana text-sm">تومان</span>
+                                                    <span className="font-dana-dbold text-sm md:text-lg">{finalPrice.toLocaleString()}</span>
+                                                    <span className="font-dana text-xs">تومان</span>
                                                 </div>
                                                 <div className={`
                                                     flex items-center gap-0.5 md:gap-1 opacity-50 relative
@@ -54,8 +54,8 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
                                                       before:bg-rose-500 before:h-px md:before:h-0.5
                                                       before:top-2 md:before:top-2.5 before:w-full  
                                                 `}>
-                                                    <span className="font-dana-dbold text-sm md:text-lg">{price.toLocaleString()}</span>
-                                                    <span className="font-dana text-xs">تومان</span>
+                                                    <span className="font-dana-dbold text-[13px] md:text-lg">{price.toLocaleString()}</span>
+                                                    <span className="font-dana text-[11px]">تومان</span>
                                                 </div>
                                             </>
                                         ) : (
@@ -71,10 +71,10 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
                     </div>
                     <div className='flex items-center justify-between mt-auto'>
 
-                        <div className="flex gap-2">
+                        <div className="flex items-center gap-2">
                             <AddProduct id={id} />
-                            <button className="">
-                                <ArrowLeftRightSVG />
+                            <button className="w-4 h-4">
+                                <ArrowLeftRightSVG className='w-full h-full' />
                             </button>
                         </div>
                         <RenderStar starCount={starCount} />
