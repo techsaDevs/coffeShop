@@ -9,7 +9,7 @@ const UserScore = () => {
     const { isLoggedin, user } = useAuthStore()
 
     return (
-        <div className={`flex flex-col w-full md:mr-20 ${!isLoggedin ? "justify-center" : ""}`}>
+        <div className={`flex flex-col w-full text-white md:mr-20 ${!isLoggedin ? "justify-center" : ""}`}>
             {
                 isLoggedin ? (
                     <>

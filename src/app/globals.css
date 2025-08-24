@@ -176,3 +176,8 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
 .warraperBoxes {
   @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-5
 }
+
+.service-icon { @apply block }
+.service-icon-dark { @apply hidden }
+.dark .service-icon { @apply hidden }
+.dark .service-icon-dark { @apply block }

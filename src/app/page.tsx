@@ -6,6 +6,7 @@ import BestSelling from "@/Components/Home/BestSelling";
 import CoffeClub from "@/Components/Home/CoffeClub";
 import Blog from "@/Components/Home/Blog";
 import Contact from "@/Components/Home/Contact";
+import Services from "@/Components/Home/Services";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <CoffeClub />
         <Blog />
         <Contact />
+        <Services />
     </main>
   );
 }
