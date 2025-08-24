@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="text-foreground min-h-screen">
         <Landing />
-        <Products />
+        {/* <Products /> */}
         <Popular />
         <Categorys />
         <BestSelling />

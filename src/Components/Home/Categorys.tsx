@@ -41,7 +41,7 @@ const Categorys = () => {
   return (
     <section id='category' className='mb-10 md:mb-24-1'>
       <Container>
-        <div className='flexCenter gap-y-6 gap-x-[29px] gap-[65px] flex-wrap'>
+        <div className='flex justify-center lg:justify-between items-center gap-y-6 gap-x-[29px] gap-[65px] flex-wrap'>
           {category.map(({ id, title, link, image }) =>  (
               <div key={id} className="text-center w-24-1 md:w-50">
                 <Link href={link} className=''>
