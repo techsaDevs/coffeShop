@@ -26,8 +26,8 @@ const Services = () => {
         {
             title: "امکان تحویل اکسپرس",
             caption: "ارسال بسته ببا سرعت زیاد",
-            icon: <ExpressDeliverySVG className='service-icon' />,
-            iconDark: <ExpressDeliveryDarkSVG className="service-icon-dark" />
+            icon: <ExpressDeliverySVG className='service-icon -ml-10 md:ml-0' />,
+            iconDark: <ExpressDeliveryDarkSVG className="service-icon-dark -ml-10 md:ml-0" />
         },
         {
             title: "رست تخصصی",
@@ -44,17 +44,17 @@ const Services = () => {
     ]
 
   return (
-    <div id='services' className='my-8 md:my-24'>
+    <div id='services' className='my-18 md:my-24'>
       <Container>
-        <ul className="flexBetween">
+        <ul className="flexBetween flex-wrap gap-12">
             {
                 services.map(({title , caption , icon , iconDark}) => (
-                <li className="flex items-center gap-5" key={title}>
+                <li className="flex flex-col md:flex-row items-center gap-3" key={title}>
                     <div className="">
                         {icon}
                         {iconDark}
                     </div>
-                    <div className="">
+                    <div className="text-center">
                         <h3 className="text-xl mb-3">{title}</h3>
                         <p className="text-sm">{caption}</p>
                     </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from '../Container'
+import PhoneBtn from './Contact/PhoneBtn';
 
 const Contact = () => {
   return (
@@ -14,7 +15,7 @@ const Contact = () => {
             <span className="font-morabba-medium mb-3 md:mb-0 text-[22px] opacity-70">کیفیت قهوه را از ما بخواهید  ...</span>
             <span className="text-2xl hidden md:block">...</span>
             <p className="font-dana-medium text-lg mb-5">فضای گرم و دنج ما را احساس کنید، جایی که همه می توانند قهوه معطری پیدا کنند و دسرهای خوشمزه ما را که کاملا با قهوه داغ همراه شده است، امتحان کنند. فضای داخلی شیک و کارکنان خوش برخورد ما روز شمارا می سازد!</p>
-            <button className="p-3 border border-orange-300 rounded-full text-orange-300 cursor-pointer">ثبت سفارش تلفنی</button>
+             <PhoneBtn />
           </div>
           </div>
         </Container>
