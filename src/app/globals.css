@@ -177,7 +177,14 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
   @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-5
 }
 
+.footer-title {
+  @apply font-dana-dbold text-xl
+}
+
 .service-icon { @apply block }
 .service-icon-dark { @apply hidden }
 .dark .service-icon { @apply hidden }
 .dark .service-icon-dark { @apply block }
+
+.footer-logo { @apply hidden }
+.dark .footer-logo { @apply block }

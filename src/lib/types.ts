@@ -24,7 +24,7 @@ export interface IProductInBasket extends IProduct {
   qty: number;
 }
 
-interface IHeaderMenuItemBase {
+export interface IHeaderMenuItemBase {
   id: string;
   title: string;
   link: string;

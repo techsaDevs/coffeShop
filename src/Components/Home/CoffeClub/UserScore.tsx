@@ -11,7 +11,7 @@ const UserScore = () => {
     return (
         <div className={`flex flex-col w-full text-white md:mr-20 ${!isLoggedin ? "justify-center" : ""}`}>
             {
-                isLoggedin ? (
+                !isLoggedin ? (
                     <>
                         <span className='text-center'>هنوز لاگین نیستید</span>
                         <Link href="/login" className="rounded-2xl py-1.5 px-2 text-center bg-gradient-to-l to-orange-300 from-orange-500 mt-3 shadow hover:scale-110 duration-200">لاگین</Link>
