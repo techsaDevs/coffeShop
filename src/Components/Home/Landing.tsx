@@ -30,7 +30,7 @@ const Landing = () => {
 
       </Container>
 
-      <ShapeSVG className='invisible md:visible absolutebCenter fill-body w-24-1 h-[22px]' width={100} height={22} />
+      <ShapeSVG className='invisible md:visible absolutebCenter bottom-0 fill-body w-24-1 h-[22px]' width={100} height={22} />
       <LandingButton />
     </section>
   );

@@ -151,7 +151,7 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
 .circle_midd { @apply w-[145px] h-[145px] border-white/50 }
 .circle_smal { @apply w-[95px] h-[95px] border-white/80 }
 
-.absolutebCenter { @apply absolute bottom-0 right-0 left-0 mx-auto }
+.absolutebCenter { @apply absolute right-0 left-0 mx-auto }
 
 
 @media (width >= 80rem /* 1280px */) {
@@ -178,7 +178,7 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
 }
 
 .footer-title {
-  @apply font-dana-dbold text-xl
+  @apply font-dana-dbold text-xl mb-5
 }
 
 .service-icon { @apply block }
@@ -188,3 +188,9 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
 
 .footer-logo { @apply hidden }
 .dark .footer-logo { @apply block }
+
+.arrowBtn {
+  @apply absolute right-0 left-0 flex items-center justify-center 
+   w-[30px] h-[30px] rounded-full border border-orange-300
+   mx-auto invisible md:visible cursor-pointer
+}
