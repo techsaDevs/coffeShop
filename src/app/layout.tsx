@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/Components/Header";
 import { ToastContainer } from "react-toastify";
 import Footer from "@/Components/Footer";
+import FooterMobile from "@/Components/Footer/FooterMobile";
 
 export const metadata: Metadata = {
   title: "coffe shop",
