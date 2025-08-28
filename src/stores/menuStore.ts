@@ -3,12 +3,12 @@ import axiosInst from "@/lib/axiosConfig";
 import { toast } from "react-toastify";
 import { IHeaderMenu } from "@/lib/types";
 import { AxiosError } from "axios";
-import HomeSVG from "@/Components/SVGs/nav/mobile/headerItem/HomeSVG";
-import BriefcaseSVG from "@/Components/SVGs/nav/mobile/headerItem/BriefcaseSVG";
-import ChatBubbleSVG from "@/Components/SVGs/nav/mobile/headerItem/ChatBubbleSVG";
-import DocumentTestSVG from "@/Components/SVGs/nav/mobile/headerItem/DocumentTestSVG";
-import PhoneArrowUpRightSVG from "@/Components/SVGs/nav/mobile/headerItem/PhoneArrowUpRightSVG";
-import CartSVG from "@/Components/SVGs/nav/CartSVG";
+import { HomeSVG } from "@/Components/SVGs";
+import { BriefcaseSVG } from "@/Components/SVGs";
+import { ChatBubbleSVG } from "@/Components/SVGs";
+import { DocumentTestSVG } from "@/Components/SVGs";
+import { PhoneArrowUpRightSVG } from "@/Components/SVGs";
+import { CartSVG } from "@/Components/SVGs";
 
 interface MenuState {
   menu: IHeaderMenu[];
@@ -43,7 +43,7 @@ export const useMenuStore = create<MenuState>((set) => ({
       const { data } = await axiosInst.get("/headerMenu");
       const menuWithIcons = data.map((item: IHeaderMenu) => ({
         ...item,
-        Icon: iconsMap[+item.id], 
+        Icon: iconsMap[+item.id],
       }));
 
       set({ menu: menuWithIcons });
