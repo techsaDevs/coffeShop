@@ -36,8 +36,8 @@ const Footer = () => {
         </div>
 
         {/* محتوای اصلی */}
-        <div className="px-6 md:px-12 lg:px-24 py-10 border-b border-gray-300/20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="px-6 md:px-10 lg:px-14 py-10 border-b border-gray-300/20">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
 
             {/* لوگو و توضیحات */}
             <div>
@@ -63,8 +63,8 @@ const Footer = () => {
               <h3 className="footer-title mb-4">در تماس باشیم</h3>
               <div className="space-y-4 text-sm lg:text-base">
                 <div className="flex gap-3">
-                  <LocationSVG />
-                  <p>بلوار میرداماد، خیابان البرز، کوچه قبادان شرقی ، پلاک 33</p>
+                  <LocationSVG className='size-5' width={16} height={16} />
+                  <p className='text-sm'>بلوار میرداماد، خیابان البرز، کوچه قبادان شرقی ، پلاک 33</p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex gap-3">
