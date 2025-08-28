@@ -1,8 +1,8 @@
 import React from 'react'
 import Container from '../Container'
-import ActivitySVG from '../SVGs/home/coffeClub/ActivitySVG'
-import DiscoverySVG from '../SVGs/home/coffeClub/DiscoverySVG'
-import TicketStarSVG from '../SVGs/home/coffeClub/TicketStarSVG'
+import { ActivitySVG } from "@/Components/SVGs";
+import { DiscoverySVG } from "@/Components/SVGs";
+import { TicketStarSVG } from "@/Components/SVGs";
 import UserScore from './CoffeClub/UserScore'
 
 const CoffeClub = () => {
@@ -47,7 +47,7 @@ const CoffeClub = () => {
                                 ))
                             }
                         </div>
-                            <UserScore />
+                        <UserScore />
                     </div>
                 </div>
             </Container>

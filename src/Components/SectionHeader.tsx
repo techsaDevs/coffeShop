@@ -1,33 +1,33 @@
 import Link from "next/link";
 import React from "react";
-import ArrowLeftSVG from "./SVGs/nav/ArrowLeftSVG";
+import { ArrowLeftSVG } from "@/Components/SVGs";
 
 // حالت‌های مختلف رو به صورت union تعریف می‌کنیم:
 type SectionHeaderProps =
   | {
-      mode: "title-link";
-      title: string;
-      link: string;
-      linkTitle?: string;
-    }
+    mode: "title-link";
+    title: string;
+    link: string;
+    linkTitle?: string;
+  }
   | {
-      mode: "title-caption-link";
-      title: string;
-      caption: string;
-      link: string;
-      linkTitle?: string;
-    }
+    mode: "title-caption-link";
+    title: string;
+    caption: string;
+    link: string;
+    linkTitle?: string;
+  }
   | {
-      mode: "title-caption-children";
-      title: string;
-      caption: string;
-      children: React.ReactNode;
-    }
+    mode: "title-caption-children";
+    title: string;
+    caption: string;
+    children: React.ReactNode;
+  }
   | {
-      mode: "title-children";
-      title: string;
-      children: React.ReactNode;
-    };
+    mode: "title-children";
+    title: string;
+    children: React.ReactNode;
+  };
 
 const SectionHeader = (props: SectionHeaderProps) => {
   switch (props.mode) {

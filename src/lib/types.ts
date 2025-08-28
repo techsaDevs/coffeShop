@@ -84,3 +84,7 @@ export interface IBlog {
   link: string;
   date: IBlogDate
 }
+
+export interface StarProps extends Itsxsvg {
+  percent?: number // 0, 50, 100
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '@/Components/Container';
-import ShapeSVG from '../SVGs/home/landing/ShapeSVG';
+import { ShapeSVG } from "@/Components/SVGs";
 import LandingButton from './Landing/LandingButton';
 
 const Landing = () => {

@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import ArrowDownSVG from '@/Components/SVGs/home/landing/ArrowDownSVG'
+import { ArrowDownSVG } from "@/Components/SVGs";
 
 const LandingButton = () => {
 

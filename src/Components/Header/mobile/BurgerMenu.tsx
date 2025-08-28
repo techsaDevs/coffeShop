@@ -1,16 +1,16 @@
 "use client"
 import React, { useEffect } from 'react'
 import Link from 'next/link'
-import BarSVG from '@/Components/SVGs/nav/mobile/BarSVG'
-import SunSVG from '@/Components/SVGs/nav/SunSVG'
-import LogoSVG from '@/Components/SVGs/nav/mobile/LogoSVG'
-import MoonSVG from '@/Components/SVGs/nav/MoonSVG'
-import UserSVG from '@/Components/SVGs/nav/UserSVG'
-import CartSVG from '@/Components/SVGs/nav/CartSVG'
-import XMarkSVG from '@/Components/SVGs/nav/mobile/XMarkSVG'
-import LogoTypeSVG from '@/Components/SVGs/nav/mobile/LogoTypeSVG'
-import ChevronDownSVG from '@/Components/SVGs/nav/mobile/headerItem/ChevronDownSVG'
-import ArrowLeftEndOnRectangleSVG from '@/Components/SVGs/nav/ArrowLeftEndOnRectangleSVG'
+import { BarSVG } from "@/Components/SVGs";
+import { SunSVG } from "@/Components/SVGs";
+import { LogoSVG } from "@/Components/SVGs";
+import { MoonSVG } from "@/Components/SVGs";
+import { UserSVG } from "@/Components/SVGs";
+import { CartSVG } from "@/Components/SVGs";
+import { XMarkSVG } from "@/Components/SVGs";
+import { LogoTypeSVG } from "@/Components/SVGs";
+import { ChevronDownSVG } from "@/Components/SVGs";
+import { ArrowLeftEndOnRectangleSVG } from "@/Components/SVGs";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from 'react-toastify'
 import { usePathname } from 'next/navigation'
@@ -287,7 +287,7 @@ interface IhandleNotLoggedBasketClick {
 
 
 export const handleNotLoggedBasketClick = (
-  { logginMassage = "ابتدا وارد شوید", parentClassName = "" , className = 'bg-orange-500 hover:bg-orange-600 text-white text-xs' }: IhandleNotLoggedBasketClick = {}
+  { logginMassage = "ابتدا وارد شوید", parentClassName = "", className = 'bg-orange-500 hover:bg-orange-600 text-white text-xs' }: IhandleNotLoggedBasketClick = {}
 ) =>
   toast.error(
     <div className={`flex items-center justify-between gap-3 p-2 ${parentClassName}`}>

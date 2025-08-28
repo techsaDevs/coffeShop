@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import StarSVG from '@/Components/SVGs/home/products/StarSVG'
+import { StarSVG } from "@/Components/SVGs";
 
 interface IRenderStar {
   starCount: number[]

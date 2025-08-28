@@ -1,8 +1,8 @@
 import { IBlog } from '@/lib/types'
 import Link from 'next/link'
 import React from 'react'
-import LogoTypeSVG from '@/Components/SVGs/nav/mobile/LogoTypeSVG'
-import ArrowLeftSVG from '@/Components/SVGs/nav/ArrowLeftSVG'
+import { LogoTypeSVG } from "@/Components/SVGs";
+import { ArrowLeftSVG } from "@/Components/SVGs";
 
 const BlogBox = ({ title, image, link, date: { day, month, year } }: IBlog) => {
 

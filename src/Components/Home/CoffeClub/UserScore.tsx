@@ -1,8 +1,8 @@
 "use client"
-import ArrowLeftSVG from '@/Components/SVGs/nav/ArrowLeftSVG'
+import { ArrowLeftSVG } from "@/Components/SVGs";
 import { useAuthStore } from '@/stores/authStore'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React from 'react'
 
 const UserScore = () => {
 

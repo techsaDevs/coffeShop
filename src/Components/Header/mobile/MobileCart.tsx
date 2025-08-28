@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from "framer-motion";
-import CartSVG from '@/Components/SVGs/nav/CartSVG';
+import { motion } from "framer-motion";
+import { CartSVG } from "@/Components/SVGs";
 import { useCartStore } from '@/stores/cartStore';
 import { useAuthStore } from '@/stores/authStore';
 import Link from 'next/link';
 import BasketPrice from '../BasketPrice';
-import XMarkSVG from '@/Components/SVGs/nav/mobile/XMarkSVG';
+import { XMarkSVG } from "@/Components/SVGs";
 
 const MobileCartLeft = () => {
     const [showCartMenu, setShowCartMenu] = useState(false);
@@ -57,7 +57,7 @@ const MobileCartLeft = () => {
                     {isLoggedin ? (
                         productsInBasket.length ? (
                             <ul className={`childs:border-b childs:border-b-basketItem-border childs:pb-5 childs:mb-5 pb-1`}>
-                                {productsInBasket.map(({ id, title, image, price, off , qty }) => (
+                                {productsInBasket.map(({ id, title, image, price, off, qty }) => (
                                     <motion.li key={id} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -5 }} transition={{ duration: 0.2, delay: 0.05 }} className='flex items-center gap-x-2.5'>
                                         <img className='size-[90px]' src={image} alt={title} />
                                         <div className="flex flex-col justify-start gap-y-4">

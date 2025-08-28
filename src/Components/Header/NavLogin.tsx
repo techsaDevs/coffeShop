@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect } from "react"
 import { motion } from "framer-motion"
-import ArrowLeftEndOnRectangleSVG from "../SVGs/nav/ArrowLeftEndOnRectangleSVG"
-import UserSVG from "../SVGs/nav/UserSVG"
+import { ArrowLeftEndOnRectangleSVG } from "@/Components/SVGs";
+import { UserSVG } from "@/Components/SVGs";
 import Link from "next/link"
 import { useAuthStore } from "@/stores/authStore" // استور که قبل ساختیم
 
@@ -33,9 +33,9 @@ const NavLogin = () => {
         title="ورود / ثبت‌نام"
       >
         <ArrowLeftEndOnRectangleSVG className="rotate-180 w-full h-full xl:w-6 xl:h-6" />
-<span className="hidden xl:inline-block text-sm xl:text-xl select-none tracking-tightest">
-  ورود | ثبت نام
-</span>
+        <span className="hidden xl:inline-block text-sm xl:text-xl select-none tracking-tightest">
+          ورود | ثبت نام
+        </span>
 
       </Link>
     )

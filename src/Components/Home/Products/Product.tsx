@@ -1,13 +1,13 @@
 import React from 'react';
 import { IProduct } from '@/lib/types';
-import ArrowLeftRightSVG from '@/Components/SVGs/home/products/ArrowLeftRightSVG';
+import { ArrowLeftRightSVG } from "@/Components/SVGs";
 import RenderStar from './RenderStar';
 import AddProduct from './AddProduct';
 
 const Product = ({ id, title, image, price, off, count, starCount }: IProduct) => {
     let finalPrice: number = price
     if (count > 0) {
-        if (off > 0){
+        if (off > 0) {
             const cashOff = (price * off) / 100
             finalPrice = Math.round((price - cashOff) / 1000) * 1000
         }

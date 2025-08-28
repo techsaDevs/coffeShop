@@ -1,14 +1,14 @@
 import React from 'react'
-import LogoSVG from '../SVGs/nav/mobile/LogoSVG'
-import LogoTypeSVG from '../SVGs/nav/mobile/LogoTypeSVG'
+import { LogoSVG } from "@/Components/SVGs";
+import { LogoTypeSVG } from "@/Components/SVGs";
 import { IHeaderMenuItemBase } from '@/lib/types'
 import Link from 'next/link'
-import LocationSVG from '../SVGs/footer/LocationSVG'
-import MessageSVG from '../SVGs/footer/MessageSVG'
-import PhoneSVG from '../SVGs/home/contact/PhoneSVG'
+import { LocationSVG } from "@/Components/SVGs";
+import { MessageSVG } from "@/Components/SVGs";
+import { PhoneSVG } from "@/Components/SVGs";
 import QuickAccess from '../Footer/QuickAccess'
-import TelegramSVG from '../SVGs/footer/TelegramSVG'
-import InstagramSVG from '../SVGs/footer/InstagramSVG'
+import { TelegramSVG } from "@/Components/SVGs";
+import { InstagramSVG } from "@/Components/SVGs";
 
 interface FooterMobileProps {
     quickAccessList: IHeaderMenuItemBase[]

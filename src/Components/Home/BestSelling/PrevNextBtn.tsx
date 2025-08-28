@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useSliderStore } from "@/stores/useSliderStore";
-import ArrowLeftSVG from "@/Components/SVGs/nav/ArrowLeftSVG";
+import { ArrowLeftSVG } from "@/Components/SVGs";
 
 const SliderControls = () => {
     const swiper = useSliderStore((state) => state.swiper);
@@ -16,7 +16,7 @@ const SliderControls = () => {
             </button>
             <button
                 onClick={() => swiper?.slideNext()}
-                className="prevNextBestSellbtn " 
+                className="prevNextBestSellbtn "
             >
                 <ArrowLeftSVG className="size-5" />
             </button>

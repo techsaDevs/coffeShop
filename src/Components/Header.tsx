@@ -4,7 +4,7 @@ import BurgerMenu from "./Header/mobile/BurgerMenu";
 import MobileCart from "./Header/mobile/MobileCart";
 import NavLogin from "./Header/NavLogin";
 import ThemeToggleButton from "./Header/ThemeToggleButton";
-import LogoTypeSVG from "./SVGs/nav/mobile/LogoTypeSVG";
+import { LogoTypeSVG } from "@/Components/SVGs";
 
 const Header = () => {
   return (

@@ -1,4 +1,3 @@
-// BasketPrice.tsx
 interface Props {
   price: number;
   off?: number;

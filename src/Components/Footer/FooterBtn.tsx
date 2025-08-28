@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import ArrowDownSVG from '../SVGs/home/landing/ArrowDownSVG'
+import { ArrowDownSVG } from "@/Components/SVGs";
 
 const FooterBtn = () => {
   return (

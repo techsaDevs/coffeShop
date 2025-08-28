@@ -38,13 +38,13 @@ const LogoNav = () => {
       <ul className="flex gap-x-[22px] lg:gap-x-9 text-[17px] lg:text-xl text-gray-300 tracking-tightest h-full childs:leading-[56px]">
         {menu.map(({ id, title, link, subMenu }) => {
           const isActive = pathname === link;
-          const isOpen = openSubMenuId === id;
+          const isOpen = openSubMenuId === +id;
 
           return (
             <li
               key={id}
               className="relative"
-              onMouseEnter={() => setOpenSubMenuId(id)}
+              onMouseEnter={() => setOpenSubMenuId(+id)}
               onMouseLeave={() => setOpenSubMenuId(null)}
             >
               <Link

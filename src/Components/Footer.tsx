@@ -1,28 +1,28 @@
 import React from 'react'
-import LogoSVG from './SVGs/nav/mobile/LogoSVG'
-import LogoTypeSVG from './SVGs/nav/mobile/LogoTypeSVG'
-import { IHeaderMenuItemBase } from '@/lib/types'
 import Link from 'next/link'
-import LocationSVG from './SVGs/footer/LocationSVG'
-import MessageSVG from './SVGs/footer/MessageSVG'
-import PhoneSVG from './SVGs/home/contact/PhoneSVG'
-import ShapeSVG from './SVGs/home/landing/ShapeSVG'
 import FooterBtn from './Footer/FooterBtn'
 import QuickAccess from './Footer/QuickAccess'
-import TelegramSVG from './SVGs/footer/TelegramSVG'
-import InstagramSVG from './SVGs/footer/InstagramSVG'
 import FooterMobile from './Footer/FooterMobile'
+import { IHeaderMenuItemBase } from '@/lib/types'
+import { InstagramSVG } from "@/Components/SVGs";
+import { TelegramSVG } from "@/Components/SVGs";
+import { LocationSVG } from "@/Components/SVGs";
+import { LogoTypeSVG } from "@/Components/SVGs";
+import { MessageSVG } from "@/Components/SVGs";
+import { PhoneSVG } from "@/Components/SVGs";
+import { ShapeSVG } from "@/Components/SVGs";
+import { LogoSVG } from "@/Components/SVGs";
 
 const Footer = () => {
   const quickAccessList: IHeaderMenuItemBase[] = [
     { id: "1", link: "/sss1", title: "حریم خصوصی" },
     { id: "2", link: "/sss2", title: "عودت کالا" },
     { id: "3", link: "/sss3", title: "شرایط استفاده" },
-    { id: "4", link: "/ss4", title: "ثبت سفارش" },
+    { id: "4", link: "/sss4", title: "ثبت سفارش" },
     { id: "5", link: "/sss5", title: "پرسش های متداول" },
-    { id: "6", link: "/ss6", title: "فرصت های شغلی" },
-    { id: "7", link: "/ss7", title: "ضمانت نامه ها" },
-    { id: "8", link: "/ss9", title: "ارتباط با ما" },
+    { id: "6", link: "/sss6", title: "فرصت های شغلی" },
+    { id: "7", link: "/sss7", title: "ضمانت نامه ها" },
+    { id: "8", link: "/sss9", title: "ارتباط با ما" },
   ]
 
   return (

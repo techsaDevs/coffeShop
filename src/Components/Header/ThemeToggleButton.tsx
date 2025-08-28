@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
 import { motion, AnimatePresence, Transition } from "framer-motion";
-import MoonSVG from "../SVGs/nav/MoonSVG";
-import SunSVG from "../SVGs/nav/SunSVG";
+import { MoonSVG } from "@/Components/SVGs";
+import { SunSVG } from "@/Components/SVGs";
 import { useThemeStore } from "@/stores/themeStore"; // مسیر استور
 
 export const iconVariants = {
@@ -41,7 +41,7 @@ const ThemeToggleButton = () => {
             height: "100%",
           }}
         >
-          {theme ? <SunSVG className="size-8"/> : <MoonSVG className="size-8"/>}
+          {theme ? <SunSVG className="size-8" /> : <MoonSVG className="size-8" />}
         </motion.div>
       </AnimatePresence>
       <div className="absolute inset-0" />

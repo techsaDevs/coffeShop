@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from '@/stores/cartStore';
 import { useAuthStore } from '@/stores/authStore';
-import ArrowLeftSVG from '../SVGs/nav/ArrowLeftSVG';
-import CartSVG from '../SVGs/nav/CartSVG';
-import MinusSVG from '../SVGs/home/qtyBox/MinusSVG';
-import PlusSVG from '../SVGs/home/qtyBox/PlusSVG';
+import { ArrowLeftSVG } from "@/Components/SVGs";
+import { CartSVG } from "@/Components/SVGs";
+import { MinusSVG } from "@/Components/SVGs";
+import { PlusSVG } from "@/Components/SVGs";
 import BasketPrice from './BasketPrice';
 
 interface ICartProps {
