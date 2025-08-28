@@ -17,42 +17,42 @@ const Footer = () => {
   const quickAccessList: IHeaderMenuItemBase[] = [
     {
       id: "1",
-      link: "/",
+      link: "/sss1",
       title: "حریم خصوصی"
     },
     {
       id: "2",
-      link: "/",
+      link: "/sss2",
       title: "عودت کالا"
     },
     {
       id: "3",
-      link: "/",
+      link: "/sss3",
       title: "شرایط استفاده"
     },
     {
       id: "4",
-      link: "/",
+      link: "/ss4",
       title: "ثبت سفارش"
     },
     {
       id: "5",
-      link: "/",
+      link: "/sss5",
       title: "پرسش های متداول"
     },
     {
       id: "6",
-      link: "/",
+      link: "/ss6",
       title: "فرصت های شغلی"
     },
     {
       id: "7",
-      link: "/",
+      link: "/ss7",
       title: "ضمانت نامه ها"
     },
     {
       id: "8",
-      link: "/",
+      link: "/ss9",
       title: "ارتباط با ما"
     },
   ]
@@ -109,11 +109,11 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-6 mt-6">
               <Link href="https://www.instagram.com/techsa.ir" className="flex items-center gap-3 py-2 px-10 duration-150 rounded-xl border border-orange-300 text-orange-300  hover:bg-orange-300 hover:text-white">
-                <InstagramSVG className="size-8 shrink-0 -mt-[4px]" />
+                <InstagramSVG className="size-8 shrink-0 -mt-1" />
                 <p className="text-lg -mb-[2px]">techsa.ir @</p>
               </Link>
               <Link href="https://t.me/techsa_ir" className='flex items-center gap-3 py-2 px-10 duration-150 rounded-xl bg-gradient-to-r text-black hover:text-white from-orange-50 to-orange-300'>
-                <TelegramSVG className="size-8 shrink-0 -mt-[4px]" />
+                <TelegramSVG className="size-8 shrink-0 -mt-1" />
                 <p className="text-lg -mb-[2px]">techsa_ir @</p>
               </Link>
             </div>
@@ -122,14 +122,14 @@ const Footer = () => {
       </div>
 
       <div className="flexBetween py-9">
-        <div className="">
-          <div className='' >
-            <div className="">
-              <div className='' />
+        <div className="flex items-center gap-2 group">
+          <div className='border border-orange-300/30 p-0.5 rounded-full' >
+            <div className="border border-orange-300/30 p-0.5 rounded-full flex items-center justify-center">
+              <div className='bg-orange-300 size-2 duration-200 group-hover:size-2.5 rounded-full' />
             </div>
           </div>
           <p className="">
-            تمام حقوق این رابط کاربری متعلق به تیم <span className="">تکسا</span> میباشد
+            تمام حقوق این رابط کاربری متعلق به تیم <span className="cursor-none duration-150 group-hover:text-orange-300 group-hover:px-1">تکسا</span> میباشد
           </p>
         </div>
         <span className="capitalize font-sans">copyright © 2025 golden coffe. all rights reserved</span>
