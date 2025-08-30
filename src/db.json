@@ -82,7 +82,7 @@
     {
       "id": "2",
       "title": "فروشگاه",
-      "link": "/product",
+      "link": "/products",
       "subMenu": [
         {
           "id": "1",
