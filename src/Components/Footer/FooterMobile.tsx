@@ -24,7 +24,7 @@ const FooterMobile = ({ quickAccessList }: FooterMobileProps) => {
                     <LogoTypeSVG className="w-28" />
                     <img src="/footer/techsaDevTeam--dark.logo.png" alt="" className="w-24 mt-2" />
                 </div>
-                <div >
+                <div>
                     <p className="text-sm mt-3 leading-6 text-center" style={{ letterSpacing: 20 }}>
                         ما برآنیم تا با پیشرو در فرآیند تولید ، نوع کیفیت محصول، خدمات و توزیع، الگویی برای تولید کنندگان ایرانی باشیم و به مرجع فرهنگ در ایران تبدیل شویم.
                     </p>

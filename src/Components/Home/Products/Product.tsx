@@ -36,7 +36,7 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
                     <h3 className="line-clamp-2 font-dana-medium text-sm md:text-lg">{title}</h3>
                 </div>
 
-                <div >
+                <div>
                     <div className="my-2 flex items-center gap-1.5 md:gap-3">
                         {
                             count > 0 ? (

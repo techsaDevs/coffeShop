@@ -50,7 +50,7 @@ const Services = () => {
                     {
                         services.map(({ title, caption, icon, iconDark }) => (
                             <li className="flex flex-col md:flex-row items-center gap-3" key={title}>
-                                <div >
+                                <div>
                                     {icon}
                                     {iconDark}
                                 </div>
