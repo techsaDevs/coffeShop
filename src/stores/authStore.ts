@@ -24,7 +24,11 @@ export const useAuthStore = create<AuthState>((set) => ({
     email: "mohammad@gmail.com",
     phone: "09124577865",
     role: "admin",
-    basket: [],
+    basket: [
+      {id: "1" , qty: 2},
+      {id: "4" , qty: 99},
+      {id: "3" , qty: 3}
+    ],
     orders: [],
     score: 55,
   },
