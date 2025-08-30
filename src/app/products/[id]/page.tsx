@@ -1,6 +1,5 @@
 import Container from '@/Components/Container'
-import Product from '@/Components/Home/Products/Product'
-import AddProduct from '@/Components/ProductDetail/AddProductToBasket'
+import AddProductToBasket from '@/Components/ProductDetail/AddProductToBasket'
 import { IProduct, ParamsID } from '@/lib/types'
 import React from 'react'
 
@@ -34,8 +33,13 @@ const ProductDetail = async ({ params }: ParamsID) => {
                         <span className="">{price.toLocaleString()} قیمت محصول</span>
                       )
                     }
-                    <span className="">{(starCount.reduce((prev, curr) => prev + curr) / starCount.length).toFixed(1)} ماینگین ستاره</span>
-                    <AddProduct />
+                    <span className="">
+                      {Array.isArray(starCount) && starCount.length > 0
+                        ? (starCount.reduce((prev, curr) => prev + curr, 0) / starCount.length).toFixed(1)
+                        : "0"}
+                      {' '}میانگین ستاره
+                    </span>
+                    <AddProductToBasket productId={id} />
                   </div>
                 </>
               ) : (

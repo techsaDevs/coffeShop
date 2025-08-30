@@ -6,7 +6,17 @@ const AddProductToBasket = ({ productId }: { productId: string }) => {
 
   const addProductToBasketWithID = () => {
     console.log(productId)
-    toast.success("محصول با موفقیت به سبد خرید شما اضافه شد")
+    toast.success(
+      <div className="flex flex-wrap gap-1">
+        <span>محصول با شناسه {productId} با موفقیت</span>
+        <span>به سبد خرید شما اضافه شد</span>
+        <img
+          src="/emoijis/smiling.png"
+          alt="واتساپ ایموجی"
+          className="w-5 h-5 ml-1"
+        />
+      </div>
+    )
   }
 
   return (
