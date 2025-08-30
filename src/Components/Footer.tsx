@@ -97,14 +97,14 @@ const Footer = () => {
 
         {/* پایین فوتر */}
         <div className="px-6 md:px-12 lg:px-24 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2 group text-sm lg:text-base">
+          <div className="flex items-center gap-2 group duration-300 text-sm lg:text-base">
             <div className='border border-orange-300/30 p-0.5 rounded-full' >
               <div className="border border-orange-300/30 p-0.5 rounded-full flex items-center justify-center">
-                <div className='bg-orange-300 size-2 group-hover:size-2.5 rounded-full transition-all' />
+                <div className='bg-orange-300 size-2 group-hover:size-2.5 rounded-full transition-all duration-500' />
               </div>
             </div>
             <p>
-              تمام حقوق این رابط کاربری متعلق به تیم <span className="group-hover:text-orange-300 transition">تکسا</span> میباشد
+              تمام حقوق این رابط کاربری متعلق به تیم <span className="group-hover:text-orange-300 group-hover:mx-px transition">تکسا</span> میباشد
             </p>
           </div>
           <span className="capitalize font-sans text-xs lg:text-sm">copyright © 2025 golden coffe. all rights reserved</span>
