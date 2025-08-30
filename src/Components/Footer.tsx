@@ -69,9 +69,9 @@ const Footer = () => {
                   </div>
                   <div className="flex gap-3">
                     <PhoneSVG className='size-5 lg:size-6' />
-                    <span>0902 123 6628</span>
+                    <span>6628 123 0902</span>
                   </div>
-                  <span>021 - 6789012</span>
+                  <span>6789012 - 021</span>
                 </div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6">
                   <Link href="https://www.instagram.com/techsa.ir"

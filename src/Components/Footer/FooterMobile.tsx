@@ -56,11 +56,11 @@ const FooterMobile = ({ quickAccessList }: FooterMobileProps) => {
                         </div>
                     </div>
                     <div className="flex gap-3 mt-4 justify-center">
-                        <Link href="https://www.instagram.com/techsa.ir" className="flex items-center gap-2 px-4 py-2 border border-orange-300 rounded-xl text-orange-300 hover:bg-orange-300 hover:text-white">
+                        <Link href="https://www.instagram.com/techsa.ir" className="flex items-center gap-2 px-4 py-2 border duration-200 border-orange-300 rounded-xl text-orange-300 hover:bg-orange-300 hover:text-white">
                             <InstagramSVG className="w-6 h-6" />
                             <span className='-mb-1.5'>techsa.ir @</span>
                         </Link>
-                        <Link href="https://t.me/techsa_ir" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-orange-50 to-orange-300 text-black hover:text-white">
+                        <Link href="https://t.me/techsa_ir" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r duration-200 from-orange-50 to-orange-300 text-black hover:text-white">
                             <TelegramSVG className="w-6 h-6" />
                             <span className='-mb-1.5'>techsa_ir @</span>
                         </Link>

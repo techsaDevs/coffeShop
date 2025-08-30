@@ -16,7 +16,7 @@ const Products = async () => {
                 <SectionHeader mode='title-caption-link' title="جدید ترین محصولات" caption="فرآوری شده از دانه قهوه" link="/products" linkTitle='مشاهده همه محصولات' />
                 <div className="warraperBoxes">
                     {
-                        data.map((item) => (
+                        data.reverse().slice(0 , 8).map((item) => (
                             <Product key={item.id} {...item} />
                         ))
                     }

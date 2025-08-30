@@ -3,6 +3,7 @@ import { IProduct } from '@/lib/types';
 import { ArrowLeftRightSVG } from "@/Components/SVGs";
 import RenderStar from './RenderStar';
 import AddProduct from './AddProduct';
+import Link from 'next/link';
 
 const Product = ({ id, title, image, price, off, count, starCount }: IProduct) => {
     let finalPrice: number = price
@@ -12,9 +13,12 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
             finalPrice = Math.round((price - cashOff) / 1000) * 1000
         }
     }
+
+    const linkProduct = `/products/${id}`
+
     return (
         <div className='bg-background text-foreground rounded-2xl h-[353px] sm:h-[425px] md:h-[390px] lg:h-[467px] flex flex-col'>
-            <div className='relative'>
+            <Link href={linkProduct} className='relative'>
                 <img src={image} alt={title} className="w-full rounded-t-2xl" />
                 {
                     count > 0 ? (
@@ -29,11 +33,11 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
                         </>
                     ) : null
                 }
-            </div>
+            </Link>
 
             <div className="p-2.5 md:px-4 md:py-3 flex flex-col justify-between flex-1">
                 <div>
-                    <h3 className="line-clamp-2 font-dana-medium text-sm md:text-lg">{title}</h3>
+                    <Link href={linkProduct} className="line-clamp-2 font-dana-medium text-sm md:text-lg">{title}</Link>
                 </div>
 
                 <div>
