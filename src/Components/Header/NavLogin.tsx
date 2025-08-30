@@ -101,7 +101,7 @@ const NavLogin = () => {
                 <UserSVG className="w-full h-full" />
               )}
             </div>
-            <span className="text-sm xl:text-base font-semibold text-foreground">{user?.username}</span>
+            <span className="text-sm xl:text-base font-semibold text-white">{user?.username}</span>
           </a>
 
           <motion.button

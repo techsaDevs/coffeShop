@@ -10,7 +10,6 @@ import { LocationSVG } from "@/Components/SVGs";
 import { LogoTypeSVG } from "@/Components/SVGs";
 import { MessageSVG } from "@/Components/SVGs";
 import { PhoneSVG } from "@/Components/SVGs";
-import { ShapeSVG } from "@/Components/SVGs";
 import { LogoSVG } from "@/Components/SVGs";
 
 const Footer = () => {
@@ -30,10 +29,7 @@ const Footer = () => {
       <footer className="hidden md:block bg-[#3f3f46] text-white w-full relative">
 
         {/* بالای فوتر */}
-        <div className="hidden md:block">
-          <ShapeSVG className='absolute left-1/2 -translate-x-1/2 top-0 rotate-180 fill-body w-[100px] h-[22px]' />
           <FooterBtn />
-        </div>
 
         {/* محتوای اصلی */}
         <div className="px-6 md:px-10 lg:px-14 py-10 border-b border-gray-300/20">
