@@ -33,16 +33,13 @@ axiosInst.interceptors.response.use(
       toast.error(
         `خطا: ${error.response.status} - ${
           error.response.data?.message || error.message
-        }`,
-        {
-          position: "bottom-right",
-        }
+        }`
       );
     } else if (error.request) {
       // خطای شبکه
-      toast.error("خطا در اتصال به سرور!", { position: "bottom-right" });
+      toast.error("خطا در اتصال به سرور!");
     } else {
-      toast.error(`خطا: ${error.message}`, { position: "bottom-right" });
+      toast.error(`خطا: ${error.message}`);
     }
     return Promise.reject(error);
   }

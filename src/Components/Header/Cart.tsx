@@ -9,6 +9,8 @@ import { CartSVG } from "@/Components/SVGs";
 import { MinusSVG } from "@/Components/SVGs";
 import { PlusSVG } from "@/Components/SVGs";
 import BasketPrice from './BasketPrice';
+import { usePathname } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 interface ICartProps {
   mode: "Initial price" | "qty";
@@ -24,12 +26,30 @@ const Cart = ({ mode }: ICartProps) => {
     decreaseQty,
     toggleCart,
   } = useCartStore();
+  const path = usePathname()
 
   const { isLoggedin } = useAuthStore()
 
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
+
+  const handleCheckUserInProductsPage = () => {
+    if (path === "/products") {
+      toast.error(
+        <span className='font-dana flex gap-2'>
+          شما در صفحه محصولات هستید{" "}
+          <img
+            src="/emoijis/poker.png"
+            alt="واتساپ ایموجی"
+            style={{ width: "20px", height: "20px", verticalAlign: "middle" }}
+          />
+        </span>
+      );
+
+    }
+  }
+
 
   return (
     <div className="flex">
@@ -121,7 +141,7 @@ const Cart = ({ mode }: ICartProps) => {
                     <CartSVG className='size-16 stroke-foregray' />
                     <span className="text-foreground">هنوز محصولی به سبد خرید اضافه نشده</span>
                   </div>
-                  <Link href="/product" className='basketBtn text-lg px-[27px] py-[13px]'>مشاهده صفحه فروشگاه</Link>
+                  <Link href="/products" className='basketBtn text-lg px-[27px] py-[13px]' onClick={handleCheckUserInProductsPage}>مشاهده صفحه فروشگاه</Link>
                 </motion.div>
               )
             )}

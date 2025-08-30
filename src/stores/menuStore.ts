@@ -49,7 +49,7 @@ export const useMenuStore = create<MenuState>((set) => ({
       set({ menu: menuWithIcons });
     } catch (err) {
       const error = err as AxiosError;
-      toast.error("مشکلی در دریافت منو پیش آمد!", { position: "bottom-right" });
+      toast.error("مشکلی در دریافت منو پیش آمد!");
       console.error("خطا در دریافت منو:", error);
     } finally {
       set({ loading: false });

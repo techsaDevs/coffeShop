@@ -14,10 +14,20 @@ interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  isLoggedin: false,
+  isLoggedin: true,
   isOpen: false,
   isDesktop: false,
-  user: null,
+  user: {
+    id: "2",
+    username: "mohammad",
+    password: "mohammad123",
+    email: "mohammad@gmail.com",
+    phone: "09124577865",
+    role: "admin",
+    basket: [],
+    orders: [],
+    score: 55,
+  },
 
   setIsLoggedin: (value) => set({ isLoggedin: value }),
   toggleMenu: () => set((state) => ({ isOpen: !state.isOpen })),

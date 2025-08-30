@@ -32,7 +32,7 @@ const BurgerMenu = () => {
   useEffect(() => {
     getMenu().catch(err => {
       console.error("خطا در دریافت منو:", err);
-      toast.error("مشکلی در دریافت منو پیش آمد!", { position: "bottom-right" });
+      toast.error("مشکلی در دریافت منو پیش آمد!");
     });
   }, [getMenu]);
 
@@ -302,7 +302,6 @@ export const handleNotLoggedBasketClick = (
       </Link>
     </div>,
     {
-      position: "bottom-right",
       closeOnClick: true,
       pauseOnHover: true,
       autoClose: 4000,

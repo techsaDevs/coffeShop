@@ -1,4 +1,3 @@
-// app/products/page.tsx
 import Container from "@/Components/Container"
 import { IProduct } from "@/lib/types"
 import Product from "@/Components/Home/Products/Product"
@@ -10,8 +9,9 @@ interface ProductPageProps {
 }
 
 const ProductPage = async ({ searchParams }: ProductPageProps) => {
-  const currentPage = Number(searchParams.page) || 1
-  const itemsPerPage = 8
+  const { page } = await searchParams
+  const currentPage = Number(page) || 1
+  const itemsPerPage = 7
 
   const res = await fetch("http://localhost:3001/products", {
     cache: "no-store", // اگه بخوای همیشه دیتای جدید بگیری
@@ -28,7 +28,7 @@ const ProductPage = async ({ searchParams }: ProductPageProps) => {
   return (
     <section
       id="ProductPage"
-      className="min-h-[900px] bg-product mt-3 pt-8 md:pt-24 lg:mt-4 lg:pt-44 mb-40"
+      className={`mt-3 pt-8 md:pt-24 lg:mt-4 lg:pt-44 ${currentPage === totalPages ? "mb-10" : "mb-20"}`}
     >
       <Container>
         <div className="warraperBoxes grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

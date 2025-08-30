@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/Components/Header";
-import { ToastContainer } from "react-toastify";
 import Footer from "@/Components/Footer";
-import FooterMobile from "@/Components/Footer/FooterMobile";
+import NotificationContainer from "@/Components/NotificationContainer";
 
 export const metadata: Metadata = {
   title: "coffe shop",
@@ -18,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className="font-dana bg-body">
-        <Header/>
+        <Header />
         {children}
-        <ToastContainer />
+        <NotificationContainer />
         <Footer />
       </body>
     </html>

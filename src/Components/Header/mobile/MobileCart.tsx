@@ -74,7 +74,7 @@ const MobileCartLeft = () => {
                                 <CartSVG className='size-16 stroke-foregray' />
                                 <span className="text-foreground">سبد خرید شما خالی است</span>
                                 <Link
-                                    href="/product"
+                                    href="/products"
                                     className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors"
                                 >
                                     مشاهده فروشگاه

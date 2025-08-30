@@ -27,14 +27,14 @@ const LoginForm = () => {
                 setIsLoggedin(true)
                 router.push('/profile')
               } else {
-                toast.error("رمز عبور وارد شده صحیح نیست", { position: 'top-center' })
+                toast.error("رمز عبور وارد شده صحیح نیست")
               }
             } else {
-              toast.error("حساب کاربریی با این اطلاعات وجود ندارد", { position: 'top-center' })
+              toast.error("حساب کاربریی با این اطلاعات وجود ندارد")
             }
           })
       } catch (err) {
-        toast.error(`: خطایی رخ داده است ${err}`, { position: 'top-center' })
+        toast.error(`: خطایی رخ داده است ${err}`)
       } finally {
         setTimeout(() => {
           setSubmitting(false)

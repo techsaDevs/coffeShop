@@ -303,3 +303,11 @@ html.dark ::-webkit-scrollbar-thumb { @apply bg-[#4b5563]; }
     @apply bg-background text-foreground;
   }
 }
+
+.Toastify__toast {
+  font-family: "Morabba Medium", 'Dana Medium'; /* فونت سفارشی */
+}
+
+.Toastify__toast-body {
+  font-family: "Morabba Medium", 'Dana Medium';
+}
