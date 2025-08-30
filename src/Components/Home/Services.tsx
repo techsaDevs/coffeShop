@@ -44,13 +44,13 @@ const Services = () => {
         ]
 
     return (
-        <div id='services' className='my-18 md:my-24'>
+        <section id='services' className='my-18 md:my-24'>
             <Container>
                 <ul className="flexBetween flex-wrap gap-12">
                     {
                         services.map(({ title, caption, icon, iconDark }) => (
                             <li className="flex flex-col md:flex-row items-center gap-3" key={title}>
-                                <div className="">
+                                <div >
                                     {icon}
                                     {iconDark}
                                 </div>
@@ -63,7 +63,7 @@ const Services = () => {
                     }
                 </ul>
             </Container>
-        </div>
+        </section>
     )
 }
 

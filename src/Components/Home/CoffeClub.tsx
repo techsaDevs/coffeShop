@@ -26,12 +26,12 @@ const CoffeClub = () => {
         ]
 
     return (
-        <div className='mb-8 md:mb-20'>
+        <section className='mb-8 md:mb-20'>
             <Container>
                 <div className="py-8 md:py-0 md:h-36 px-3 md:px-11 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-y-8 md:gap-y-0">
                     <div className="flex items-center gap-x-3 md:gap-x-6 text-white">
                         <img src="/club/diamond.png" alt="diamond" className='w-[87px] md:w-[110px]' />
-                        <div className="">
+                        <div >
                             <h4 className="font-morabba-bold text-2xl md:text-5xl">کافی کلاب</h4>
                             <p className="font-morabba text-lg md:text-2xl max-w-50 md:max-w-none">میدونستی میتونی با امتیاز هات قهوه بگیری ؟</p>
                         </div>
@@ -51,7 +51,7 @@ const CoffeClub = () => {
                     </div>
                 </div>
             </Container>
-        </div>
+        </section>
     )
 }
 

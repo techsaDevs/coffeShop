@@ -4,10 +4,10 @@ import PhoneBtn from './Contact/PhoneBtn';
 
 const Contact = () => {
   return (
-    <div id='contact'>
+    <section id='contact'>
         <Container>
           <div className="flex flex-col items-center md:items-start md:flex-row gap-6">
-          <div className="">
+          <div >
             <img src="/contact.png" alt="Contact" className='size-62 md:size-auto' />
           </div>
           <div className="flex flex-col items-center md:items-start">
@@ -19,7 +19,7 @@ const Contact = () => {
           </div>
           </div>
         </Container>
-    </div>
+    </section>
   )
 }
 

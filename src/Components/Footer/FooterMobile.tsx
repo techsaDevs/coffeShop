@@ -16,7 +16,7 @@ interface FooterMobileProps {
 
 const FooterMobile = ({ quickAccessList }: FooterMobileProps) => {
     return (
-        <div className="bg-[#3f3f46] text-white w-full px-5 py-8 md:hidden">
+        <section className="bg-[#3f3f46] text-white w-full px-5 py-8 md:hidden">
             {/* لوگو */}
             <div className="flex flex-col items-center gap-4">
                 <div className="flex items-center gap-8">
@@ -24,7 +24,7 @@ const FooterMobile = ({ quickAccessList }: FooterMobileProps) => {
                     <LogoTypeSVG className="w-28" />
                     <img src="/footer/techsaDevTeam--dark.logo.png" alt="" className="w-24 mt-2" />
                 </div>
-                <div className="">
+                <div >
                     <p className="text-sm mt-3 leading-6 text-center" style={{ letterSpacing: 20 }}>
                         ما برآنیم تا با پیشرو در فرآیند تولید ، نوع کیفیت محصول، خدمات و توزیع، الگویی برای تولید کنندگان ایرانی باشیم و به مرجع فرهنگ در ایران تبدیل شویم.
                     </p>
@@ -80,7 +80,7 @@ const FooterMobile = ({ quickAccessList }: FooterMobileProps) => {
                 </div>
                 <span className="capitalize font-sans text-xs lg:text-sm">copyright © 2025 golden coffe. all rights reserved</span>
             </div>
-        </div>
+        </section>
     )
 }
 

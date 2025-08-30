@@ -28,7 +28,7 @@ const BestSelling = async () => {
   const productElements = sortedProducts.map(item => <Product key={item.id} {...item} />);
 
   return (
-    <div id='best-selling' className='mb-9 md:mb-20'>
+    <section id='best-selling' className='mb-9 md:mb-20'>
       <Container>
         <SectionHeader mode='title-caption-children' title='محصولات پر فروش' caption='پیشنهاد ویژه برای قهوه خورا' >
           <PrevNextBtn />
@@ -38,7 +38,7 @@ const BestSelling = async () => {
         <SliderBestSelling serverProducts={productElements} />
 
       </Container>
-    </div>
+    </section>
   )
 }
 

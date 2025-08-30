@@ -11,7 +11,7 @@ const Products = async () => {
     const data: IProduct[] = await res.json()
 
     return (
-        <div id='products' className='min-h-[900px] bg-product mt-3 pt-8 md:pt-24 lg:mt-4 lg:pt-44'>
+        <section id='products' className='min-h-[900px] bg-product mt-3 pt-8 md:pt-24 lg:mt-4 lg:pt-44'>
             <Container>
                 <SectionHeader mode='title-caption-link' title="جدید ترین محصولات" caption="فرآوری شده از دانه قهوه" link="/products" linkTitle='مشاهده همه محصولات' />
                 <div className="warraperBoxes">
@@ -22,7 +22,7 @@ const Products = async () => {
                     }
                 </div>
             </Container>
-        </div>
+        </section>
     )
 }
 

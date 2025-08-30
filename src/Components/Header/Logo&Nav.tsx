@@ -65,7 +65,7 @@ const LogoNav = () => {
                       exit="hidden"
                       variants={subMenuVariants}
                       className="headerHoverBox right-0 tracking-normal 
-                      childs:inline-block p-6 w-52 space-y-4 z-20"
+                      childs:inline-block p-6 w-52 space-y-4 z-20 flex flex-col"
                     >
                       {loading ? (
                         <motion.li

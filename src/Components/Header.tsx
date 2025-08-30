@@ -24,11 +24,11 @@ const Header = () => {
         </div>
       </header>
 
-      <div className="flex items-center justify-between md:hidden bg-background">
+      <section className="flex items-center justify-between md:hidden bg-background">
         <BurgerMenu />
         <LogoTypeSVG className="w-25" width={100} height={40} fill="oklch(83.7% 0.128 66.29)" />
         <MobileCart />
-      </div>
+      </section>
     </>
   )
 }
