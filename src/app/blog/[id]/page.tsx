@@ -1,26 +1,20 @@
 import Container from "@/Components/Container"
-import { IBlog } from "@/lib/types"
+import { IBlog, ParamsID } from "@/lib/types"
 import { notFound } from "next/navigation"
 import Article from "./_components/Article"
 import Sidebar from "./_components/Sidebar"
 
-interface BlogDetailPageProps {
-  params: Promise<{ slug: string }>
-}
-
-const BlogDetailPage = async ({ params }: BlogDetailPageProps) => {
-  const { slug } = (await params)
+const BlogDetailPage = async ({ params }: ParamsID) => {
+  const { id } = (await params)
   // مقاله اصلی
   const res = await fetch(
-    `http://localhost:3001/blogs?link=/blog/${slug}`,
+    `http://localhost:3001/blogs/${id}`,
     { cache: "no-store" }
   )
   if (!res.ok) return notFound()
 
-  const blogs: IBlog[] = await res.json()
-  if (!blogs.length) return notFound()
-
-  const blog = blogs[0]
+  const blog: IBlog = await res.json()
+  if (!blog) return notFound()
 
   // آخرین مقالات
   const latestRes = await fetch(

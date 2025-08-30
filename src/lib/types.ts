@@ -81,7 +81,6 @@ export interface IBlog {
   id: string;
   image: string;
   title: string;
-  link: string;
   date: IBlogDate
 }
 

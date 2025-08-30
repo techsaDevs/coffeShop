@@ -4,10 +4,10 @@ import React from 'react'
 import { LogoTypeSVG } from "@/Components/SVGs";
 import { ArrowLeftSVG } from "@/Components/SVGs";
 
-const BlogBox = ({ title, image, link, date: { day, month, year } }: IBlog) => {
+const BlogBox = ({ title, image, id, date: { day, month, year } }: IBlog) => {
 
   return (
-    <Link href={link} className='bg-background rounded-2xl group flex flex-row md:flex-col gap-3 md:gap-0'>
+    <Link href={`/blog/${id}`} className='bg-background rounded-2xl group flex flex-row md:flex-col gap-3 md:gap-0'>
       <div
         className={`overflow-hidden p-2.5 group relative
     before:content-[""] before:absolute before:z-10

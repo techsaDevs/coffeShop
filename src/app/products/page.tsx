@@ -11,7 +11,7 @@ interface ProductPageProps {
 const ProductPage = async ({ searchParams }: ProductPageProps) => {
   const { page } = await searchParams
   const currentPage = Number(page) || 1
-  const itemsPerPage = 7
+  const itemsPerPage = 8
 
   const res = await fetch("http://localhost:3001/products", {
     cache: "no-store", // اگه بخوای همیشه دیتای جدید بگیری
