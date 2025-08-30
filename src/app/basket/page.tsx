@@ -8,16 +8,18 @@ import BasketPrice from "@/Components/Header/BasketPrice";
 import { MinusSVG, PlusSVG, CartSVG } from "@/Components/SVGs";
 import Container from "@/Components/Container";
 
+type IsortBy =
+    "price-asc" | "price-desc" |
+    "qty-asc" | "qty-desc" |
+    "name-asc" | "name-desc" |
+    "count-asc" | "count-desc" |
+    "star-asc" | "star-desc";
+
+
 const BasketPage = () => {
     const { isLoggedin } = useAuthStore();
     const { productsInBasket, finalTotal, fetchProducts, increaseQty, decreaseQty } = useCartStore();
-    const [sortBy, setSortBy] = useState<
-        "price-asc" | "price-desc" |
-        "qty-asc" | "qty-desc" |
-        "name-asc" | "name-desc" |
-        "count-asc" | "count-desc" |
-        "star-asc" | "star-desc"
-    >("price-asc");
+    const [sortBy, setSortBy] = useState<IsortBy>("price-asc");
 
     const getAverageStars = (stars: number[]) => {
         if (!stars || stars.length === 0) return 0;
@@ -81,7 +83,7 @@ const BasketPage = () => {
                         <select
                             className="border border-basket-border rounded px-2 py-1"
                             value={sortBy}
-                            onChange={(e) => setSortBy(e.target.value as any)}
+                            onChange={(e) => setSortBy(e.target.value as IsortBy)}
                         >
                             <option value="price-asc">قیمت صعودی</option>
                             <option value="price-desc">قیمت نزولی</option>
@@ -96,56 +98,56 @@ const BasketPage = () => {
             </div>
 
             <ul className="divide-y divide-basketItem-border mt-4">
-            {sortedProducts.map(({ id, title, image, price, off, qty }) => (
-                <motion.li
-                key={id}
-                initial={{ opacity: 0, x: -5 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -5 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-center gap-4 py-4"
-                >
-                <img
-                    src={image}
-                    alt={title}
-                    className="w-32 h-32 object-contain rounded shadow-[0_4px_10px_rgba(0,0,0,0.04)]"
-                />
-                <div className="flex flex-col justify-between flex-1">
-                    <h4 className="text-base font-medium line-clamp-2">{title}</h4>
+                {sortedProducts.map(({ id, title, image, price, off, qty }) => (
+                    <motion.li
+                        key={id}
+                        initial={{ opacity: 0, x: -5 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -5 }}
+                        transition={{ duration: 0.2 }}
+                        className="flex items-center gap-4 py-4"
+                    >
+                        <img
+                            src={image}
+                            alt={title}
+                            className="w-32 h-32 object-contain rounded shadow-[0_4px_10px_rgba(0,0,0,0.04)]"
+                        />
+                        <div className="flex flex-col justify-between flex-1">
+                            <h4 className="text-base font-medium line-clamp-2">{title}</h4>
 
-                    <div className="flex justify-between items-center mt-3">
-                    {/* قیمت */}
-                    <div className="flex flex-col">
-                        <BasketPrice price={price} off={off} />
-                        {off > 0 && (
-                        <span className="text-gray-400 text-xs line-through mt-0.5">
-                            {price.toLocaleString()} تومان
-                        </span>
-                        )}
-                    </div>
+                            <div className="flex justify-between items-center mt-3">
+                                {/* قیمت */}
+                                <div className="flex flex-col">
+                                    <BasketPrice price={price} off={off} />
+                                    {off > 0 && (
+                                        <span className="text-gray-400 text-xs line-through mt-0.5">
+                                            {price.toLocaleString()} تومان
+                                        </span>
+                                    )}
+                                </div>
 
-                    {/* کنترل تعداد */}
-                    <div className="flex items-center gap-2 bg-background rounded-full px-2 py-1">
-                        <button
-                        className="p-1 rounded-full hover:bg-foregray group transition-colors"
-                        onClick={() => decreaseQty(id)}
-                        >
-                        <MinusSVG className="w-5 h-5" />
-                        </button>
-                        <span className="px-3 py-1 text-sm font-medium text-orange-500">{qty}</span>
-                        <button
-                        className="p-1 rounded-full hover:bg-foregray group transition-colors"
-                        onClick={() => increaseQty(id)}
-                        >
-                        <PlusSVG className="w-5 h-5" />
-                        </button>
-                    </div>
-                    </div>
-                </div>
-                </motion.li>
-            ))}
+                                {/* کنترل تعداد */}
+                                <div className="flex items-center gap-2 bg-background rounded-full px-2 py-1">
+                                    <button
+                                        className="p-1 rounded-full hover:bg-foregray group transition-colors"
+                                        onClick={() => decreaseQty(id)}
+                                    >
+                                        <MinusSVG className="w-5 h-5" />
+                                    </button>
+                                    <span className="px-3 py-1 text-sm font-medium text-orange-500">{qty}</span>
+                                    <button
+                                        className="p-1 rounded-full hover:bg-foregray group transition-colors"
+                                        onClick={() => increaseQty(id)}
+                                    >
+                                        <PlusSVG className="w-5 h-5" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.li>
+                ))}
             </ul>
-            
+
             <div className="flex justify-between items-center mt-6 p-4 border-t border-basket-border">
                 <div>
                     <span className="text-xs text-gray-300">مبلغ قابل پرداخت</span>

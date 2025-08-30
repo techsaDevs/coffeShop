@@ -88,3 +88,7 @@ export interface IBlog {
 export interface StarProps extends Itsxsvg {
   percent?: number // 0, 50, 100
 }
+
+export interface ParamsID {
+  params: Promise<{ id: string }>;
+}
