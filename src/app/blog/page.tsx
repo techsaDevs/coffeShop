@@ -31,7 +31,7 @@ const ProductPage = async ({ searchParams }: ProductPageProps) => {
       className={`mt-3 pt-8 md:pt-24 lg:mt-4 lg:pt-44 ${currentPage === totalPages ? "mb-10" : "mb-20"}`}
     >
       <Container>
-        <div className="warraperBoxes grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-5">
           {currentItems.map((item) => (
             <BlogBox key={item.id} {...item} />
           ))}

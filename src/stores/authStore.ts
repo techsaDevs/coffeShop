@@ -26,7 +26,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     role: "admin",
     basket: [
       {id: "1" , qty: 2},
-      {id: "4" , qty: 99},
+      {id: "4" , qty: 5},
       {id: "3" , qty: 3}
     ],
     orders: [],
