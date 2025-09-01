@@ -17,7 +17,7 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
     const linkProduct = `/products/${id}`
 
     return (
-        <div className='bg-background text-foreground rounded-2xl h-[353px] sm:h-[425px] md:h-[390px] lg:h-[467px] flex flex-col'>
+        <div className='bg-background text-foreground rounded-2xl h-[315px] sm:h-[425px] md:h-[390px] lg:h-[467px] flex flex-col'>
             <Link href={linkProduct} className='relative'>
                 <img src={image} alt={title} className="w-full rounded-t-2xl" />
                 {
@@ -35,13 +35,13 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
                 }
             </Link>
 
-            <div className="p-2.5 md:px-4 md:py-3 flex flex-col justify-between flex-1">
+            <div className="p-2.5 md:px-4 md:py-3 flex xs:justify-baseline flex-col sm:justify-between lg:justify-end flex-1">
                 <div>
                     <Link href={linkProduct} className="line-clamp-2 font-dana-medium text-sm md:text-lg">{title}</Link>
                 </div>
 
                 <div>
-                    <div className="my-2 flex items-center gap-1.5 md:gap-3">
+                    <div className="my-2 flex items-center gap-1.5 md:gap-3 lg:py-3 xs:py-3">
                         {
                             count > 0 ? (
                                 <>
