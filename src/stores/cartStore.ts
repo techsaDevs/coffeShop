@@ -76,5 +76,11 @@ export const useCartStore = create<CartState>((set, get) => ({
     get().fetchProducts();
   },
 
-  toggleCart: (open) => set({ isOpen: open }),
+  toggleCart: (open) => {
+    if (get().isOpen){
+      setTimeout(()=>{
+        set({ isOpen: open })
+      },400)
+    } else set({ isOpen: open })
+  },
 }));

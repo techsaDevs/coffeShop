@@ -119,11 +119,7 @@ const BasketPage = () => {
                                 {/* قیمت */}
                                 <div className="flex flex-col">
                                     <BasketPrice price={price} off={off} />
-                                    {off > 0 && (
-                                        <span className="text-gray-400 text-xs line-through mt-0.5">
-                                            {price.toLocaleString()} تومان
-                                        </span>
-                                    )}
+                                    
                                 </div>
 
                                 {/* کنترل تعداد */}
