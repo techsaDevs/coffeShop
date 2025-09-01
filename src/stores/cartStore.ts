@@ -80,7 +80,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     if (get().isOpen){
       setTimeout(()=>{
         set({ isOpen: open })
-      },400)
+      },500)
     } else set({ isOpen: open })
   },
 }));
