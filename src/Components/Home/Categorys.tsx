@@ -41,11 +41,11 @@ const Categorys = () => {
   return (
     <section id='category' className='mb-10 md:mb-24-1'>
       <Container>
-        <div className='flex justify-center lg:justify-between items-center gap-y-6 gap-x-[29px] gap-[65px] flex-wrap'>
+        <div className='flex justify-center items-center gap-y-6 gap-x-[29px] gap-[65px] lg:gap-x-[80px] xl:gap-x-[29px] flex-wrap'>
           {category.map(({ id, title, link, image }) =>  (
-              <div key={id} className="text-center w-24-1 md:w-50">
+              <div key={id} className="text-center w-24-1 sm:w-40 md:w-45 lg:w-55">
                 <Link href={link} className=''>
-                  <img src={image} alt={title} loading='lazy' />
+                  <img src={image} alt={title} loading='lazy' className='w-40 mx-auto'/>
                 </Link>
                 <p className="font-dana-dbold text-center text-sm md:text-xl mt-1.5 md:mt-2.5">{title}</p>
               </div>
