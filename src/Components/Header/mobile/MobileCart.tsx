@@ -7,6 +7,7 @@ import { useAuthStore } from '@/stores/authStore';
 import Link from 'next/link';
 import BasketPrice from '../BasketPrice';
 import { XMarkSVG } from "@/Components/SVGs";
+import OffBox from '@/Components/OffBox';
 
 const MobileCartLeft = () => {
     const [showCartMenu, setShowCartMenu] = useState(false);
@@ -59,8 +60,11 @@ const MobileCartLeft = () => {
                             <ul className={`childs:border-b childs:border-b-basketItem-border childs:pb-5 childs:mb-5 pb-1`}>
                                 {productsInBasket.map(({ id, title, image, price, off, qty }) => (
                                     <motion.li key={id} initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -5 }} transition={{ duration: 0.2, delay: 0.05 }} className='flex items-center gap-x-2.5'>
-                                        <img className='size-[90px]' src={image} alt={title} />
-                                        <div className="flex flex-col justify-start gap-y-4">
+                                        <div className="relative w-1/3">
+                                            <img className='w-full object-cover' src={image} alt={title} />
+                                            <OffBox off={off} classNames='px-2 h-6 top-0 right-0 text-xs' />
+                                        </div>
+                                        <div className="flex flex-col justify-start gap-y-4 w-2/3">
                                             <h4 className="font-dana-medium text-foreground text-sm line-clamp-2">{title} {qty ? (<>× {qty}</>) : ""}</h4>
                                             <div className="flex justify-end flex-row-reverse gap-4 mt-1">
                                                 <BasketPrice price={price} off={off} />
