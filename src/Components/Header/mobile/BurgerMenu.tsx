@@ -86,7 +86,7 @@ const BurgerMenu = () => {
                     ${subMenu?.length ? "cursor-pointer" : ""}`}
                   >
                     <div className="flex items-center justify-between duration-150">
-                      <Link href={link} className="flex items-center gap-3">
+                      <Link href={link} className="flex items-center gap-3" onClick={() => subMenu?.length ? {} : toggleMenu(false)}>
                         {Icon ? (
                           <Icon
                             width={24}
