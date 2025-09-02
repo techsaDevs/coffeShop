@@ -7,6 +7,7 @@ import { useAuthStore } from "@/stores/authStore";
 import BasketPrice from "@/Components/Header/BasketPrice";
 import { MinusSVG, PlusSVG, CartSVG } from "@/Components/SVGs";
 import Container from "@/Components/Container";
+import OffBox from "@/Components/OffBox";
 
 type IsortBy =
     "price-asc" | "price-desc" |
@@ -81,7 +82,7 @@ const BasketPage = () => {
                     <div className="flex items-center gap-3 mb-6">
                         <span className="text-gray-500 text-sm">مرتب‌سازی بر اساس:</span>
                         <select
-                            className="border border-basket-border rounded px-2 py-1"
+                            className="border-body rounded-md px-2 py-1 bg-background"
                             value={sortBy}
                             onChange={(e) => setSortBy(e.target.value as IsortBy)}
                         >
@@ -107,11 +108,14 @@ const BasketPage = () => {
                         transition={{ duration: 0.2 }}
                         className="flex items-center gap-4 py-4"
                     >
-                        <img
-                            src={image}
-                            alt={title}
-                            className="w-32 h-32 object-contain rounded shadow-[0_4px_10px_rgba(0,0,0,0.04)]"
-                        />
+                        <div className="w-32 h-32 shadow-[0_4px_10px_rgba(0,0,0,0.04)] relative">
+                            <img
+                                src={image}
+                                alt={title}
+                                className="object-contain rounded"
+                            />
+                            <OffBox off={off} classNames="px-2 h-5.5 top-1.5 right-1.5 text-xs" />
+                        </div>
                         <div className="flex flex-col justify-between flex-1">
                             <h4 className="text-base font-medium line-clamp-2">{title}</h4>
 
