@@ -4,6 +4,7 @@ import { ArrowLeftRightSVG } from "@/Components/SVGs";
 import RenderStar from './RenderStar';
 import AddProduct from './AddProduct';
 import Link from 'next/link';
+import OffBox from '@/Components/OffBox';
 
 const Product = ({ id, title, image, price, off, count, starCount }: IProduct) => {
     let finalPrice: number = price
@@ -17,31 +18,25 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
     const linkProduct = `/products/${id}`
 
     return (
-        <div className='bg-background text-foreground rounded-2xl h-[353px] sm:h-[425px] md:h-[390px] lg:h-[467px] flex flex-col'>
+        <div className='bg-background text-foreground rounded-2xl h-[315px] sm:h-[425px] md:h-[390px] lg:h-[467px] flex flex-col'>
             <Link href={linkProduct} className='relative'>
                 <img src={image} alt={title} className="w-full rounded-t-2xl" />
                 {
                     count > 0 ? (
                         <>
-                            {
-                                off > 0 ? (
-                                    <div className='absolute top-6 right-5 bg-orange-300 text-white rounded-full px-3 h-7 flexCenter'>
-                                        <span className='block -mb-1'>{off}%</span>
-                                    </div>
-                                ) : null
-                            }
+                            { off > 0 ? ( <OffBox off={off} /> ) : null }
                         </>
                     ) : null
                 }
             </Link>
 
-            <div className="p-2.5 md:px-4 md:py-3 flex flex-col justify-between flex-1">
+            <div className="p-2.5 md:px-4 md:py-3 flex xs:justify-baseline flex-col sm:justify-between lg:justify-end flex-1">
                 <div>
                     <Link href={linkProduct} className="line-clamp-2 font-dana-medium text-sm md:text-lg">{title}</Link>
                 </div>
 
                 <div>
-                    <div className="my-2 flex items-center gap-1.5 md:gap-3">
+                    <div className="my-2 flex items-center gap-1.5 md:gap-3 lg:py-3 xs:py-3">
                         {
                             count > 0 ? (
                                 <>
@@ -77,7 +72,7 @@ const Product = ({ id, title, image, price, off, count, starCount }: IProduct) =
 
                         <div className="flex items-center gap-2">
                             <AddProduct id={id} />
-                            <button className="w-4 h-4">
+                            <button className="w-4 h-4 hidden md:block">
                                 <ArrowLeftRightSVG className='w-full h-full' />
                             </button>
                         </div>
