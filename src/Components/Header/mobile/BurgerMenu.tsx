@@ -63,7 +63,7 @@ const BurgerMenu = () => {
             <XMarkSVG width={24} height={24} className='stroke-foreground' />
           </button>
         </div>
-
+        
         <span className='block h-px bg-basketItem-border px-4 mx-4 mb-2' />
 
         <div className="p-4 text-foreground">

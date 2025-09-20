@@ -9,7 +9,7 @@ const UserScore = () => {
     const { isLoggedin, user } = useAuthStore()
 
     return (
-        <div className={`flex flex-col w-full text-white md:mr-20 ${!isLoggedin ? "justify-center" : ""}`}>
+        <div className={`flex flex-col w-full text-white lg:mr-14 xl:mr-20 ${!isLoggedin ? "justify-center" : ""}`}>
             {
                 !isLoggedin ? (
                     <>
@@ -18,11 +18,14 @@ const UserScore = () => {
                     </>
                 ) : (
                     <>
-                        <h4 className="text-2xl font-dana-medium md:text-4xl leading-6 md:leading-7">542</h4>
-                        <span className='text-sm md:text-center'>امتیــــاز شما</span>
-                        <Link href="/profile/coin" className="bg-gradient-to-l to-orange-100 from-orange-300 hover:from-30% shadow-lg hover:shadow-orange-300 duration-200 rounded-2xl py-1.5 px-2 md:mt-2 flexBetween max-w-28 md:max-w-none">
+                        <h4 className="text-2xl font-dana-medium lg:text-4xl leading-6 lg:leading-7">542</h4>
+                        <span className='text-sm lg:text-center'>امتیــــاز شما</span>
+                        <Link href="/profile/coin" className={`
+                        bg-gradient-to-l to-orange-100 from-orange-300 hover:from-30% 
+                        shadow-lg hover:shadow-orange-300 duration-200 rounded-2xl
+                        py-1.5 px-2 lg:mt-2 flexBetween`}>
                             <span className="text-xs md:text-base">دریافت جاییزه</span>
-                            <ArrowLeftSVG className='size-4 md:size-[18px]' />
+                            <ArrowLeftSVG className='size-4 lg:size-[18px]' />
                         </Link>
                     </>
                 )
